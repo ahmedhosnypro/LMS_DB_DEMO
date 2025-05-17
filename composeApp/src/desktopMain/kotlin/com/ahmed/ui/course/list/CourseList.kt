@@ -1,18 +1,18 @@
-package com.ahmed.ui.student.list
+package com.ahmed.ui.course.list
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.ahmed.model.StudentDTO
+import com.ahmed.model.CourseDTO
 import com.ahmed.ui.CenteredDarkPreview
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun StudentList(
-    students: List<StudentDTO>,
-    selectedStudent: StudentDTO?,
-    onStudentSelect: (StudentDTO?) -> Unit,
+fun CourseList(
+    courses: List<CourseDTO>,
+    selectedCourse: CourseDTO?,
+    onCourseSelect: (CourseDTO?) -> Unit,
     onSearch: (String) -> Unit,
     onRefresh: () -> Unit,
     onDelete: (Int) -> Unit,
@@ -22,16 +22,16 @@ fun StudentList(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-        StudentListHeader(
+        CourseListHeader(
             onSearch = onSearch,
             onRefresh = onRefresh,
-            onAdd = {onStudentSelect(null)},
+            onAdd = { onCourseSelect(null) },
             modifier = Modifier.requiredHeightIn(max = 128.dp)
         )
-        StudentListContent(
-            students = students,
-            selectedStudent = selectedStudent,
-            onStudentSelect = onStudentSelect,
+        CourseListContent(
+            courses = courses,
+            selectedCourse = selectedCourse,
+            onCourseSelect = onCourseSelect,
             onDelete = onDelete,
             isLoading = isLoading,
             modifier = Modifier.weight(1f)
@@ -41,12 +41,15 @@ fun StudentList(
 
 @Preview
 @Composable
-fun StudentListPreview() {
+fun CourseListPreview() {
     CenteredDarkPreview {
-        StudentList(
-            students = listOf(StudentDTO.demoStudent, StudentDTO.demoStudent.copy(id = 2)),
-            selectedStudent = StudentDTO.demoStudent,
-            onStudentSelect = {},
+        CourseList(
+            courses = listOf(
+                CourseDTO(1, "CS101", "Introduction to Computer Science", null, 3, null, null, "Active"),
+                CourseDTO(2, "CS102", "Data Structures", null, 3, null, null, "Active")
+            ),
+            selectedCourse = CourseDTO(1, "CS101", "Introduction to Computer Science", null, 3, null, null, "Active"),
+            onCourseSelect = {},
             onSearch = {},
             onRefresh = {},
             onDelete = {},
@@ -57,12 +60,12 @@ fun StudentListPreview() {
 
 @Preview
 @Composable
-fun StudentListEmptyPreview() {
+fun CourseListEmptyPreview() {
     CenteredDarkPreview {
-        StudentList(
-            students = emptyList(),
-            selectedStudent = null,
-            onStudentSelect = {},
+        CourseList(
+            courses = emptyList(),
+            selectedCourse = null,
+            onCourseSelect = {},
             onSearch = {},
             onRefresh = {},
             onDelete = {},

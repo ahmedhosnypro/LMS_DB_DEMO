@@ -94,7 +94,20 @@ data class CourseDTO(
     val instructorId: Int?,
     val maxStudents: Int?,
     val status: String
-)
+){
+    companion object{
+        val demoCourse = CourseDTO(
+            id = 0,
+            courseCode = "CS101",
+            title = "Introduction to Computer Science",
+            description = null,
+            credits = 3,
+            instructorId = null,
+            maxStudents = null,
+            status = CourseStatus.ACTIVE.value
+        )
+    }
+}
 
 fun Course.toDTO() = CourseDTO(
     id = id.value,

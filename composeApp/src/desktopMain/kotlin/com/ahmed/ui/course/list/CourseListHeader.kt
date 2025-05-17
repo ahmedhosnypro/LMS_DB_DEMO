@@ -1,7 +1,8 @@
-package com.ahmed.ui.student.list
+package com.ahmed.ui.course.list
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.TooltipArea
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -12,13 +13,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.ahmed.ui.CenteredDarkPreview
-import com.ahmed.ui.modifier.bottomBorder
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun StudentListHeader(
+fun CourseListHeader(
     onSearch: (String) -> Unit,
     onRefresh: () -> Unit,
     onAdd: () -> Unit,
@@ -30,9 +28,10 @@ fun StudentListHeader(
         modifier = modifier
             .fillMaxWidth()
             .height(56.dp)
-            .bottomBorder(
-                color = MaterialTheme.colorScheme.outline.copy(alpha = 0.16f),
-                height = 1f
+            .border(
+                width = 1.dp,
+                color = MaterialTheme.colorScheme.outline.copy(alpha = 0.12f),
+                shape = RoundedCornerShape(bottomStart = 8.dp, bottomEnd = 8.dp)
             )
             .padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -44,8 +43,7 @@ fun StudentListHeader(
                 searchQuery = it
                 onSearch(it)
             },
-            modifier = Modifier
-                .weight(1f),
+            modifier = Modifier.weight(1f),
             colors = TextFieldDefaults.colors(
                 unfocusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.8f),
                 focusedContainerColor = MaterialTheme.colorScheme.surface,
@@ -54,7 +52,7 @@ fun StudentListHeader(
             ),
             placeholder = { 
                 Text(
-                    "Search by student name or email...",
+                    "Search by course name or code...",
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                 ) 
             },
@@ -70,12 +68,12 @@ fun StudentListHeader(
                     color = MaterialTheme.colorScheme.surfaceVariant
                 ) {
                     Text(
-                        "Refresh student list",
+                        "Refresh course list",
                         modifier = Modifier.padding(8.dp),
                         style = MaterialTheme.typography.bodySmall
                     )
                 }
-            },
+            }
         ) {
             IconButton(onClick = onRefresh) {
                 Icon(Icons.Default.Refresh, contentDescription = "Refresh")
@@ -90,28 +88,16 @@ fun StudentListHeader(
                     color = MaterialTheme.colorScheme.surfaceVariant
                 ) {
                     Text(
-                        "Add new student",
+                        "Add new course",
                         modifier = Modifier.padding(8.dp),
                         style = MaterialTheme.typography.bodySmall
                     )
                 }
-            },
+            }
         ) {
             IconButton(onClick = onAdd) {
-                Icon(Icons.Default.Add, contentDescription = "Add Student")
+                Icon(Icons.Default.Add, contentDescription = "Add Course")
             }
         }
-    }
-}
-
-@Preview
-@Composable
-fun StudentListHeaderPreview() {
-    CenteredDarkPreview {
-        StudentListHeader(
-            onSearch = {},
-            onRefresh = {},
-            onAdd = {},
-        )
     }
 }

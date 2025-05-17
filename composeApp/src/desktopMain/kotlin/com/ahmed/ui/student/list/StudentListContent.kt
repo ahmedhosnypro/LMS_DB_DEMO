@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.unit.dp
 import com.ahmed.model.StudentDTO
 import com.ahmed.ui.CenteredDarkPreview
+import com.ahmed.ui.components.EmptyListPlaceholder
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -28,10 +29,11 @@ fun StudentListContent(
     ) {
         when {
             isLoading -> CircularProgressIndicator()
-            students.isEmpty() -> EmptyListPlaceholder()
+            students.isEmpty() -> EmptyListPlaceholder("No students found")
             else -> LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(vertical = 8.dp)
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                contentPadding = PaddingValues(all = 16.dp)
             ) {
                 items(students) { student ->
                     StudentListItem(
@@ -47,15 +49,7 @@ fun StudentListContent(
     }
 }
 
-@Composable
-private fun EmptyListPlaceholder() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text("No students found")
-    }
-}
+
 
 @Preview
 @Composable

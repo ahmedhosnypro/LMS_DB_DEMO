@@ -1,4 +1,4 @@
-package com.ahmed.ui.student
+package com.ahmed.ui.course
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,26 +10,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
-import com.ahmed.model.StudentDTO
+import com.ahmed.model.CourseDTO
+import com.ahmed.ui.course.form.CourseForm
+import com.ahmed.ui.course.list.CourseList
 import com.ahmed.ui.modifier.cursorForHorizontalResize
-import com.ahmed.ui.student.form.StudentForm
-import com.ahmed.ui.student.list.StudentList
-import com.ahmed.viewModel.StudentViewModel
+import com.ahmed.viewModel.CourseViewModel
 import com.ahmed.viewModel.ViewModelProvider
 import org.jetbrains.compose.splitpane.ExperimentalSplitPaneApi
 import org.jetbrains.compose.splitpane.HorizontalSplitPane
 import org.jetbrains.compose.splitpane.SplitPaneState
+import org.jetbrains.compose.splitpane.rememberSplitPaneState
+
 @OptIn(ExperimentalSplitPaneApi::class)
 @Composable
-fun StudentTab(
+fun CourseTab(
     snackbarHostState: SnackbarHostState,
     splitterState: SplitPaneState,
-    viewModel: StudentViewModel = ViewModelProvider.studentViewModel
+    viewModel: CourseViewModel = ViewModelProvider.courseViewModel
 ) {
+    var selectedCourse by remember { mutableStateOf<CourseDTO?>(null) }
 
-    var selectedStudent by remember { mutableStateOf<StudentDTO?>(null) }
-
-    val students by viewModel.students.collectAsState()
+    val courses by viewModel.courses.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val error by viewModel.error.collectAsState()
 
@@ -47,16 +48,16 @@ fun StudentTab(
         splitPaneState = splitterState
     ) {
         first(700.dp) {
-            StudentList(
-                students = students,
-                selectedStudent = selectedStudent,
-                onStudentSelect = { student -> selectedStudent = student },
-                onSearch = viewModel::searchStudents,
-                onRefresh = viewModel::loadStudents,
+            CourseList(
+                courses = courses,
+                selectedCourse = selectedCourse,
+                onCourseSelect = { course -> selectedCourse = course },
+                onSearch = viewModel::searchCourses,
+                onRefresh = viewModel::loadCourses,
                 onDelete = { id ->
-                    viewModel.deleteStudent(id)
-                    if (selectedStudent?.id == id) {
-                        selectedStudent = null
+                    viewModel.deleteCourse(id)
+                    if (selectedCourse?.id == id) {
+                        selectedCourse = null
                     }
                 },
                 isLoading = isLoading,
@@ -64,16 +65,16 @@ fun StudentTab(
             )
         }
         second(300.dp) {
-            StudentForm(
-                selectedStudent = selectedStudent,
-                onSave = { studentDto ->
-                    selectedStudent?.let {
-                        viewModel.updateStudent(studentDto)
-                    } ?: viewModel.createStudent(studentDto)
+            CourseForm(
+                selectedCourse = selectedCourse,
+                onSave = { courseDto ->
+                    selectedCourse?.let {
+                        viewModel.updateCourse(courseDto)
+                    } ?: viewModel.createCourse(courseDto)
 
-                    selectedStudent = null
+                    selectedCourse = null
                 },
-                onCancel = { selectedStudent = null },
+                onCancel = { selectedCourse = null },
                 modifier = Modifier.fillMaxSize()
             )
         }
@@ -99,4 +100,3 @@ fun StudentTab(
         }
     }
 }
-

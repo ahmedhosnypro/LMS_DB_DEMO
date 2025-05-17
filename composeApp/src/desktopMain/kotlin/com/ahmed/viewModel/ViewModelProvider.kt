@@ -10,7 +10,11 @@ object ViewModelProvider {
         initializer {
             StudentViewModel()
         }
+        initializer {
+            CourseViewModel()
+        }
     }
 
     val studentViewModel: StudentViewModel = Factory.create(StudentViewModel::class, MutableCreationExtras())
+    val courseViewModel: CourseViewModel = Factory.create(CourseViewModel::class, MutableCreationExtras())
 }
