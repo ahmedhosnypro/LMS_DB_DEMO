@@ -1,40 +1,33 @@
-package com.ahmed.ui.course
+package com.ahmed.ui.courses
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.ahmed.model.CourseDTO
 import com.ahmed.ui.components.SplitterHandle
 import com.ahmed.ui.components.SplitterVisiblePart
-import com.ahmed.ui.course.form.CourseForm
-import com.ahmed.ui.course.list.CourseList
-import com.ahmed.ui.modifier.cursorForHorizontalResize
+import com.ahmed.ui.courses.form.CourseForm
+import com.ahmed.ui.courses.list.CourseList
 import com.ahmed.viewModel.CourseViewModel
-import com.ahmed.viewModel.ViewModelProvider
 import org.jetbrains.compose.splitpane.ExperimentalSplitPaneApi
 import org.jetbrains.compose.splitpane.HorizontalSplitPane
 import org.jetbrains.compose.splitpane.SplitPaneState
-import org.jetbrains.compose.splitpane.rememberSplitPaneState
 
 @OptIn(ExperimentalSplitPaneApi::class)
 @Composable
 fun CourseTab(
     snackbarHostState: SnackbarHostState,
     splitterState: SplitPaneState,
-    viewModel: CourseViewModel = ViewModelProvider.courseViewModel
+    courseViewModel: CourseViewModel,
 ) {
     var selectedCourse by remember { mutableStateOf<CourseDTO?>(null) }
 
-    val courses by viewModel.courses.collectAsState()
-    val isLoading by viewModel.isLoading.collectAsState()
-    val error by viewModel.error.collectAsState()
+    val courses by courseViewModel.courses.collectAsState()
+    val isLoading by courseViewModel.isLoading.collectAsState()
+    val error by courseViewModel.error.collectAsState()
 
     error?.let { errorMessage ->
         LaunchedEffect(errorMessage) {
@@ -54,10 +47,10 @@ fun CourseTab(
                 courses = courses,
                 selectedCourse = selectedCourse,
                 onCourseSelect = { course -> selectedCourse = course },
-                onSearch = viewModel::searchCourses,
-                onRefresh = viewModel::loadCourses,
+                onSearch = courseViewModel::searchCourses,
+                onRefresh = courseViewModel::loadCourses,
                 onDelete = { id ->
-                    viewModel.deleteCourse(id)
+                    courseViewModel.deleteCourse(id)
                     if (selectedCourse?.id == id) {
                         selectedCourse = null
                     }
@@ -71,8 +64,8 @@ fun CourseTab(
                 selectedCourse = selectedCourse,
                 onSave = { courseDto ->
                     selectedCourse?.let {
-                        viewModel.updateCourse(courseDto)
-                    } ?: viewModel.createCourse(courseDto)
+                        courseViewModel.updateCourse(courseDto)
+                    } ?: courseViewModel.createCourse(courseDto)
 
                     selectedCourse = null
                 },

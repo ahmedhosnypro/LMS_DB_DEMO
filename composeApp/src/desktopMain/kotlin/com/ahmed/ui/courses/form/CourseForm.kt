@@ -1,4 +1,4 @@
-package com.ahmed.ui.course.form
+package com.ahmed.ui.courses.form
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*

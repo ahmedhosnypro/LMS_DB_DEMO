@@ -6,21 +6,18 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.viewModelScope
 import com.ahmed.model.DatabaseEvent
-import com.ahmed.model.CourseDTO
+import com.ahmed.model.InstructorDTO
 import com.ahmed.model.toDTO
-import com.ahmed.repository.CourseRepository
+import com.ahmed.repository.InstructorRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.ahmed.model.DatabaseManager
 
-class CourseViewModel(
-    private val repository: CourseRepository = CourseRepository()
+class InstructorViewModel(
+    private val repository: InstructorRepository = InstructorRepository()
 ) : ViewModel() {
-    private val _courses = MutableStateFlow<List<CourseDTO>>(emptyList())
-    val courses: StateFlow<List<CourseDTO>> = _courses.asStateFlow()
-
-    private val _currentCourse = MutableStateFlow<CourseDTO?>(null)
-    val currentCourse: StateFlow<CourseDTO?> = _currentCourse.asStateFlow()
+    private val _instructors = MutableStateFlow<List<InstructorDTO>>(emptyList())
+    val instructors: StateFlow<List<InstructorDTO>> = _instructors.asStateFlow()
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
@@ -35,7 +32,7 @@ class CourseViewModel(
         viewModelScope.launch {
             DatabaseManager.connectionStatus.collect { isConnected ->
                 if (isFirstRun && isConnected) {
-                    loadCourses()
+                    loadInstructors()
                     isFirstRun = false
                 }
             }
@@ -48,28 +45,28 @@ class CourseViewModel(
                     is DatabaseEvent.ConnectionChanged -> {
                         if (!event.success) {
                             _error.value = event.message ?: "Database connection lost"
-                            _courses.value = emptyList()
+                            _instructors.value = emptyList()
                         } else {
-                            _error.value = null
-                            loadCourses()
+                            _error.value = null // Clear any previous connection errors
+                            loadInstructors()
                         }
                     }
 
                     is DatabaseEvent.InitializationCompleted -> {
                         if (event.success) {
                             _error.value = null
-                            loadCourses()
+                            loadInstructors()
                         } else {
                             _error.value = event.message
-                            _courses.value = emptyList()
+                            _instructors.value = emptyList()
                         }
                     }
 
                     is DatabaseEvent.ResetCompleted -> {
                         if (event.success) {
                             _error.value = null
-                            _courses.value = emptyList()
-                            loadCourses()
+                            _instructors.value = emptyList() // Clear list before reloading
+                            loadInstructors()
                         } else {
                             _error.value = event.message
                         }
@@ -78,15 +75,16 @@ class CourseViewModel(
                     is DatabaseEvent.DemoDataLoaded -> {
                         if (event.success) {
                             _error.value = null
-                            loadCourses()
+                            loadInstructors()
                         } else {
                             _error.value = event.message
                         }
                     }
 
                     null -> {
+                        // Initial state, check current connection status
                         if (DatabaseManager.isDatabaseReady()) {
-                            loadCourses()
+                            loadInstructors()
                         }
                     }
                 }
@@ -94,7 +92,7 @@ class CourseViewModel(
         }
     }
 
-    fun loadCourses() {
+    fun loadInstructors() {
         if (!DatabaseManager.isDatabaseReady()) {
             _error.value = "Database is not connected"
             return
@@ -103,84 +101,80 @@ class CourseViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             _isLoading.value = true
             try {
-                val (courses, error) = repository.getAllCourses()
-                _courses.value = courses.map { it.toDTO() }
+                val (instructors, error) = repository.getAllInstructors()
+                _instructors.value = instructors.map { it.toDTO() }
                 _error.value = error
             } catch (e: Exception) {
-                _error.value = "Failed to load courses: ${e.message}"
+                _error.value = "Failed to load instructors: ${e.message}"
             } finally {
                 _isLoading.value = false
             }
         }
     }
 
-    fun setCurrentCourse(course: CourseDTO?) {
-        _currentCourse.value = course
-    }
-
-    fun createCourse(courseDto: CourseDTO) {
+    fun createInstructor(instructorDto: InstructorDTO) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                val (course, error) = repository.createCourse(courseDto)
-                if (course != null) {
-                    loadCourses()
+                val (instructor, error) = repository.createInstructor(instructorDto)
+                if (instructor != null) {
+                    loadInstructors() // Reload the list after creation
                 } else {
-                    _error.value = error ?: "Failed to create course"
+                    _error.value = error ?: "Failed to create instructor"
                 }
             } catch (e: Exception) {
-                _error.value = "Error creating course: ${e.message}"
+                _error.value = "Error creating instructor: ${e.message}"
             } finally {
                 _isLoading.value = false
             }
         }
     }
 
-    fun updateCourse(courseDto: CourseDTO) {
+    fun updateInstructor(instructorDto: InstructorDTO) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                val (success, error) = repository.updateCourse(courseDto)
+                val (success, error) = repository.updateInstructor(instructorDto)
                 if (success) {
-                    loadCourses()
+                    loadInstructors() // Reload the list after update
                 } else {
-                    _error.value = error ?: "Failed to update course"
+                    _error.value = error ?: "Failed to update instructor"
                 }
             } catch (e: Exception) {
-                _error.value = "Error updating course: ${e.message}"
+                _error.value = "Error updating instructor: ${e.message}"
             } finally {
                 _isLoading.value = false
             }
         }
     }
 
-    fun deleteCourse(id: Int) {
+    fun deleteInstructor(id: Int) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                val (success, error) = repository.deleteCourse(id)
+                val (success, error) = repository.deleteInstructor(id)
                 if (success) {
-                    loadCourses()
+                    loadInstructors() // Reload the list after deletion
                 } else {
-                    _error.value = error ?: "Failed to delete course"
+                    _error.value = error ?: "Failed to delete instructor"
                 }
             } catch (e: Exception) {
-                _error.value = "Error deleting course: ${e.message}"
+                _error.value = "Error deleting instructor: ${e.message}"
             } finally {
                 _isLoading.value = false
             }
         }
     }
 
-    fun searchCourses(query: String) {
+    fun searchInstructors(query: String) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                val (courses, error) = repository.searchCourses(query)
-                _courses.value = courses.map { it.toDTO() }
+                val (instructors, error) = repository.searchInstructors(query)
+                _instructors.value = instructors.map { it.toDTO() }
                 _error.value = error
             } catch (e: Exception) {
-                _error.value = "Error searching courses: ${e.message}"
+                _error.value = "Error searching instructors: ${e.message}"
             } finally {
                 _isLoading.value = false
             }

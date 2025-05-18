@@ -114,6 +114,12 @@ class CourseRepository {
             return@withContext Pair(false, it)
         }
 
+        if (courseDto.id == null) {
+            val errorMessage = "Course ID is null"
+            Logger.warning(errorMessage)
+            return@withContext Pair(false, errorMessage)
+        }
+
         try {
             val success = transaction {
                 val course = Course.findById(courseDto.id) ?: return@transaction false

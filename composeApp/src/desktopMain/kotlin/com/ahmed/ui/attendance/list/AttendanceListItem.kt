@@ -1,4 +1,4 @@
-package com.ahmed.ui.courses.list
+package com.ahmed.ui.attendance.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,48 +15,50 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.ahmed.model.CourseDTO
+import com.ahmed.model.AttendanceDTO
+import com.ahmed.model.AttendanceStatus
 import com.ahmed.ui.CenteredDarkPreview
 import com.ahmed.ui.components.ConfirmDeleteDialog
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import kotlinx.datetime.LocalDate
 
-private val EduBlue = Color(0xFF1565C0)
-private val EduTeal = Color(0xFF00838F)
-private val EduGreen = Color(0xFF2E7D32)
-private val EduCyan = Color(0xFF00ACC1)
+private val KotlinRose = Color(0xffba203d)
+private val KotlinPurple = Color(0xff8613b6)
+private val KotlinPurpleBlue = Color(0xff5234ab)
 
 private val StatusColors = mapOf(
-    "Active" to Color(0xFF4CAF50),
-    "Inactive" to Color(0xFFF44336),
-    "Upcoming" to Color(0xFF2196F3),
-    "Archived" to Color(0xFF9E9E9E)
+    AttendanceStatus.PRESENT to Color(0xFF4CAF50),
+    AttendanceStatus.ABSENT to Color(0xFFF44336),
+    AttendanceStatus.LATE to Color(0xFFFF9800),
+    AttendanceStatus.EXCUSED to Color(0xFF2196F3)
 )
 
-fun Modifier.courseListItemBackground(
+fun Modifier.attendanceListItemBackground(
     isSelected: Boolean
 ) : Modifier =
     background(
         brush = Brush.linearGradient(
             colors = if (isSelected) {
-                listOf(EduBlue, EduTeal, EduGreen, EduCyan)
+                listOf(KotlinRose, KotlinPurple, KotlinPurple, KotlinPurpleBlue)
             } else {
                 listOf(
-                    EduBlue.copy(alpha = 0.7f),
-                    EduTeal.copy(alpha = 0.7f),
-                    EduGreen.copy(alpha = 0.7f),
-                    EduCyan.copy(alpha = 0.7f)
+                    KotlinRose.copy(alpha = 0.8f),
+                    KotlinPurple.copy(alpha = 0.8f),
+                    KotlinPurple.copy(alpha = 0.8f),
+                    KotlinPurpleBlue.copy(alpha = 0.8f)
                 )
             }
         )
     )
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun CourseListItem(
-    course: CourseDTO,
+fun AttendanceListItem(
+    attendance: AttendanceDTO,
+    onSelect: (AttendanceDTO) -> Unit,
+    onDelete: () -> Unit,
     isSelected: Boolean,
-    onSelect: () -> Unit,
-    onDelete: () -> Unit
+    modifier: Modifier = Modifier
 ) {
     var showDeleteDialog by remember { mutableStateOf(false) }
 
@@ -65,20 +67,20 @@ fun CourseListItem(
             onDismiss = { showDeleteDialog = false },
             onDelete = onDelete,
             title = "Confirm Delete",
-            text = "Are you sure you want to delete ${course.courseCode} - ${course.title}?"
+            text = "Are you sure you want to delete this attendance record?"
         )
     }
-
+    
     Card(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-            .clickable { onSelect() }
+            .clickable { onSelect(attendance) }
             .padding(8.dp),
         elevation = if (isSelected) CardDefaults.outlinedCardElevation() else CardDefaults.cardElevation()
     ) {
         Column(
             modifier = Modifier
-                .courseListItemBackground(isSelected)
+                .attendanceListItemBackground(isSelected)
                 .padding(16.dp)
         ) {
             Row(
@@ -88,15 +90,17 @@ fun CourseListItem(
             ) {
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = "${course.courseCode} - ${course.title}",
-                        style = MaterialTheme.typography.titleMedium,
+                        text = "Date: ${attendance.date}",
+                        style = MaterialTheme.typography.bodySmall,
                         color = if (isSelected) Color.White else MaterialTheme.colorScheme.onSurface
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "Credits: ${course.credits}",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = if (isSelected) Color.White.copy(alpha = 0.8f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f)
+                        text = "Enrollment ID: ${attendance.enrollmentId}",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = if (isSelected) Color.White.copy(alpha = 0.8f) else MaterialTheme.colorScheme.onSurface.copy(
+                            alpha = 0.8f
+                        )
                     )
                 }
                 Row(
@@ -106,11 +110,11 @@ fun CourseListItem(
                     Chip(
                         onClick = { },
                         colors = ChipDefaults.chipColors(
-                            backgroundColor = StatusColors[course.status] ?: Color.Gray,
+                            backgroundColor = StatusColors[attendance.status] ?: Color.Gray,
                             contentColor = Color.White
                         )
                     ) {
-                        Text(course.status)
+                        Text(attendance.status.value)
                     }
                     IconButton(
                         onClick = { showDeleteDialog = true },
@@ -121,7 +125,7 @@ fun CourseListItem(
                     ) {
                         Icon(
                             Icons.Default.Delete,
-                            contentDescription = "Delete course"
+                            contentDescription = "Delete attendance record",
                         )
                     }
                 }
@@ -130,29 +134,21 @@ fun CourseListItem(
     }
 }
 
-
 @Preview
 @Composable
-fun CourseListItemPreview() {
+fun AttendanceListItemPreview() {
+    val demoAttendance = AttendanceDTO(
+        id = 1,
+        enrollmentId = 1,
+        date = LocalDate(2025, 5, 18),
+        status = AttendanceStatus.PRESENT
+    )
     CenteredDarkPreview {
-        CourseListItem(
-            course = CourseDTO.demoCourse,
-            isSelected = false,
+        AttendanceListItem(
+            attendance = demoAttendance,
             onSelect = {},
-            onDelete = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-fun CourseListItemSelectedPreview() {
-    CenteredDarkPreview {
-        CourseListItem(
-            course = CourseDTO.demoCourse,
-            isSelected = true,
-            onSelect = {},
-            onDelete = {}
+            onDelete = {},
+            isSelected = false
         )
     }
 }

@@ -1,4 +1,4 @@
-package com.ahmed.ui.course.list
+package com.ahmed.ui.courses.list
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.ahmed.model.CourseDTO
 import com.ahmed.ui.CenteredDarkPreview
 import com.ahmed.ui.components.EmptyListPlaceholder
+import com.ahmed.util.Logger
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -39,7 +40,13 @@ fun CourseListContent(
                         course = course,
                         isSelected = selectedCourse?.id == course.id,
                         onSelect = { onCourseSelect(course) },
-                        onDelete = { onDelete(course.id) }
+                        onDelete = {
+                            if (course.id != null) {
+                                onDelete(course.id)
+                            }else{
+                                Logger.error("Course ID is null, cannot delete course")
+                            }
+                        }
                     )
                 }
             }

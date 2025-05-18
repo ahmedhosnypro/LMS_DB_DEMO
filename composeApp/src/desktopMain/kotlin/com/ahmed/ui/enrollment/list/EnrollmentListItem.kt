@@ -1,4 +1,4 @@
-package com.ahmed.ui.courses.list
+package com.ahmed.ui.enrollment.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,48 +15,50 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.ahmed.model.CourseDTO
+import com.ahmed.model.EnrollmentDTO
+import com.ahmed.model.EnrollmentStatus
 import com.ahmed.ui.CenteredDarkPreview
 import com.ahmed.ui.components.ConfirmDeleteDialog
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-private val EduBlue = Color(0xFF1565C0)
-private val EduTeal = Color(0xFF00838F)
-private val EduGreen = Color(0xFF2E7D32)
-private val EduCyan = Color(0xFF00ACC1)
+private val GradientGreen = Color(0xFF1B5E20)
+private val GradientBlue = Color(0xFF0D47A1)
+private val GradientPurple = Color(0xFF4A148C)
+private val GradientIndigo = Color(0xFF1A237E)
 
 private val StatusColors = mapOf(
-    "Active" to Color(0xFF4CAF50),
-    "Inactive" to Color(0xFFF44336),
-    "Upcoming" to Color(0xFF2196F3),
-    "Archived" to Color(0xFF9E9E9E)
+    EnrollmentStatus.ENROLLED to Color(0xFF4CAF50),
+    EnrollmentStatus.DROPPED to Color(0xFFF44336),
+    EnrollmentStatus.COMPLETED to Color(0xFF2196F3),
+    EnrollmentStatus.WITHDRAWN to Color(0xFF9E9E9E)
 )
 
-fun Modifier.courseListItemBackground(
+fun Modifier.enrollmentListItemBackground(
     isSelected: Boolean
 ) : Modifier =
     background(
         brush = Brush.linearGradient(
             colors = if (isSelected) {
-                listOf(EduBlue, EduTeal, EduGreen, EduCyan)
+                listOf(GradientGreen, GradientBlue, GradientPurple, GradientIndigo)
             } else {
                 listOf(
-                    EduBlue.copy(alpha = 0.7f),
-                    EduTeal.copy(alpha = 0.7f),
-                    EduGreen.copy(alpha = 0.7f),
-                    EduCyan.copy(alpha = 0.7f)
+                    GradientGreen.copy(alpha = 0.7f),
+                    GradientBlue.copy(alpha = 0.7f),
+                    GradientPurple.copy(alpha = 0.7f),
+                    GradientIndigo.copy(alpha = 0.7f)
                 )
             }
         )
     )
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun CourseListItem(
-    course: CourseDTO,
+fun EnrollmentListItem(
+    enrollment: EnrollmentDTO,
     isSelected: Boolean,
     onSelect: () -> Unit,
-    onDelete: () -> Unit
+    onDelete: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     var showDeleteDialog by remember { mutableStateOf(false) }
 
@@ -65,12 +67,12 @@ fun CourseListItem(
             onDismiss = { showDeleteDialog = false },
             onDelete = onDelete,
             title = "Confirm Delete",
-            text = "Are you sure you want to delete ${course.courseCode} - ${course.title}?"
+            text = "Are you sure you want to delete this student's enrollment?"
         )
     }
 
     Card(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clickable { onSelect() }
             .padding(8.dp),
@@ -78,7 +80,7 @@ fun CourseListItem(
     ) {
         Column(
             modifier = Modifier
-                .courseListItemBackground(isSelected)
+                .enrollmentListItemBackground(isSelected)
                 .padding(16.dp)
         ) {
             Row(
@@ -88,16 +90,30 @@ fun CourseListItem(
             ) {
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = "${course.courseCode} - ${course.title}",
-                        style = MaterialTheme.typography.titleMedium,
+                        text = enrollment.student.let { "${it.firstName} ${it.lastName}" },
+                        style = MaterialTheme.typography.bodyLarge,
                         color = if (isSelected) Color.White else MaterialTheme.colorScheme.onSurface
+                    )
+                    Text(
+                        text = "ID: ${enrollment.student.id}",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = if (isSelected) Color.White.copy(alpha = 0.7f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "Credits: ${course.credits}",
+                        text = "Enrolled: ${enrollment.enrollmentDate}",
                         style = MaterialTheme.typography.bodyMedium,
-                        color = if (isSelected) Color.White.copy(alpha = 0.8f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f)
+                        color = if (isSelected) Color.White.copy(alpha = 0.8f) 
+                               else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f)
                     )
+                    enrollment.grade?.let { grade ->
+                        Text(
+                            text = "Grade: $grade",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = if (isSelected) Color.White.copy(alpha = 0.8f) 
+                                   else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f)
+                        )
+                    }
                 }
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -106,11 +122,11 @@ fun CourseListItem(
                     Chip(
                         onClick = { },
                         colors = ChipDefaults.chipColors(
-                            backgroundColor = StatusColors[course.status] ?: Color.Gray,
+                            backgroundColor = StatusColors[enrollment.status] ?: Color.Gray,
                             contentColor = Color.White
                         )
                     ) {
-                        Text(course.status)
+                        Text(enrollment.status.value)
                     }
                     IconButton(
                         onClick = { showDeleteDialog = true },
@@ -121,7 +137,7 @@ fun CourseListItem(
                     ) {
                         Icon(
                             Icons.Default.Delete,
-                            contentDescription = "Delete course"
+                            contentDescription = "Delete enrollment"
                         )
                     }
                 }
@@ -130,13 +146,12 @@ fun CourseListItem(
     }
 }
 
-
 @Preview
 @Composable
-fun CourseListItemPreview() {
+fun EnrollmentListItemPreview() {
     CenteredDarkPreview {
-        CourseListItem(
-            course = CourseDTO.demoCourse,
+        EnrollmentListItem(
+            enrollment = EnrollmentDTO.demoEnrollment,
             isSelected = false,
             onSelect = {},
             onDelete = {}
@@ -146,10 +161,10 @@ fun CourseListItemPreview() {
 
 @Preview
 @Composable
-fun CourseListItemSelectedPreview() {
+fun EnrollmentListItemSelectedPreview() {
     CenteredDarkPreview {
-        CourseListItem(
-            course = CourseDTO.demoCourse,
+        EnrollmentListItem(
+            enrollment = EnrollmentDTO.demoEnrollment,
             isSelected = true,
             onSelect = {},
             onDelete = {}

@@ -1,0 +1,2171 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007599dbc9e30c, pid=142490, tid=142500
+#
+# JRE version: OpenJDK Runtime Environment JBR-21.0.6+9-895.109-jcef (21.0.6+9) (build 21.0.6+9-b895.109)
+# Java VM: OpenJDK 64-Bit Server VM JBR-21.0.6+9-895.109-jcef (21.0.6+9-b895.109, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, linux-amd64)
+# Problematic frame:
+# V  [libjvm.so+0x69e30c]  ConstantPool::klass_ref_at_noresolve(int, Bytecodes::Code)+0x1c
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E" (or dumping to /home/pc/Projects/StudentManagement/composeApp/core.142490)
+#
+# If you would like to submit a bug report, please visit:
+#   https://youtrack.jetbrains.com/issues/JBR
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dcompose.reload.argfile=/home/pc/Projects/StudentManagement/composeApp/build/run/desktopMain/desktopRunHot.argfile -Dcompose.reload.build.continuous=true -Dcompose.reload.buildSystem=Gradle -Dcompose.reload.devToolsClasspath=/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-devtools/1.0.0-alpha09/6382bee6db7a6fbaea4b2b4f764dc239ce20b516/hot-reload-devtools-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-runtime-api-jvm/1.0.0-alpha09/442228d88b19fcdfe131f6bd83d4b23c0d662f64/hot-reload-runtime-api-jvm-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-runtime-jvm/1.0.0-alpha09/c8e867769d00606e494a55bb13289b4ca25a1878/hot-reload-runtime-jvm-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.desktop/desktop-jvm/1.7.3/128a1262fd72c68277ebadf308a07ff086206f8e/desktop-jvm-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material3/material3-desktop/1.7.3/46677287ea3e5da18b2ad62cac38b6c3df70c8cd/material3-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.components/components-resources-desktop/1.7.3/aeb1cd8677ec680fcf716aecbaf1a2aafc217622/library-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/io.sellmair/evas-compose-jvm/1.2.0/bc43ce22c5d8814fd551c1287976734e51e6d673/evas-compose-jvm-1.2.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-desktop/1.7.3/e87876e0c6f36990f13cedb09d820469fd6cc371/material-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-ripple-desktop/1.7.3/42b03965266ad123672e8a87f98d914dc8c072bf/material-ripple-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-desktop/1.7.3/77da4f0c26d63177315b3dce06c48177c5d49704/foundation-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-desktop/1.7.3/c1fec150a3d1eadfe4643a550cbc9c83d106ef98/animation-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/fil-Dcompose.reload.devToolsEnabled=true -Dcompose.reload.devToolsTransparencyEnabled=false -Dcompose.reload.dirtyResolveDepthLimit=5 -Dcompose.reload.launchMode=GradleBlocking -Dcompose.reload.mainClass=com.ahmed.MainKt -Dcompose.reload.pidFile=/home/pc/Projects/StudentManagement/composeApp/build/run/desktopMain/desktopRunHot.pid -Dcompose.reload.virtualMethodResolveEnabled=true -Ddebugger.agent.enable.coroutines=true -Dgradle.build.project=:composeApp -Dgradle.build.root=/home/pc/Projects/StudentManagement -Dgradle.build.task=reloadDesktopMainClasspath -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Dkotlinx.coroutines.debug.enable.flows.stack.trace=true -Dkotlinx.coroutines.debug.enable.mutable.state.flows.stack.trace=true -Dorg.gradle.java.home=/home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=127.0.0.1:37151 -javaagent:/home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/java/lib/rt/debugger-agent.jar=file:///tmp/capture13101633082091306401.props -XX:+IgnoreUnrecognizedVMOptions -XX:+AllowEnhancedClassRedefinition -javaagent:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-agent/1.0.0-alpha09/dbf9b0128abaf92df89ed5c4a5bf541950615275/hot-reload-agent-1.0.0-alpha09.jar -javaagent:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/4a9f78ef49483748e2c129f3d124b8fa249dafbf/kotlinx-coroutines-core-jvm-1.10.2.jar -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -Dawt.toolkit.name=XToolkit com.ahmed.MainKt
+
+Host: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz, 32 cores, 62G, Ubuntu 24.04.2 LTS
+Time: Sun May 18 08:07:26 2025 EEST elapsed time: 345.514130 seconds (0d 0h 5m 45s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007599d4174d90):  VMThread "VM Thread"          [id=142500, stack(0x00007599ac89c000,0x00007599ac99c000) (1024K)]
+
+Stack: [0x00007599ac89c000,0x00007599ac99c000],  sp=0x00007599ac99a578,  free space=1017k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x69e30c]  ConstantPool::klass_ref_at_noresolve(int, Bytecodes::Code)+0x1c
+V  [libjvm.so+0xc8f509]  MethodComparator::methods_EMCP(Method*, Method*)+0x379
+V  [libjvm.so+0xaa72dd]  VM_EnhancedRedefineClasses::check_methods_and_mark_as_obsolete()+0x4d
+V  [libjvm.so+0xaa9406]  VM_EnhancedRedefineClasses::redefine_single_class(Thread*, InstanceKlass*)+0x86
+V  [libjvm.so+0xaa9a47]  VM_EnhancedRedefineClasses::doit()+0x97
+V  [libjvm.so+0x1008b71]  VM_Operation::evaluate()+0x101
+V  [libjvm.so+0x100c992]  VMThread::evaluate_operation(VM_Operation*)+0xb2
+V  [libjvm.so+0x100cf9f]  VMThread::inner_execute(VM_Operation*)+0x2cf
+V  [libjvm.so+0x100d2c7]  VMThread::run()+0xb7
+V  [libjvm.so+0xf77438]  Thread::call_run()+0xa8
+V  [libjvm.so+0xd050ca]  thread_native_entry(Thread*)+0xda
+C  [libc.so.6+0x9caa4]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x000000000005a038
+
+Registers:
+RAX=0x000000000005a038, RBX=0x00007599d4221ac8, RCX=0x00007599ac99a680, RDX=0x00000000000000b8
+RSP=0x00007599ac99a578, RBP=0x00007599ac99a610, RSI=0x000000000005a000, RDI=0x00007597d8125578
+R8 =0x0000000000000005, R9 =0x00007597d8125578, R10=0x00000000000000b8, R11=0x00007597d8125578
+R12=0x0000000000002d00, R13=0x00000000000000b8, R14=0x000075994ebd2c48, R15=0x00007597d8125578
+RIP=0x00007599dbc9e30c, EFLAGS=0x0000000000010206, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+XMM[0]=0xffffffffff000000 0x0000000000000000
+XMM[1]=0x0000000000ffffff 0xffffffffffffffff
+XMM[2]=0x0000000000736d65 0x7469247369687424
+XMM[3]=0x0000000000000000 0x0000000000000000
+XMM[4]=0x0000000000000000 0x00ffffffffffffff
+XMM[5]=0x6e6f437473694c74 0x6e656d6c6c6f726e
+XMM[6]=0x4524744b746e6574 0x6e6f437473694c74
+XMM[7]=0x6e656d6c6c6f726e 0x452e7473696c2e74
+XMM[8]=0x7d7c7b7a79787776 0x7574737271706f6e
+XMM[9]=0x0000000000007261 0x6a2e746e6567612d
+XMM[10]=0x0000000000000000 0x00007599dc7232e0
+XMM[11]=0x0000000000000000 0x00007599dc7230a0
+XMM[12]=0x0000000000000000 0x0000000000000000
+XMM[13]=0x0000000000000000 0x0000000000000000
+XMM[14]=0x0000000000000000 0x0000000000000000
+XMM[15]=0xcafebabecafebabe 0xcafebabecafebabe
+  MXCSR=0x00001fa2
+
+
+Register to memory mapping:
+
+RAX=0x000000000005a038 is an unknown value
+RBX=0x00007599d4221ac8 points into unknown readable memory: 0x6f6b001eced40a6d | 6d 0a d4 ce 1e 00 6b 6f
+RCX=0x00007599ac99a680 points into unknown readable memory: 0x000075994ebd3f68 | 68 3f bd 4e 99 75 00 00
+RDX=0x00000000000000b8 is an unknown value
+RSP=0x00007599ac99a578 points into unknown readable memory: 0x00007599dc28e81e | 1e e8 28 dc 99 75 00 00
+RBP=0x00007599ac99a610 points into unknown readable memory: 0x00007599ac99a6e0 | e0 a6 99 ac 99 75 00 00
+RSI=0x000000000005a000 is an unknown value
+RDI=0x00007597d8125578 is pointing into metadata
+R8 =0x0000000000000005 is an unknown value
+R9 =0x00007597d8125578 is pointing into metadata
+R10=0x00000000000000b8 is an unknown value
+R11=0x00007597d8125578 is pointing into metadata
+R12=0x0000000000002d00 is an unknown value
+R13=0x00000000000000b8 is an unknown value
+R14=0x000075994ebd2c48 is pointing into metadata
+R15=0x00007597d8125578 is pointing into metadata
+
+Top of Stack: (sp=0x00007599ac99a578)
+0x00007599ac99a578:   00007599dc28e81e 0000000000000020
+0x00007599ac99a588:   0000000000000000 0000000000000001
+0x00007599ac99a598:   0000000000000005 000075994ebd3c11
+0x00007599ac99a5a8:   00007599000000e6 000075994ebd3f68
+0x00007599ac99a5b8:   71a6f162f5f64400 00007597d8116d21
+0x00007599ac99a5c8:   0000000000000012 00007597d8117078
+0x00007599ac99a5d8:   00007599dc30f932 00007599ac99a680
+0x00007599ac99a5e8:   00007599ac99a680 00007599ac99a650
+0x00007599ac99a5f8:   00007597d8125578 000075994ebd2c48
+0x00007599ac99a608:   00000000000000b8 00007599ac99a6e0
+0x00007599ac99a618:   00007599dc28f509 0000000000000003
+0x00007599ac99a628:   00007599d4174d90 00007597d8117078
+0x00007599ac99a638:   00007599d4174d90 00007597d8117078
+0x00007599ac99a648:   00007599d4174d90 00007599d4174d90
+0x00007599ac99a658:   000075994ebd3f68 00007599d4174d90
+0x00007599ac99a668:   0000000600000003 000000b8000001e9
+0x00007599ac99a678:   000000b8301c0000 000075994ebd3f68
+0x00007599ac99a688:   00007597d8117078 00007599d4174d90
+0x00007599ac99a698:   0000000600000003 000000b8000001e9
+0x00007599ac99a6a8:   000000b850750000 00007599ac99a720
+0x00007599ac99a6b8:   00007597d8117078 000075994ebd3f98
+0x00007599ac99a6c8:   0000000000000000 00007599d4174d90
+0x00007599ac99a6d8:   000075994ebd3f68 00007599ac99a720
+0x00007599ac99a6e8:   00007599dc0a72dd 000075999d4fddf0
+0x00007599ac99a6f8:   000075999d4fddf0 000075995075cb00
+0x00007599ac99a708:   0000000000000019 00007599d4174d90
+0x00007599ac99a718:   00007599507b2bb0 00007599ac99a820
+0x00007599ac99a728:   00007599dc0a9406 00007599c0e790e0
+0x00007599ac99a738:   00007599c0e790e0 00007599c0e794f0
+0x00007599ac99a748:   00007599c0e790e0 00007599ac99a790
+0x00007599ac99a758:   00007599ac99a7b0 00007599ac99a7b0
+0x00007599ac99a768:   00007599dbc83d10 0000759900000002 
+
+Instructions: (pc=0x00007599dbc9e30c)
+0x00007599dbc9e20c:   28 0f b7 46 12 83 c0 04 48 98 48 03 47 08 0f b6
+0x00007599dbc9e21c:   00 c3 66 90 48 63 f6 8b 44 f7 48 c3 0f 1f 84 00
+0x00007599dbc9e22c:   00 00 00 00 85 f6 78 42 48 8b 47 10 81 fa ba 00
+0x00007599dbc9e23c:   00 00 74 20 48 63 f6 48 c1 e6 05 48 8d 44 30 38
+0x00007599dbc9e24c:   48 8b 00 0f b7 c0 8b 44 c7 48 c3 66 0f 1f 84 00
+0x00007599dbc9e25c:   00 00 00 00 f7 d6 48 63 f6 48 c1 e6 04 48 03 70
+0x00007599dbc9e26c:   28 0f b7 46 12 8b 44 c7 48 c3 55 48 89 e5 e8 31
+0x00007599dbc9e27c:   e9 ff ff 90 48 8b 47 10 48 63 f6 48 c1 e6 05 48
+0x00007599dbc9e28c:   8d 44 30 38 48 8b 00 0f b7 c0 c3 90 0f 1f 84 00
+0x00007599dbc9e29c:   00 00 00 00 8b 46 0c 83 f8 06 74 08 83 f8 04 7e
+0x00007599dbc9e2ac:   03 c3 66 90 48 8b 07 48 8b 78 18 e9 34 bd 4e 00
+0x00007599dbc9e2bc:   0f 1f 40 00 48 63 f6 8b 44 f7 48 c3 0f 1f 84 00
+0x00007599dbc9e2cc:   00 00 00 00 48 63 f6 0f b7 44 f7 4a c3 90 66 0f
+0x00007599dbc9e2dc:   1f 44 00 00 48 63 f6 0f b7 44 f7 4a 48 8b 44 c7
+0x00007599dbc9e2ec:   48 c3 66 90 85 f6 78 55 48 8b 47 10 81 fa ba 00
+0x00007599dbc9e2fc:   00 00 74 28 48 63 f6 48 c1 e6 05 48 8d 44 30 38
+0x00007599dbc9e30c:   48 8b 00 0f b7 c0 0f b7 44 c7 48 0f b7 44 c7 4a
+0x00007599dbc9e31c:   48 8b 44 c7 48 c3 66 0f 1f 44 00 00 f7 d6 48 63
+0x00007599dbc9e32c:   f6 48 c1 e6 04 48 03 70 28 0f b7 46 12 0f b7 44
+0x00007599dbc9e33c:   c7 48 0f b7 44 c7 4a 48 8b 44 c7 48 c3 55 48 89
+0x00007599dbc9e34c:   e5 e8 5e e8 ff ff 66 66 2e 0f 1f 84 00 00 00 00
+0x00007599dbc9e35c:   00 0f 1f 00 48 63 f6 0f b7 44 f7 48 0f b7 44 c7
+0x00007599dbc9e36c:   4a 48 8b 44 c7 48 c3 90 66 66 2e 0f 1f 84 00 00
+0x00007599dbc9e37c:   00 00 00 90 48 63 f6 48 8b 7c f7 48 e9 83 fa 87
+0x00007599dbc9e38c:   00 90 66 90 48 63 f6 48 8b 44 f7 48 0f be 78 06
+0x00007599dbc9e39c:   e9 7f 11 7d 00 90 66 66 2e 0f 1f 84 00 00 00 00
+0x00007599dbc9e3ac:   00 0f 1f 00 55 48 89 e5 41 57 41 56 4c 8d 45 c8
+0x00007599dbc9e3bc:   49 89 d6 48 8d 4d c0 41 55 41 54 53 48 83 ec 38
+0x00007599dbc9e3cc:   4c 8b aa 18 03 00 00 48 8d 55 b8 48 c7 45 b8 00
+0x00007599dbc9e3dc:   00 00 00 48 c7 45 c0 00 00 00 00 49 8b 45 18 49
+0x00007599dbc9e3ec:   8b 5d 10 48 c7 45 c8 00 00 00 00 4d 8b 7d 28 48
+0x00007599dbc9e3fc:   89 45 a8 49 8b 45 20 48 89 45 a0 e8 d4 01 89 00 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x00007599dc28e81e: <offset 0x0000000000c8e81e> in /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/server/libjvm.so at 0x00007599db600000
+stack at sp + 1 slots: 0x0000000000000020 is an unknown value
+stack at sp + 2 slots: 0x0 is null
+stack at sp + 3 slots: 0x0000000000000001 is an unknown value
+stack at sp + 4 slots: 0x0000000000000005 is an unknown value
+stack at sp + 5 slots: 0x000075994ebd3c11 is pointing into metadata
+stack at sp + 6 slots: 0x00007599000000e6 points into unknown readable memory: 00 00
+stack at sp + 7 slots: {method} {0x000075994ebd3f68} 'invoke' '(Landroidx/compose/foundation/lazy/LazyItemScope;ILandroidx/compose/runtime/Composer;I)V' in 'com/ahmed/ui/enrollment/list/EnrollmentListContentKt$EnrollmentListContent$lambda$5$lambda$4$lambda$3$$inlined$items$default$4'
+
+VM_Operation (0x000075999d4fddf0): RedefineClasses, mode: safepoint, requested by thread 0x00007599d4e83090
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007597d0000b70, length=56, elements={
+0x00007599d4038a10, 0x00007599d417d6a0, 0x00007599d417ec00, 0x00007599d4180390,
+0x00007599d41819c0, 0x00007599d4182f50, 0x00007599d4184a60, 0x00007599d4186110,
+0x00007599d4197550, 0x00007599d41d3d80, 0x00007599d41e7e50, 0x0000759920001120,
+0x00007599d421fa20, 0x00007599d468f7d0, 0x00007599d471b440, 0x00007599d48beb50,
+0x00007599d4a33ee0, 0x00007599d4a7b280, 0x00007598f0009e00, 0x00007598f0013390,
+0x00007599d4a9dba0, 0x00007599d4b14b20, 0x00007599d4b1eff0, 0x00007599d4e58db0,
+0x00007599d4e6c970, 0x00007599d4e7d210, 0x00007599d4e83090, 0x00007598fc00dd60,
+0x0000759900087730, 0x00007598f8b2b420, 0x00007598f8b2bec0, 0x00007598480ee070,
+0x0000759848102580, 0x00007598f8b47a20, 0x00007598f8c81f70, 0x00007598300018a0,
+0x00007598340b2570, 0x0000759834d05900, 0x000075984805b860, 0x000075984805c3f0,
+0x00007599042cca00, 0x000075981c3f5b40, 0x0000759924468d20, 0x00007599240d6300,
+0x000075992463f090, 0x00007599242b2f40, 0x00007599243c1860, 0x000075992460ff20,
+0x000075992453a350, 0x0000759924491bf0, 0x0000759924119960, 0x00007599243a1d20,
+0x000075992446e340, 0x000075992411ec60, 0x000075992413f0b0, 0x00007598fc013a70
+}
+
+Java Threads: ( => current thread )
+  0x00007599d4038a10 JavaThread "main"                              [_thread_blocked, id=142493, stack(0x00007599db417000,0x00007599db517000) (1024K)]
+  0x00007599d417d6a0 JavaThread "Reference Handler"          daemon [_thread_blocked, id=142501, stack(0x00007599ac79b000,0x00007599ac89b000) (1024K)]
+  0x00007599d417ec00 JavaThread "Finalizer"                  daemon [_thread_blocked, id=142502, stack(0x00007599ac69b000,0x00007599ac79b000) (1024K)]
+  0x00007599d4180390 JavaThread "Signal Dispatcher"          daemon [_thread_blocked, id=142503, stack(0x00007599ac59b000,0x00007599ac69b000) (1024K)]
+  0x00007599d41819c0 JavaThread "Service Thread"             daemon [_thread_blocked, id=142504, stack(0x00007599ac49b000,0x00007599ac59b000) (1024K)]
+  0x00007599d4182f50 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=142505, stack(0x00007599ac39b000,0x00007599ac49b000) (1024K)]
+  0x00007599d4184a60 JavaThread "C2 CompilerThread0"         daemon [_thread_in_native, id=142506, stack(0x00007599ac29b000,0x00007599ac39b000) (1024K)]
+  0x00007599d4186110 JavaThread "C1 CompilerThread0"         daemon [_thread_in_native, id=142507, stack(0x00007599ac19b000,0x00007599ac29b000) (1024K)]
+  0x00007599d4197550 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=142508, stack(0x00007599ac09b000,0x00007599ac19b000) (1024K)]
+  0x00007599d41d3d80 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=142510, stack(0x000075999de00000,0x000075999df00000) (1024K)]
+  0x00007599d41e7e50 JavaThread "JDWP Event Helper Thread"   daemon [_thread_blocked, id=142512, stack(0x000075999dd00000,0x000075999de00000) (1024K)]
+  0x0000759920001120 JavaThread "JDWP Command Reader"        daemon [_thread_in_native, id=142514, stack(0x000075999dc00000,0x000075999dd00000) (1024K)]
+  0x00007599d421fa20 JavaThread "IntelliJ Suspend Helper"    daemon [_thread_blocked, id=142518, stack(0x000075999da00000,0x000075999db00000) (1024K)]
+  0x00007599d468f7d0 JavaThread "Orchestration Server"       daemon [_thread_in_native, id=142521, stack(0x000075999d700000,0x000075999d800000) (1024K)]
+  0x00007599d471b440 JavaThread "Orchestration Main"         daemon [_thread_blocked, id=142522, stack(0x000075999d600000,0x000075999d700000) (1024K)]
+  0x00007599d48beb50 JavaThread "Compose Hot Reload: Logger"        [_thread_blocked, id=142538, stack(0x000075999d300000,0x000075999d400000) (1024K)]
+  0x00007599d4a33ee0 JavaThread "Recompiler"                        [_thread_blocked, id=142539, stack(0x000075999d200000,0x000075999d300000) (1024K)]
+  0x00007599d4a7b280 JavaThread "process reaper (pid 142543)" daemon [_thread_in_native, id=142553, stack(0x00007599d8024000,0x00007599d8046000) (136K)]
+  0x00007598f0009e00 JavaThread "process reaper (pid 142540)" daemon [_thread_in_native, id=142554, stack(0x00007599d8002000,0x00007599d8024000) (136K)]
+  0x00007598f0013390 JavaThread "Recompiler Output"          daemon [_thread_in_native, id=142566, stack(0x000075999d011000,0x000075999d111000) (1024K)]
+  0x00007599d4a9dba0 JavaThread "Compose Runtime Analyzer"   daemon [_thread_blocked, id=142567, stack(0x000075999cf11000,0x000075999d011000) (1024K)]
+  0x00007599d4b14b20 JavaThread "Coroutines Debugger Cleaner" daemon [_thread_blocked, id=142593, stack(0x000075999ce11000,0x000075999cf11000) (1024K)]
+  0x00007599d4b1eff0 JavaThread "Notification Thread"        daemon [_thread_blocked, id=142594, stack(0x000075999cd11000,0x000075999ce11000) (1024K)]
+  0x00007599d4e58db0 JavaThread "Java2D Disposer"            daemon [_thread_blocked, id=142632, stack(0x000075994831a000,0x000075994841a000) (1024K)]
+  0x00007599d4e6c970 JavaThread "AWT-XAWT"                   daemon [_thread_in_native, id=142633, stack(0x000075994821a000,0x000075994831a000) (1024K)]
+  0x00007599d4e7d210 JavaThread "AWT-Shutdown"                      [_thread_blocked, id=142636, stack(0x000075999d500000,0x000075999d600000) (1024K)]
+  0x00007599d4e83090 JavaThread "AWT-EventQueue-0"                  [_thread_blocked, id=142638, stack(0x000075999d400000,0x000075999d500000) (1024K)]
+  0x00007598fc00dd60 JavaThread "Orchestration Client Reader" daemon [_thread_in_native, id=142640, stack(0x000075994811a000,0x000075994821a000) (1024K)]
+  0x0000759900087730 JavaThread "Orchestration Client Writer (/127.0.0.1:43852)" daemon [_thread_blocked, id=142650, stack(0x00007598736ff000,0x00007598737ff000) (1024K)]
+  0x00007598f8b2b420 JavaThread "DefaultDispatcher-worker-1" daemon [_thread_blocked, id=142660, stack(0x00007598734ff000,0x00007598735ff000) (1024K)]
+  0x00007598f8b2bec0 JavaThread "DefaultDispatcher-worker-2" daemon [_thread_blocked, id=142661, stack(0x0000759871100000,0x0000759871200000) (1024K)]
+  0x00007598480ee070 JavaThread "DefaultDispatcher-worker-3" daemon [_thread_blocked, id=142662, stack(0x0000759871000000,0x0000759871100000) (1024K)]
+  0x0000759848102580 JavaThread "kotlinx.coroutines.DefaultExecutor" daemon [_thread_blocked, id=142664, stack(0x0000759870f00000,0x0000759871000000) (1024K)]
+  0x00007598f8b47a20 JavaThread "Reference Cleaner"          daemon [_thread_blocked, id=142665, stack(0x0000759870e00000,0x0000759870f00000) (1024K)]
+  0x00007598f8c81f70 JavaThread "TimerQueue"                 daemon [_thread_blocked, id=142679, stack(0x0000759870d00000,0x0000759870e00000) (1024K)]
+  0x00007598300018a0 JavaThread "DefaultDispatcher-worker-4" daemon [_thread_blocked, id=142712, stack(0x0000759825800000,0x0000759825900000) (1024K)]
+  0x00007598340b2570 JavaThread "mysql-cj-abandoned-connection-cleanup" daemon [_thread_blocked, id=142713, stack(0x0000759825700000,0x0000759825800000) (1024K)]
+  0x0000759834d05900 JavaThread "HikariPool-1:housekeeper"   daemon [_thread_blocked, id=142780, stack(0x0000759825200000,0x0000759825300000) (1024K)]
+  0x000075984805b860 JavaThread "DefaultDispatcher-worker-5" daemon [_thread_blocked, id=142799, stack(0x0000759825300000,0x0000759825400000) (1024K)]
+  0x000075984805c3f0 JavaThread "DefaultDispatcher-worker-6" daemon [_thread_blocked, id=142800, stack(0x0000759824aff000,0x0000759824bff000) (1024K)]
+  0x00007599042cca00 JavaThread "pool-1-thread-8"            daemon [_thread_blocked, id=145781, stack(0x0000759827f00000,0x0000759828000000) (1024K)]
+  0x000075981c3f5b40 JavaThread "pool-1-thread-9"            daemon [_thread_blocked, id=145782, stack(0x000075987005b000,0x000075987015b000) (1024K)]
+  0x0000759924468d20 JavaThread "C2 CompilerThread1"         daemon [_thread_in_native, id=146691, stack(0x000075987015b000,0x000075987025b000) (1024K)]
+  0x00007599240d6300 JavaThread "C2 CompilerThread2"         daemon [_thread_in_native, id=146692, stack(0x0000759825600000,0x0000759825700000) (1024K)]
+  0x000075992463f090 JavaThread "C2 CompilerThread3"         daemon [_thread_in_native, id=146693, stack(0x0000759825100000,0x0000759825200000) (1024K)]
+  0x00007599242b2f40 JavaThread "C2 CompilerThread4"         daemon [_thread_in_native, id=146694, stack(0x000075999df00000,0x000075999e000000) (1024K)]
+  0x00007599243c1860 JavaThread "C2 CompilerThread5"         daemon [_thread_in_native, id=146695, stack(0x000075999d800000,0x000075999d900000) (1024K)]
+  0x000075992460ff20 JavaThread "C2 CompilerThread6"         daemon [_thread_in_native, id=146696, stack(0x000075999d900000,0x000075999da00000) (1024K)]
+  0x000075992453a350 JavaThread "C2 CompilerThread7"         daemon [_thread_in_native, id=146697, stack(0x000075999db00000,0x000075999dc00000) (1024K)]
+  0x0000759924491bf0 JavaThread "C2 CompilerThread8"         daemon [_thread_in_native, id=146698, stack(0x000075994801a000,0x000075994811a000) (1024K)]
+  0x0000759924119960 JavaThread "C2 CompilerThread9"         daemon [_thread_in_native, id=146699, stack(0x0000759825500000,0x0000759825600000) (1024K)]
+  0x00007599243a1d20 JavaThread "C1 CompilerThread1"         daemon [_thread_in_native, id=146700, stack(0x0000759825900000,0x0000759825a00000) (1024K)]
+  0x000075992446e340 JavaThread "C1 CompilerThread2"         daemon [_thread_in_native, id=146701, stack(0x0000759824300000,0x0000759824400000) (1024K)]
+  0x000075992411ec60 JavaThread "C1 CompilerThread3"         daemon [_thread_in_native, id=146702, stack(0x0000759827b00000,0x0000759827c00000) (1024K)]
+  0x000075992413f0b0 JavaThread "C1 CompilerThread4"         daemon [_thread_in_native, id=146703, stack(0x00007598735ff000,0x00007598736ff000) (1024K)]
+  0x00007598fc013a70 JavaThread "Orchestration Client Reader" daemon [_thread_blocked, id=146732, stack(0x0000759825400000,0x0000759825500000) (1024K)]
+Total: 56
+
+Other Threads:
+=>0x00007599d4174d90 VMThread "VM Thread"                           [id=142500, stack(0x00007599ac89c000,0x00007599ac99c000) (1024K)]
+  0x00007599d41627d0 WatcherThread "VM Periodic Task Thread"        [id=142499, stack(0x00007599ac99d000,0x00007599aca9d000) (1024K)]
+  0x00007599d40687b0 WorkerThread "GC Thread#0"                     [id=142494, stack(0x00007599d929a000,0x00007599d939a000) (1024K)]
+  0x000075994400f420 WorkerThread "GC Thread#1"                     [id=142596, stack(0x000075999cc11000,0x000075999cd11000) (1024K)]
+  0x000075994400fec0 WorkerThread "GC Thread#2"                     [id=142597, stack(0x000075999cb10000,0x000075999cc10000) (1024K)]
+  0x00007599440109a0 WorkerThread "GC Thread#3"                     [id=142598, stack(0x000075999ca0f000,0x000075999cb0f000) (1024K)]
+  0x0000759944011480 WorkerThread "GC Thread#4"                     [id=142599, stack(0x000075999c90e000,0x000075999ca0e000) (1024K)]
+  0x0000759944011f60 WorkerThread "GC Thread#5"                     [id=142600, stack(0x000075999c80d000,0x000075999c90d000) (1024K)]
+  0x0000759944012a70 WorkerThread "GC Thread#6"                     [id=142601, stack(0x000075999c70c000,0x000075999c80c000) (1024K)]
+  0x0000759944013580 WorkerThread "GC Thread#7"                     [id=142602, stack(0x000075999c60b000,0x000075999c70b000) (1024K)]
+  0x0000759944014090 WorkerThread "GC Thread#8"                     [id=142603, stack(0x000075999c50a000,0x000075999c60a000) (1024K)]
+  0x0000759944014ba0 WorkerThread "GC Thread#9"                     [id=142604, stack(0x000075999c409000,0x000075999c509000) (1024K)]
+  0x00007599440156b0 WorkerThread "GC Thread#10"                    [id=142605, stack(0x000075999c308000,0x000075999c408000) (1024K)]
+  0x00007599440161c0 WorkerThread "GC Thread#11"                    [id=142606, stack(0x000075999c207000,0x000075999c307000) (1024K)]
+  0x00007599440170c0 WorkerThread "GC Thread#12"                    [id=142607, stack(0x000075999c106000,0x000075999c206000) (1024K)]
+  0x0000759944017fc0 WorkerThread "GC Thread#13"                    [id=142608, stack(0x000075999c005000,0x000075999c105000) (1024K)]
+  0x0000759944018ee0 WorkerThread "GC Thread#14"                    [id=142609, stack(0x000075994af00000,0x000075994b000000) (1024K)]
+  0x0000759944019e20 WorkerThread "GC Thread#15"                    [id=142610, stack(0x000075994adff000,0x000075994aeff000) (1024K)]
+  0x000075994401ad60 WorkerThread "GC Thread#16"                    [id=142611, stack(0x000075994acfe000,0x000075994adfe000) (1024K)]
+  0x000075994401bca0 WorkerThread "GC Thread#17"                    [id=142612, stack(0x000075994abfd000,0x000075994acfd000) (1024K)]
+  0x000075994401cbe0 WorkerThread "GC Thread#18"                    [id=142613, stack(0x000075994aafc000,0x000075994abfc000) (1024K)]
+  0x000075994401db20 WorkerThread "GC Thread#19"                    [id=142614, stack(0x000075994a9fb000,0x000075994aafb000) (1024K)]
+  0x000075994401ea60 WorkerThread "GC Thread#20"                    [id=142615, stack(0x000075994a8fa000,0x000075994a9fa000) (1024K)]
+  0x000075994401f9a0 WorkerThread "GC Thread#21"                    [id=142616, stack(0x000075994a7f9000,0x000075994a8f9000) (1024K)]
+  0x00007599440208e0 WorkerThread "GC Thread#22"                    [id=142617, stack(0x000075994a6f8000,0x000075994a7f8000) (1024K)]
+  0x00007599d4079930 ConcurrentGCThread "G1 Main Marker"            [id=142495, stack(0x00007599d9199000,0x00007599d9299000) (1024K)]
+  0x00007599d407a910 WorkerThread "G1 Conc#0"                       [id=142496, stack(0x00007599d9098000,0x00007599d9198000) (1024K)]
+  0x00007599a0000d90 WorkerThread "G1 Conc#1"                       [id=142655, stack(0x00007598733ff000,0x00007598734ff000) (1024K)]
+  0x00007599a00018d0 WorkerThread "G1 Conc#2"                       [id=142656, stack(0x00007598732fe000,0x00007598733fe000) (1024K)]
+  0x00007599a0002410 WorkerThread "G1 Conc#3"                       [id=142657, stack(0x00007598731fd000,0x00007598732fd000) (1024K)]
+  0x00007599a0002f80 WorkerThread "G1 Conc#4"                       [id=142658, stack(0x00007598730fc000,0x00007598731fc000) (1024K)]
+  0x00007599a0003af0 WorkerThread "G1 Conc#5"                       [id=142659, stack(0x0000759872ffb000,0x00007598730fb000) (1024K)]
+  0x00007599d414fef0 ConcurrentGCThread "G1 Refine#0"               [id=142497, stack(0x00007599acd3a000,0x00007599ace3a000) (1024K)]
+  0x00007599d4150ea0 ConcurrentGCThread "G1 Service"                [id=142498, stack(0x00007599acc39000,0x00007599acd39000) (1024K)]
+Total: 34
+
+Threads with active compile tasks:
+C2 CompilerThread0  345540 26794       4       java.lang.String::coder (15 bytes)
+C1 CompilerThread0  345540 26915       2       java.util.HashMap::putVal (300 bytes)
+C2 CompilerThread1  345540 26875       4       java.util.AbstractSet::hashCode (39 bytes)
+C2 CompilerThread2  345541 26830       4       kotlin.jvm.internal.Intrinsics::areEqual (22 bytes)
+C2 CompilerThread3  345541 26844       4       kotlin.jvm.internal.Intrinsics::checkNotNullParameter (9 bytes)
+C2 CompilerThread4  345541 27002       4       java.util.ArrayList::hashCodeRange (68 bytes)
+C2 CompilerThread5  345541 27031       4       java.lang.String::isLatin1 (19 bytes)
+C2 CompilerThread6  345541 26798       4       java.lang.Object::<init> (1 bytes)
+C2 CompilerThread7  345541 26951       4       java.lang.String::checkIndex (10 bytes)
+C2 CompilerThread8  345541 26857 %     4       java.lang.StringLatin1::equals @ 9 (36 bytes)
+C2 CompilerThread9  345541 28586       4       java.io.DataOutputStream::writeUTF (389 bytes)
+C1 CompilerThread1  345541 26912       2       java.util.concurrent.locks.ReentrantLock$NonfairSync::tryAcquire (27 bytes)
+C1 CompilerThread2  345541 26918   !   2       kotlin.SynchronizedLazyImpl::getValue (87 bytes)
+C1 CompilerThread3  345541 26901       2       java.util.HashSet::add (20 bytes)
+C1 CompilerThread4  345541 26902       2       java.lang.ref.Reference::clear (5 bytes)
+Total: 15
+
+VM state: at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007599dcb2dff8] Threads_lock - owner thread: 0x00007599d4174d90
+[0x00007599dcb2def8] Heap_lock - owner thread: 0x00007599d4e83090
+
+Heap address: 0x0000000414000000, size: 16064 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x000075994f000000-0x000075994fd2e000-0x000075994fd2e000), size 13819904, SharedBaseAddress: 0x000075994f000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x0000759950000000-0x0000759990000000, reserved size: 1073741824
+Narrow klass base: 0x000075994f000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 64 size 144 Howl #buckets 8 coarsen threshold 14745 Howl Bitmap #cards 2048 size 272 coarsen threshold 1843 Card regions per heap region 1 cards per card region 16384
+ CPUs: 32 total, 32 available
+ Memory: 64253M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 8M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 1008M
+ Heap Max Capacity: 16064M
+ Pre-touch: Disabled
+ Parallel Workers: 23
+ Concurrent Workers: 6
+ Concurrent Refinement Workers: 23
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 196608K, used 112831K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 3 young (24576K), 1 survivors (8192K)
+ Metaspace       used 73439K, committed 74368K, reserved 1179648K
+  class space    used 7422K, committed 7808K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+|   0|0x0000000414000000, 0x00000004147ffff0, 0x0000000414800000| 99%| O|  |TAMS 0x0000000414000000| PB 0x0000000414000000| Untracked 
+|   1|0x0000000414800000, 0x0000000414ffffe8, 0x0000000415000000| 99%| O|  |TAMS 0x0000000414800000| PB 0x0000000414800000| Untracked 
+|   2|0x0000000415000000, 0x00000004157fffe0, 0x0000000415800000| 99%| O|  |TAMS 0x0000000415000000| PB 0x0000000415000000| Untracked 
+|   3|0x0000000415800000, 0x0000000415e2fe70, 0x0000000416000000| 77%| O|  |TAMS 0x0000000415800000| PB 0x0000000415800000| Untracked 
+|   4|0x0000000416000000, 0x0000000416800000, 0x0000000416800000|100%| O|  |TAMS 0x0000000416000000| PB 0x0000000416000000| Untracked 
+|   5|0x0000000416800000, 0x0000000417000000, 0x0000000417000000|100%| O|Cm|TAMS 0x0000000416800000| PB 0x0000000416800000| Complete 
+|   6|0x0000000417000000, 0x00000004177fffb8, 0x0000000417800000| 99%| O|  |TAMS 0x0000000417000000| PB 0x0000000417000000| Untracked 
+|   7|0x0000000417800000, 0x0000000418000000, 0x0000000418000000|100%| O|  |TAMS 0x0000000417800000| PB 0x0000000417800000| Untracked 
+|   8|0x0000000418000000, 0x0000000418000000, 0x0000000418800000|  0%| F|  |TAMS 0x0000000418000000| PB 0x0000000418000000| Untracked 
+|   9|0x0000000418800000, 0x0000000419000000, 0x0000000419000000|100%| O|  |TAMS 0x0000000418800000| PB 0x0000000418800000| Untracked 
+|  10|0x0000000419000000, 0x0000000419800000, 0x0000000419800000|100%| O|  |TAMS 0x0000000419000000| PB 0x0000000419000000| Untracked 
+|  11|0x0000000419800000, 0x000000041a000000, 0x000000041a000000|100%| O|  |TAMS 0x0000000419800000| PB 0x0000000419800000| Untracked 
+|  12|0x000000041a000000, 0x000000041a000000, 0x000000041a800000|  0%| F|  |TAMS 0x000000041a000000| PB 0x000000041a000000| Untracked 
+|  13|0x000000041a800000, 0x000000041a800000, 0x000000041b000000|  0%| F|  |TAMS 0x000000041a800000| PB 0x000000041a800000| Untracked 
+|  14|0x000000041b000000, 0x000000041b800000, 0x000000041b800000|100%| O|  |TAMS 0x000000041b000000| PB 0x000000041b000000| Untracked 
+|  15|0x000000041b800000, 0x000000041b800000, 0x000000041c000000|  0%| F|  |TAMS 0x000000041b800000| PB 0x000000041b800000| Untracked 
+|  16|0x000000041c000000, 0x000000041c000000, 0x000000041c800000|  0%| F|  |TAMS 0x000000041c000000| PB 0x000000041c000000| Untracked 
+|  17|0x000000041c800000, 0x000000041d000000, 0x000000041d000000|100%| S|CS|TAMS 0x000000041c800000| PB 0x000000041c800000| Complete 
+|  18|0x000000041d000000, 0x000000041d000000, 0x000000041d800000|  0%| F|  |TAMS 0x000000041d000000| PB 0x000000041d000000| Untracked 
+|  19|0x000000041d800000, 0x000000041d800000, 0x000000041e000000|  0%| F|  |TAMS 0x000000041d800000| PB 0x000000041d800000| Untracked 
+|  20|0x000000041e000000, 0x000000041e000000, 0x000000041e800000|  0%| F|  |TAMS 0x000000041e000000| PB 0x000000041e000000| Untracked 
+|  41|0x0000000428800000, 0x0000000428800000, 0x0000000429000000|  0%| F|  |TAMS 0x0000000428800000| PB 0x0000000428800000| Untracked 
+|  42|0x0000000429000000, 0x00000004292cefd8, 0x0000000429800000| 35%| E|  |TAMS 0x0000000429000000| PB 0x0000000429000000| Complete 
+|  43|0x0000000429800000, 0x000000042a000000, 0x000000042a000000|100%| E|CS|TAMS 0x0000000429800000| PB 0x0000000429800000| Complete 
+
+Card table byte_map: [0x00007599bcf40000,0x00007599beea0000] _byte_map_base: 0x00007599baea0000
+
+Marking Bits: (CMBitMap*) 0x00007599d40692d0
+ Bits: [0x00007599ad440000, 0x00007599bcf40000)
+
+Polling page: 0x00007599dcec2000
+
+Metaspace:
+
+Usage:
+  Non-class:     64.47 MB used.
+      Class:      7.25 MB used.
+       Both:     71.72 MB used.
+
+Virtual space:
+  Non-class space:      128.00 MB reserved,      65.00 MB ( 51%) committed,  2 nodes.
+      Class space:        1.00 GB reserved,       7.62 MB ( <1%) committed,  1 nodes.
+             Both:        1.12 GB reserved,      72.62 MB (  6%) committed. 
+
+Chunk freelists:
+   Non-Class:  14.42 MB
+       Class:  8.25 MB
+        Both:  22.67 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 119.94 MB
+CDS: on
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 20.
+num_arena_births: 1416.
+num_arena_deaths: 64.
+num_vsnodes_births: 3.
+num_vsnodes_deaths: 0.
+num_space_committed: 1162.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 106.
+num_chunks_taken_from_freelist: 3856.
+num_chunk_merges: 33.
+num_chunk_splits: 2565.
+num_chunks_enlarged: 1827.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=118880Kb used=6768Kb max_used=16291Kb free=112112Kb
+ bounds [0x00007599c89e8000, 0x00007599c99d8000, 0x00007599cfe00000]
+CodeHeap 'profiled nmethods': size=118876Kb used=15460Kb max_used=42555Kb free=103415Kb
+ bounds [0x00007599c0e00000, 0x00007599c3790000, 0x00007599c8217000]
+CodeHeap 'non-nmethods': size=8004Kb used=5734Kb max_used=5839Kb free=2269Kb
+ bounds [0x00007599c8217000, 0x00007599c87e7000, 0x00007599c89e8000]
+ total_blobs=9297 nmethods=7183 adapters=2015
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 343.806 Thread 0x00007599d4186110 26889       2       java.util.concurrent.locks.ReentrantLock$Sync::isHeldExclusively (16 bytes)
+Event: 343.806 Thread 0x00007599d4186110 nmethod 26889 0x00007599c0e01d10 code [0x00007599c0e01ea0, 0x00007599c0e01fc0]
+Event: 343.806 Thread 0x00007599d4186110 26896       2       java.util.concurrent.locks.AbstractQueuedSynchronizer$Node::clearStatus (12 bytes)
+Event: 343.806 Thread 0x000075992413f0b0 nmethod 26891 0x00007599c0efce90 code [0x00007599c0efd040, 0x00007599c0efd2b0]
+Event: 343.806 Thread 0x0000759924491bf0 nmethod 26655 0x00007599c8bb1010 code [0x00007599c8bb1220, 0x00007599c8bb2010]
+Event: 343.806 Thread 0x0000759924468d20 nmethod 26620 0x00007599c9802690 code [0x00007599c98028e0, 0x00007599c9803730]
+Event: 343.806 Thread 0x00007599d4186110 nmethod 26896 0x00007599c0e83d10 code [0x00007599c0e83ec0, 0x00007599c0e84000]
+Event: 343.806 Thread 0x000075992413f0b0 26899       2       java.util.Objects::hashCode (13 bytes)
+Event: 343.806 Thread 0x000075992411ec60 nmethod 26890 0x00007599c0f83d90 code [0x00007599c0f83f60, 0x00007599c0f84188]
+Event: 343.807 Thread 0x000075992446e340 nmethod 26754 0x00007599c31ada10 code [0x00007599c31add40, 0x00007599c31af2b8]
+Event: 343.807 Thread 0x000075992463f090 nmethod 26633% 0x00007599c8b43a10 code [0x00007599c8b43c60, 0x00007599c8b453a0]
+Event: 343.809 Thread 0x000075992413f0b0 nmethod 26899 0x00007599c0e98e90 code [0x00007599c0e99040, 0x00007599c0e99188]
+Event: 343.810 Thread 0x00007599243a1d20 nmethod 26881 0x00007599c0ee0590 code [0x00007599c0ee0820, 0x00007599c0ee1170]
+Event: 343.833 Thread 0x000075992460ff20 nmethod 26617% 0x00007599c972c810 code [0x00007599c972ca00, 0x00007599c972d7b8]
+Event: 343.843 Thread 0x00007599242b2f40 nmethod 26622 0x00007599c8d49c90 code [0x00007599c8d49fc0, 0x00007599c8d4c548]
+Event: 343.849 Thread 0x00007599240d6300 nmethod 26671 0x00007599c97f4690 code [0x00007599c97f49c0, 0x00007599c97f6c70]
+Event: 343.864 Thread 0x00007599d4184a60 nmethod 26672 0x00007599c8bf9490 code [0x00007599c8bf9800, 0x00007599c8bfc788]
+Event: 344.082 Thread 0x00007599243c1860 nmethod 26673% 0x00007599c8b25b10 code [0x00007599c8b26000, 0x00007599c8b2a2b0]
+Event: 344.407 Thread 0x000075992453a350 nmethod 26710% 0x00007599c8cfa510 code [0x00007599c8cfaf00, 0x00007599c8d04a50]
+Event: 345.424 Thread 0x0000759924119960 nmethod 26663 0x00007599c8dda790 code [0x00007599c8ddb340, 0x00007599c8de7fc8]
+
+GC Heap History (20 events):
+Event: 2.914 GC heap before
+{Heap before GC invocations=6 (full 0):
+ garbage-first heap   total 90112K, used 33030K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 5 young (40960K), 1 survivors (8192K)
+ Metaspace       used 35898K, committed 36288K, reserved 1114112K
+  class space    used 3454K, committed 3648K, reserved 1048576K
+}
+Event: 2.919 GC heap after
+{Heap after GC invocations=7 (full 0):
+ garbage-first heap   total 90112K, used 19404K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 35898K, committed 36288K, reserved 1114112K
+  class space    used 3454K, committed 3648K, reserved 1048576K
+}
+Event: 3.106 GC heap before
+{Heap before GC invocations=8 (full 0):
+ garbage-first heap   total 81920K, used 60364K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 6 young (49152K), 1 survivors (8192K)
+ Metaspace       used 38614K, committed 39104K, reserved 1114112K
+  class space    used 3799K, committed 4032K, reserved 1048576K
+}
+Event: 3.111 GC heap after
+{Heap after GC invocations=9 (full 0):
+ garbage-first heap   total 81920K, used 22399K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 38614K, committed 39104K, reserved 1114112K
+  class space    used 3799K, committed 4032K, reserved 1048576K
+}
+Event: 3.283 GC heap before
+{Heap before GC invocations=9 (full 0):
+ garbage-first heap   total 81920K, used 55167K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 5 young (40960K), 1 survivors (8192K)
+ Metaspace       used 41864K, committed 42304K, reserved 1114112K
+  class space    used 4145K, committed 4352K, reserved 1048576K
+}
+Event: 3.293 GC heap after
+{Heap after GC invocations=10 (full 0):
+ garbage-first heap   total 557056K, used 23873K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 41864K, committed 42304K, reserved 1114112K
+  class space    used 4145K, committed 4352K, reserved 1048576K
+}
+Event: 4.909 GC heap before
+{Heap before GC invocations=10 (full 0):
+ garbage-first heap   total 557056K, used 204097K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 25 young (204800K), 1 survivors (8192K)
+ Metaspace       used 60337K, committed 61056K, reserved 1114112K
+  class space    used 6229K, committed 6528K, reserved 1048576K
+}
+Event: 4.921 GC heap after
+{Heap after GC invocations=11 (full 0):
+ garbage-first heap   total 557056K, used 38588K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 3 young (24576K), 3 survivors (24576K)
+ Metaspace       used 60337K, committed 61056K, reserved 1114112K
+  class space    used 6229K, committed 6528K, reserved 1048576K
+}
+Event: 22.815 GC heap before
+{Heap before GC invocations=12 (full 0):
+ garbage-first heap   total 163840K, used 153276K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 17 young (139264K), 3 survivors (24576K)
+ Metaspace       used 68884K, committed 69824K, reserved 1114112K
+  class space    used 7089K, committed 7488K, reserved 1048576K
+}
+Event: 22.831 GC heap after
+{Heap after GC invocations=13 (full 0):
+ garbage-first heap   total 204800K, used 58989K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 5 young (40960K), 5 survivors (40960K)
+ Metaspace       used 68884K, committed 69824K, reserved 1114112K
+  class space    used 7089K, committed 7488K, reserved 1048576K
+}
+Event: 202.107 GC heap before
+{Heap before GC invocations=13 (full 0):
+ garbage-first heap   total 204800K, used 99949K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 11 young (90112K), 5 survivors (40960K)
+ Metaspace       used 70205K, committed 71104K, reserved 1114112K
+  class space    used 7170K, committed 7552K, reserved 1048576K
+}
+Event: 202.288 GC heap after
+{Heap after GC invocations=14 (full 1):
+ garbage-first heap   total 196608K, used 49994K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 70149K, committed 71104K, reserved 1114112K
+  class space    used 7155K, committed 7552K, reserved 1048576K
+}
+Event: 298.575 GC heap before
+{Heap before GC invocations=14 (full 1):
+ garbage-first heap   total 196608K, used 74570K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 4 young (32768K), 0 survivors (0K)
+ Metaspace       used 70569K, committed 71424K, reserved 1114112K
+  class space    used 7174K, committed 7552K, reserved 1048576K
+}
+Event: 298.582 GC heap after
+{Heap after GC invocations=15 (full 1):
+ garbage-first heap   total 196608K, used 64201K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 2 young (16384K), 2 survivors (16384K)
+ Metaspace       used 70569K, committed 71424K, reserved 1114112K
+  class space    used 7174K, committed 7552K, reserved 1048576K
+}
+Event: 312.739 GC heap before
+{Heap before GC invocations=16 (full 1):
+ garbage-first heap   total 196608K, used 129737K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 10 young (81920K), 2 survivors (16384K)
+ Metaspace       used 71320K, committed 72192K, reserved 1114112K
+  class space    used 7242K, committed 7616K, reserved 1048576K
+}
+Event: 312.753 GC heap after
+{Heap after GC invocations=17 (full 1):
+ garbage-first heap   total 196608K, used 90497K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 2 young (16384K), 2 survivors (16384K)
+ Metaspace       used 71320K, committed 72192K, reserved 1114112K
+  class space    used 7242K, committed 7616K, reserved 1048576K
+}
+Event: 318.737 GC heap before
+{Heap before GC invocations=17 (full 1):
+ garbage-first heap   total 196608K, used 131457K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 7 young (57344K), 2 survivors (16384K)
+ Metaspace       used 72125K, committed 73024K, reserved 1179648K
+  class space    used 7291K, committed 7680K, reserved 1048576K
+}
+Event: 318.751 GC heap after
+{Heap after GC invocations=18 (full 1):
+ garbage-first heap   total 196608K, used 91147K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 72125K, committed 73024K, reserved 1179648K
+  class space    used 7291K, committed 7680K, reserved 1048576K
+}
+Event: 343.522 GC heap before
+{Heap before GC invocations=18 (full 1):
+ garbage-first heap   total 196608K, used 132107K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 6 young (49152K), 1 survivors (8192K)
+ Metaspace       used 72633K, committed 73536K, reserved 1179648K
+  class space    used 7352K, committed 7744K, reserved 1048576K
+}
+Event: 343.534 GC heap after
+{Heap after GC invocations=19 (full 1):
+ garbage-first heap   total 196608K, used 104639K [0x0000000414000000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 72633K, committed 73536K, reserved 1179648K
+  class space    used 7352K, committed 7744K, reserved 1048576K
+}
+
+Dll operation events (14 events):
+Event: 0.005 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjava.so
+Event: 0.005 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libzip.so
+Event: 0.129 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libinstrument.so
+Event: 0.290 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnio.so
+Event: 0.305 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libzip.so
+Event: 0.356 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjimage.so
+Event: 0.436 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnet.so
+Event: 0.449 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libextnet.so
+Event: 0.799 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libverify.so
+Event: 0.990 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt.so
+Event: 0.994 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt_xawt.so
+Event: 1.050 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager.so
+Event: 1.050 Loaded shared library /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager_xawt.so
+Event: 1.900 Loaded shared library /home/pc/.skiko/c765bd85196ea851f1f45ccf7489dadbde7671b3da06e9e34aede3513c73d4c1/libskiko-linux-x64.so
+
+Deoptimization events (20 events):
+Event: 344.187 Thread 0x00007598480ee070 DEOPT PACKING pc=0x00007599c1640bcc sp=0x00007598710fe7f0
+Event: 344.187 Thread 0x00007598480ee070 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x00007598710fdcd8 mode 0
+Event: 344.187 Thread 0x00007598480ee070 DEOPT PACKING pc=0x00007599c2873e0c sp=0x00007598710fe8d0
+Event: 344.187 Thread 0x00007598480ee070 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x00007598710fde08 mode 0
+Event: 344.187 Thread 0x00007598f8b2bec0 DEOPT PACKING pc=0x00007599c1640bcc sp=0x00007598711fe7f0
+Event: 344.187 Thread 0x00007598f8b2bec0 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x00007598711fdcd8 mode 0
+Event: 344.187 Thread 0x00007598f8b2bec0 DEOPT PACKING pc=0x00007599c2873e0c sp=0x00007598711fe8d0
+Event: 344.187 Thread 0x00007598f8b2bec0 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x00007598711fde08 mode 0
+Event: 344.460 Thread 0x0000759834d05900 DEOPT PACKING pc=0x00007599c8d3df90 sp=0x00007598252fe5e0
+Event: 344.460 Thread 0x0000759834d05900 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x00007598252fda80 mode 0
+Event: 344.460 Thread 0x0000759834d05900 DEOPT PACKING pc=0x00007599c179d314 sp=0x00007598252fe620
+Event: 344.460 Thread 0x0000759834d05900 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x00007598252fdb68 mode 0
+Event: 344.460 Thread 0x0000759834d05900 DEOPT PACKING pc=0x00007599c8bcdd2c sp=0x00007598252fe7f0
+Event: 344.460 Thread 0x0000759834d05900 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x00007598252fdc80 mode 0
+Event: 344.960 Thread 0x00007598f0013390 DEOPT PACKING pc=0x00007599c17593ac sp=0x000075999d10f160
+Event: 344.960 Thread 0x00007598f0013390 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x000075999d10e638 mode 0
+Event: 344.960 Thread 0x00007598f0013390 DEOPT PACKING pc=0x00007599c308a2bc sp=0x000075999d10f700
+Event: 344.960 Thread 0x00007598f0013390 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x000075999d10ec60 mode 0
+Event: 344.960 Thread 0x00007598f0013390 DEOPT PACKING pc=0x00007599c0e12a6c sp=0x000075999d10f8d0
+Event: 344.960 Thread 0x00007598f0013390 DEOPT UNPACKING pc=0x00007599c826b72f sp=0x000075999d10ed98 mode 0
+
+Classes loaded (20 events):
+Event: 344.298 Loading class kotlin/Unit
+Event: 344.298 Loading class kotlin/Unit done
+Event: 344.298 Loading class kotlin/Unit
+Event: 344.298 Loading class kotlin/Unit done
+Event: 344.324 Loading class androidx/compose/runtime/MutableState
+Event: 344.324 Loading class androidx/compose/runtime/MutableState done
+Event: 344.324 Loading class androidx/compose/runtime/MutableState
+Event: 344.324 Loading class androidx/compose/runtime/MutableState done
+Event: 344.324 Loading class kotlin/Unit
+Event: 344.324 Loading class kotlin/Unit done
+Event: 344.337 Loading class kotlinx/datetime/LocalDate
+Event: 344.337 Loading class kotlinx/datetime/LocalDate done
+Event: 344.337 Loading class kotlinx/datetime/LocalDate
+Event: 344.337 Loading class kotlinx/datetime/LocalDate done
+Event: 344.337 Loading class androidx/compose/runtime/Composer
+Event: 344.337 Loading class androidx/compose/runtime/Composer done
+Event: 344.438 Loading class androidx/compose/material3/SnackbarHostState
+Event: 344.438 Loading class androidx/compose/material3/SnackbarHostState done
+Event: 344.438 Loading class androidx/compose/material3/SnackbarHostState
+Event: 344.438 Loading class androidx/compose/material3/SnackbarHostState done
+
+Classes unloaded (20 events):
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x0000759950689400 'java/lang/invoke/LambdaForm$MH+0x0000759950689400'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x0000759950688c00 'java/lang/invoke/LambdaForm$MH+0x0000759950688c00'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x0000759950688400 'java/lang/invoke/LambdaForm$MH+0x0000759950688400'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x0000759950688000 'java/lang/invoke/LambdaForm$DMH+0x0000759950688000'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x0000759950682400 'java/lang/invoke/LambdaForm$MH+0x0000759950682400'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x0000759950681c00 'java/lang/invoke/LambdaForm$MH+0x0000759950681c00'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x0000759950681400 'java/lang/invoke/LambdaForm$MH+0x0000759950681400'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x0000759950681000 'java/lang/invoke/LambdaForm$MH+0x0000759950681000'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a3c00 'java/lang/invoke/LambdaForm$DMH+0x00007599505a3c00'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a3800 'java/lang/invoke/LambdaForm$DMH+0x00007599505a3800'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a3400 'java/lang/invoke/LambdaForm$DMH+0x00007599505a3400'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a2800 'java/lang/invoke/LambdaForm$MH+0x00007599505a2800'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a2400 'java/lang/invoke/LambdaForm$MH+0x00007599505a2400'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a2000 'java/lang/invoke/LambdaForm$MH+0x00007599505a2000'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a1c00 'java/lang/invoke/LambdaForm$DMH+0x00007599505a1c00'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a1800 'java/lang/invoke/LambdaForm$DMH+0x00007599505a1800'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a1000 'java/lang/invoke/LambdaForm$DMH+0x00007599505a1000'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a0c00 'java/lang/invoke/LambdaForm$DMH+0x00007599505a0c00'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a0800 'java/lang/invoke/LambdaForm$DMH+0x00007599505a0800'
+Event: 202.157 Thread 0x00007599d4174d90 Unloading class 0x00007599505a0400 'java/lang/invoke/LambdaForm$DMH+0x00007599505a0400'
+
+Classes redefined (20 events):
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.components.ComposableSingletons$ConfirmDeleteDialogKt$lambda$-1745120383$1, count=1
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.components.ComposableSingletons$ConfirmDeleteDialogKt, count=1
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.components.ConfirmDeleteDialogKt, count=1
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$2$1$1, count=2
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$3$1, count=2
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.EnrollmentTabKt, count=3
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.ComposableSingletons$EnrollmentTabKt$lambda$-18668828$1, count=3
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$5$1$2, count=3
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$5$1$1, count=3
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.viewModel.EnrollmentViewModel$loadEnrollments$1, count=3
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.viewModel.EnrollmentViewModel$2, count=2
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.viewModel.EnrollmentViewModel$1, count=2
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.viewModel.EnrollmentViewModel$1$1, count=2
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.repository.EnrollmentRepository$getUnenrolledStudentsForCourse$2, count=1
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.course.ManageCourseTabKt$Header$1$2$4$1$1, count=1
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.list.ComposableSingletons$EnrollmentListItemKt$lambda$1479490766$1, count=1
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.list.ComposableSingletons$EnrollmentListItemKt, count=1
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.list.EnrollmentListItemKt$EnrollmentListItem$3, count=1
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.list.EnrollmentListItemKt, count=1
+Event: 345.471 Thread 0x00007599d4174d90 redefined class name=com.ahmed.ui.enrollment.list.EnrollmentListContentKt$EnrollmentListContent$1$1$1$1$1$1, count=1
+
+Internal exceptions (20 events):
+Event: 8.717 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000416e2adf8}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(int, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000416e2adf8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 8.721 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000416e4b888}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, int, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000416e4b888) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 8.722 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000416e4fe68}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, int, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000416e4fe68) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 8.722 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000416e537f0}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(int, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000416e537f0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 16.530 Thread 0x00007598fc0127d0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000415c0dfe8}: static Lorg/jetbrains/compose/reload/orchestration/OrchestrationMessage$RecompilerReady;.<clinit>()V> (0x0000000415c0dfe8) 
+thrown [src/hotspot/share/prims/jni.cpp, line 1139]
+Event: 16.537 Thread 0x0000759900087730 Exception <a 'java/lang/NoSuchMethodError'{0x000000041b80abc8}: static Lorg/jetbrains/compose/reload/orchestration/OrchestrationMessage$ClientDisconnected;.<clinit>()V> (0x000000041b80abc8) 
+thrown [src/hotspot/share/prims/jni.cpp, line 1139]
+Event: 96.014 Thread 0x00007598fc0127d0 Exception <a 'java/lang/NoSuchMethodError'{0x000000041bc4dcc0}: static Lorg/jetbrains/compose/reload/orchestration/OrchestrationMessage$ReloadClassesRequest;.<clinit>()V> (0x000000041bc4dcc0) 
+thrown [src/hotspot/share/prims/jni.cpp, line 1139]
+Event: 96.340 Thread 0x000075990007e100 Exception <a 'java/io/IOException'{0x000000041bc58bc8}> (0x000000041bc58bc8) 
+thrown [src/hotspot/share/prims/jni.cpp, line 535]
+Event: 96.352 Thread 0x0000759900087730 Exception <a 'java/lang/NoSuchMethodError'{0x000000041b893520}: static Lorg/jetbrains/compose/reload/orchestration/OrchestrationMessage$ReloadClassesResult;.<clinit>()V> (0x000000041b893520) 
+thrown [src/hotspot/share/prims/jni.cpp, line 1139]
+Event: 202.373 Thread 0x0000759900008060 Exception <a 'java/io/IOException'{0x0000000429b051e8}> (0x0000000429b051e8) 
+thrown [src/hotspot/share/prims/jni.cpp, line 535]
+Event: 213.185 Thread 0x0000759900008c50 Exception <a 'java/io/IOException'{0x00000004292b5500}> (0x00000004292b5500) 
+thrown [src/hotspot/share/prims/jni.cpp, line 535]
+Event: 274.960 Thread 0x00007599000082f0 Exception <a 'java/io/IOException'{0x00000004294e3690}> (0x00000004294e3690) 
+thrown [src/hotspot/share/prims/jni.cpp, line 535]
+Event: 311.587 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x000000041bf2b370}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x000000041bf2b370) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 316.649 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000428d141e0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, long, java.lang.Object)'> (0x0000000428d141e0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 316.650 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000428d181d0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, long, java.lang.Object)'> (0x0000000428d181d0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 316.653 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000428d26d10}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, long, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000428d26d10) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 316.654 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000428d2e9c0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, long, java.lang.Object)'> (0x0000000428d2e9c0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 316.655 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000428d32e40}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, long, java.lang.Object)'> (0x0000000428d32e40) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 316.656 Thread 0x00007599d4e83090 Exception <a 'java/lang/NoSuchMethodError'{0x0000000428d36b70}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, long, java.lang.Object, java.lang.Object)'> (0x0000000428d36b70) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 783]
+Event: 344.961 Thread 0x00007599000104f0 Exception <a 'java/io/IOException'{0x0000000429ecd078}> (0x0000000429ecd078) 
+thrown [src/hotspot/share/prims/jni.cpp, line 535]
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (20 events):
+Event: 345.334 Executing VM operation: ForceSafepoint done
+Event: 345.334 Executing VM operation: ForceSafepoint
+Event: 345.345 Executing VM operation: ForceSafepoint done
+Event: 345.345 Executing VM operation: ForceSafepoint
+Event: 345.355 Executing VM operation: ForceSafepoint done
+Event: 345.356 Executing VM operation: ForceSafepoint
+Event: 345.366 Executing VM operation: ForceSafepoint done
+Event: 345.366 Executing VM operation: ForceSafepoint
+Event: 345.377 Executing VM operation: ForceSafepoint done
+Event: 345.377 Executing VM operation: ForceSafepoint
+Event: 345.388 Executing VM operation: ForceSafepoint done
+Event: 345.388 Executing VM operation: ForceSafepoint
+Event: 345.398 Executing VM operation: ForceSafepoint done
+Event: 345.398 Executing VM operation: ForceSafepoint
+Event: 345.409 Executing VM operation: ForceSafepoint done
+Event: 345.409 Executing VM operation: ForceSafepoint
+Event: 345.420 Executing VM operation: ForceSafepoint done
+Event: 345.420 Executing VM operation: ForceSafepoint
+Event: 345.420 Executing VM operation: ForceSafepoint done
+Event: 345.470 Executing VM operation: RedefineClasses (Heap Inspection Initiated GC)
+
+Memory protections (20 events):
+Event: 317.621 Protecting memory [0x000075994801a000,0x000075994801e000] with protection modes 0
+Event: 317.621 Protecting memory [0x000075999d800000,0x000075999d804000] with protection modes 0
+Event: 317.624 Protecting memory [0x0000759825500000,0x0000759825504000] with protection modes 0
+Event: 317.629 Protecting memory [0x0000759824300000,0x0000759824304000] with protection modes 0
+Event: 330.416 Protecting memory [0x0000759825600000,0x0000759825604000] with protection modes 0
+Event: 343.769 Protecting memory [0x000075987015b000,0x000075987015f000] with protection modes 0
+Event: 343.769 Protecting memory [0x0000759825600000,0x0000759825604000] with protection modes 0
+Event: 343.769 Protecting memory [0x0000759825100000,0x0000759825104000] with protection modes 0
+Event: 343.770 Protecting memory [0x000075999df00000,0x000075999df04000] with protection modes 0
+Event: 343.770 Protecting memory [0x000075999d800000,0x000075999d804000] with protection modes 0
+Event: 343.770 Protecting memory [0x000075999d900000,0x000075999d904000] with protection modes 0
+Event: 343.770 Protecting memory [0x000075999db00000,0x000075999db04000] with protection modes 0
+Event: 343.770 Protecting memory [0x000075994801a000,0x000075994801e000] with protection modes 0
+Event: 343.770 Protecting memory [0x0000759825500000,0x0000759825504000] with protection modes 0
+Event: 343.770 Protecting memory [0x0000759825900000,0x0000759825904000] with protection modes 0
+Event: 343.770 Protecting memory [0x0000759824300000,0x0000759824304000] with protection modes 0
+Event: 343.771 Protecting memory [0x0000759827b00000,0x0000759827b04000] with protection modes 0
+Event: 343.771 Protecting memory [0x00007598735ff000,0x0000759873603000] with protection modes 0
+Event: 344.955 Protecting memory [0x0000759825400000,0x0000759825404000] with protection modes 0
+Event: 344.959 Protecting memory [0x0000759824200000,0x0000759824204000] with protection modes 0
+
+Nmethod flushes (20 events):
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c33c9b10
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c33ca390
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c33cac10
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c33cb810
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c3503510
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c3504a10
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c3504e10
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c35ef890
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c35f4790
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c3699390
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c369a910
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c369c210
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c369d390
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c369de90
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c369f010
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c36a0e90
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c36f3a90
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c36fb790
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c36fbb10
+Event: 343.800 Thread 0x00007599d4174d90 flushing  nmethod 0x00007599c36fe990
+
+Events (20 events):
+Event: 327.470 Thread 0x00007599242b2f40 Thread exited: 0x00007599242b2f40
+Event: 330.416 Thread 0x00007599d4186110 Thread added: 0x0000759924468d20
+Event: 334.131 Thread 0x0000759924468d20 Thread exited: 0x0000759924468d20
+Event: 335.689 Thread 0x00007598fbccadc0 Thread exited: 0x00007598fbccadc0
+Event: 343.769 Thread 0x00007599d4186110 Thread added: 0x0000759924468d20
+Event: 343.769 Thread 0x00007599d4186110 Thread added: 0x00007599240d6300
+Event: 343.769 Thread 0x00007599d4186110 Thread added: 0x000075992463f090
+Event: 343.770 Thread 0x00007599d4186110 Thread added: 0x00007599242b2f40
+Event: 343.770 Thread 0x00007599d4186110 Thread added: 0x00007599243c1860
+Event: 343.770 Thread 0x00007599d4186110 Thread added: 0x000075992460ff20
+Event: 343.770 Thread 0x00007599d4186110 Thread added: 0x000075992453a350
+Event: 343.770 Thread 0x00007599d4186110 Thread added: 0x0000759924491bf0
+Event: 343.770 Thread 0x00007599d4186110 Thread added: 0x0000759924119960
+Event: 343.770 Thread 0x00007599d4186110 Thread added: 0x00007599243a1d20
+Event: 343.770 Thread 0x00007599d4186110 Thread added: 0x000075992446e340
+Event: 343.770 Thread 0x00007599d4186110 Thread added: 0x000075992411ec60
+Event: 343.771 Thread 0x00007599d4186110 Thread added: 0x000075992413f0b0
+Event: 344.955 Thread 0x00007599d468f7d0 Thread added: 0x00007598fc013a70
+Event: 344.959 Thread 0x00007599d471b440 Thread added: 0x00007599000104f0
+Event: 344.961 Thread 0x00007599000104f0 Thread exited: 0x00007599000104f0
+
+
+Dynamic libraries:
+4066d000-4071c000 rw-p 00000000 00:00 0 
+4173a000-4173c000 r-xs 00000000 00:01 28694                              /memfd:/.glXXXXXX (deleted)
+414000000-41e800000 rw-p 00000000 00:00 0 
+41e800000-428800000 ---p 00000000 00:00 0 
+428800000-42a000000 rw-p 00000000 00:00 0 
+42a000000-800000000 ---p 00000000 00:00 0 
+61d8936f0000-61d8936f1000 r--p 00000000 08:02 22691484                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/bin/java
+61d8936f1000-61d8936f2000 r-xp 00001000 08:02 22691484                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/bin/java
+61d8936f2000-61d8936f3000 r--p 00002000 08:02 22691484                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/bin/java
+61d8936f3000-61d8936f4000 r--p 00002000 08:02 22691484                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/bin/java
+61d8936f4000-61d8936f5000 rw-p 00003000 08:02 22691484                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/bin/java
+61d8b33f8000-61d8b3444000 rw-p 00000000 00:00 0                          [heap]
+7597d0000000-7597d0021000 rw-p 00000000 00:00 0 
+7597d0021000-7597d4000000 ---p 00000000 00:00 0 
+7597d8000000-7597d81a0000 rw-p 00000000 00:00 0 
+7597d81a0000-7597dc000000 ---p 00000000 00:00 0 
+7597dc000000-7597dc873000 rw-p 00000000 00:00 0 
+7597dc873000-7597e0000000 ---p 00000000 00:00 0 
+7597e0000000-7597e0021000 rw-p 00000000 00:00 0 
+7597e0021000-7597e4000000 ---p 00000000 00:00 0 
+7597e4000000-7597e4379000 rw-p 00000000 00:00 0 
+7597e4379000-7597e8000000 ---p 00000000 00:00 0 
+7597eb400000-7597eb800000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+7597eb800000-7597ebc00000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+7597ebc00000-7597ec000000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+7597ec000000-7597ec021000 rw-p 00000000 00:00 0 
+7597ec021000-7597f0000000 ---p 00000000 00:00 0 
+7597f0000000-7597f1591000 rw-p 00000000 00:00 0 
+7597f1591000-7597f4000000 ---p 00000000 00:00 0 
+7597f4000000-7597f4022000 rw-p 00000000 00:00 0 
+7597f4022000-7597f8000000 ---p 00000000 00:00 0 
+7597f8000000-7597f9be9000 rw-p 00000000 00:00 0 
+7597f9be9000-7597fc000000 ---p 00000000 00:00 0 
+7597fc000000-7597fd547000 rw-p 00000000 00:00 0 
+7597fd547000-759800000000 ---p 00000000 00:00 0 
+759800000000-759800eca000 rw-p 00000000 00:00 0 
+759800eca000-759804000000 ---p 00000000 00:00 0 
+759804000000-7598059d8000 rw-p 00000000 00:00 0 
+7598059d8000-759808000000 ---p 00000000 00:00 0 
+759808000000-7598098c6000 rw-p 00000000 00:00 0 
+7598098c6000-75980c000000 ---p 00000000 00:00 0 
+75980c000000-75980c28e000 rw-p 00000000 00:00 0 
+75980c28e000-759810000000 ---p 00000000 00:00 0 
+759810000000-759810021000 rw-p 00000000 00:00 0 
+759810021000-759814000000 ---p 00000000 00:00 0 
+759814000000-7598161f6000 rw-p 00000000 00:00 0 
+7598161f6000-759818000000 ---p 00000000 00:00 0 
+759818000000-759819794000 rw-p 00000000 00:00 0 
+759819794000-75981c000000 ---p 00000000 00:00 0 
+75981c000000-75981e9d3000 rw-p 00000000 00:00 0 
+75981e9d3000-759820000000 ---p 00000000 00:00 0 
+759820000000-759820021000 rw-p 00000000 00:00 0 
+759820021000-759824000000 ---p 00000000 00:00 0 
+759824200000-759824204000 ---p 00000000 00:00 0 
+759824204000-759824300000 rw-p 00000000 00:00 0 
+759824300000-759824304000 ---p 00000000 00:00 0 
+759824304000-759824400000 rw-p 00000000 00:00 0 
+759824400000-759824800000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759824800000-759824a00000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759824aff000-759824b03000 ---p 00000000 00:00 0 
+759824b03000-759824bff000 rw-p 00000000 00:00 0 
+759824bff000-759824cff000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759824cff000-759825100000 rw-p 00000000 00:00 0 
+759825100000-759825104000 ---p 00000000 00:00 0 
+759825104000-759825200000 rw-p 00000000 00:00 0 
+759825200000-759825204000 ---p 00000000 00:00 0 
+759825204000-759825300000 rw-p 00000000 00:00 0 
+759825300000-759825304000 ---p 00000000 00:00 0 
+759825304000-759825400000 rw-p 00000000 00:00 0 
+759825400000-759825404000 ---p 00000000 00:00 0 
+759825404000-759825500000 rw-p 00000000 00:00 0 
+759825500000-759825504000 ---p 00000000 00:00 0 
+759825504000-759825600000 rw-p 00000000 00:00 0 
+759825600000-759825604000 ---p 00000000 00:00 0 
+759825604000-759825700000 rw-p 00000000 00:00 0 
+759825700000-759825704000 ---p 00000000 00:00 0 
+759825704000-759825800000 rw-p 00000000 00:00 0 
+759825800000-759825804000 ---p 00000000 00:00 0 
+759825804000-759825900000 rw-p 00000000 00:00 0 
+759825900000-759825904000 ---p 00000000 00:00 0 
+759825904000-759825a00000 rw-p 00000000 00:00 0 
+759825a00000-759826c65000 r-xp 00000000 08:02 11549207                   /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.256.02
+759826c65000-759826c86000 rwxp 01265000 08:02 11549207                   /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.256.02
+759826c86000-75982719e000 r-xp 01286000 08:02 11549207                   /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.256.02
+75982719e000-75982739e000 ---p 0179e000 08:02 11549207                   /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.256.02
+75982739e000-7598278fa000 r--p 0179e000 08:02 11549207                   /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.256.02
+7598278fa000-759827a9e000 rw-p 01cfa000 08:02 11549207                   /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.256.02
+759827a9e000-759827ac0000 rw-p 00000000 00:00 0 
+759827b00000-759827b04000 ---p 00000000 00:00 0 
+759827b04000-759827c00000 rw-p 00000000 00:00 0 
+759827c00000-759827c03000 r-xp 00000000 08:02 11549722                   /usr/lib/x86_64-linux-gnu/libnvidia-tls.so.470.256.02
+759827c03000-759827e03000 ---p 00003000 08:02 11549722                   /usr/lib/x86_64-linux-gnu/libnvidia-tls.so.470.256.02
+759827e03000-759827e04000 r--p 00003000 08:02 11549722                   /usr/lib/x86_64-linux-gnu/libnvidia-tls.so.470.256.02
+759827e04000-759827e05000 rw-p 00004000 08:02 11549722                   /usr/lib/x86_64-linux-gnu/libnvidia-tls.so.470.256.02
+759827f00000-759827f04000 ---p 00000000 00:00 0 
+759827f04000-759828000000 rw-p 00000000 00:00 0 
+759828000000-759828021000 rw-p 00000000 00:00 0 
+759828021000-75982c000000 ---p 00000000 00:00 0 
+75982c000000-75982c021000 rw-p 00000000 00:00 0 
+75982c021000-759830000000 ---p 00000000 00:00 0 
+759830000000-7598303a9000 rw-p 00000000 00:00 0 
+7598303a9000-759834000000 ---p 00000000 00:00 0 
+759834000000-759834feb000 rw-p 00000000 00:00 0 
+759834feb000-759838000000 ---p 00000000 00:00 0 
+759838000000-759838021000 rw-p 00000000 00:00 0 
+759838021000-75983c000000 ---p 00000000 00:00 0 
+75983c000000-75983c021000 rw-p 00000000 00:00 0 
+75983c021000-759840000000 ---p 00000000 00:00 0 
+759840000000-759840021000 rw-p 00000000 00:00 0 
+759840021000-759844000000 ---p 00000000 00:00 0 
+759844000000-759844021000 rw-p 00000000 00:00 0 
+759844021000-759848000000 ---p 00000000 00:00 0 
+759848000000-7598484b0000 rw-p 00000000 00:00 0 
+7598484b0000-75984c000000 ---p 00000000 00:00 0 
+75984c000000-75984c021000 rw-p 00000000 00:00 0 
+75984c021000-759850000000 ---p 00000000 00:00 0 
+759850000000-759850029000 rw-p 00000000 00:00 0 
+759850029000-759854000000 ---p 00000000 00:00 0 
+759854000000-759855159000 rw-p 00000000 00:00 0 
+759855159000-759858000000 ---p 00000000 00:00 0 
+759858000000-759858060000 rw-p 00000000 00:00 0 
+759858060000-75985c000000 ---p 00000000 00:00 0 
+75985c000000-75985dbbc000 rw-p 00000000 00:00 0 
+75985dbbc000-759860000000 ---p 00000000 00:00 0 
+759860000000-759860021000 rw-p 00000000 00:00 0 
+759860021000-759864000000 ---p 00000000 00:00 0 
+759864000000-75986402c000 rw-p 00000000 00:00 0 
+75986402c000-759868000000 ---p 00000000 00:00 0 
+759868000000-759868021000 rw-p 00000000 00:00 0 
+759868021000-75986c000000 ---p 00000000 00:00 0 
+75986c000000-75986c021000 rw-p 00000000 00:00 0 
+75986c021000-759870000000 ---p 00000000 00:00 0 
+75987005b000-75987005f000 ---p 00000000 00:00 0 
+75987005f000-75987015b000 rw-p 00000000 00:00 0 
+75987015b000-75987015f000 ---p 00000000 00:00 0 
+75987015f000-75987025b000 rw-p 00000000 00:00 0 
+75987025b000-759870400000 rw-s 00000000 00:01 25600                      /memfd:/.nvidia_drv.XXXXXX (deleted)
+759870400000-759870472000 r-xp 00000000 08:02 11549208                   /usr/lib/x86_64-linux-gnu/libnvidia-glsi.so.470.256.02
+759870472000-759870672000 ---p 00072000 08:02 11549208                   /usr/lib/x86_64-linux-gnu/libnvidia-glsi.so.470.256.02
+759870672000-75987069b000 r--p 00072000 08:02 11549208                   /usr/lib/x86_64-linux-gnu/libnvidia-glsi.so.470.256.02
+75987069b000-75987069c000 rw-p 0009b000 08:02 11549208                   /usr/lib/x86_64-linux-gnu/libnvidia-glsi.so.470.256.02
+75987069c000-7598706a3000 rw-p 00000000 00:00 0 
+759870720000-7598707a0000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+7598707a0000-7598707e0000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+7598707e0000-759870800000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759870800000-7598708b2000 r-xp 00000000 08:02 11548817                   /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.470.256.02
+7598708b2000-7598708e7000 rwxp 000b2000 08:02 11548817                   /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.470.256.02
+7598708e7000-7598708ee000 r-xp 000e7000 08:02 11548817                   /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.470.256.02
+7598708ee000-759870aed000 ---p 000ee000 08:02 11548817                   /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.470.256.02
+759870aed000-759870b36000 r--p 000ed000 08:02 11548817                   /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.470.256.02
+759870b36000-759870b3b000 rw-p 00136000 08:02 11548817                   /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.470.256.02
+759870b3b000-759870b3d000 rw-p 00000000 00:00 0 
+759870b52000-759870b92000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759870b92000-759870bd2000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759870bd2000-759870c2d000 r--s 00000000 08:02 22442260                   /home/pc/.cache/fontconfig/2300eef321c393bfd76478a5c0e95b23-le64.cache-9
+759870c2f000-759870c4f000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759870c6f000-759870c7a000 r--p 00000000 08:02 11550435                   /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0
+759870c7a000-759870c83000 r-xp 0000b000 08:02 11550435                   /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0
+759870c83000-759870c88000 r--p 00014000 08:02 11550435                   /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0
+759870c88000-759870c8a000 r--p 00019000 08:02 11550435                   /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0
+759870c8a000-759870c8b000 rw-p 0001b000 08:02 11550435                   /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0
+759870c8b000-759870d00000 r--s 00000000 08:02 13109378                   /var/cache/fontconfig/0bd3dc0958fa2205aaaa8ebb13e2872b-le64.cache-9
+759870d00000-759870d04000 ---p 00000000 00:00 0 
+759870d04000-759870e00000 rw-p 00000000 00:00 0 
+759870e00000-759870e04000 ---p 00000000 00:00 0 
+759870e04000-759870f00000 rw-p 00000000 00:00 0 
+759870f00000-759870f04000 ---p 00000000 00:00 0 
+759870f04000-759871000000 rw-p 00000000 00:00 0 
+759871000000-759871004000 ---p 00000000 00:00 0 
+759871004000-759871100000 rw-p 00000000 00:00 0 
+759871100000-759871104000 ---p 00000000 00:00 0 
+759871104000-759871200000 rw-p 00000000 00:00 0 
+759871200000-759872bd8000 r-xp 00000000 08:02 24278610                   /home/pc/.skiko/c765bd85196ea851f1f45ccf7489dadbde7671b3da06e9e34aede3513c73d4c1/libskiko-linux-x64.so
+759872bd8000-759872dd8000 ---p 019d8000 08:02 24278610                   /home/pc/.skiko/c765bd85196ea851f1f45ccf7489dadbde7671b3da06e9e34aede3513c73d4c1/libskiko-linux-x64.so
+759872dd8000-759872e16000 r--p 019d8000 08:02 24278610                   /home/pc/.skiko/c765bd85196ea851f1f45ccf7489dadbde7671b3da06e9e34aede3513c73d4c1/libskiko-linux-x64.so
+759872e16000-759872e19000 rw-p 01a16000 08:02 24278610                   /home/pc/.skiko/c765bd85196ea851f1f45ccf7489dadbde7671b3da06e9e34aede3513c73d4c1/libskiko-linux-x64.so
+759872e19000-759872e25000 rw-p 00000000 00:00 0 
+759872e28000-759872e2d000 r--p 00000000 08:02 11555351                   /usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+759872e2d000-759872e39000 r-xp 00005000 08:02 11555351                   /usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+759872e39000-759872e3d000 r--p 00011000 08:02 11555351                   /usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+759872e3d000-759872e3e000 r--p 00014000 08:02 11555351                   /usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+759872e3e000-759872e3f000 rw-p 00015000 08:02 11555351                   /usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+759872e44000-759872e47000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759872e47000-759872e5a000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759872e5a000-759872e68000 r--s 00000000 08:02 22442261                   /home/pc/.cache/fontconfig/a4e60e8d1e10d2fdff3fe3037a1845fb-le64.cache-9
+759872e68000-759872e77000 r--s 00000000 08:02 22442256                   /home/pc/.cache/fontconfig/6cc790b63b123a6a96ee260fcdad32a9-le64.cache-9
+759872e77000-759872e88000 r--s 00000000 08:02 22442255                   /home/pc/.cache/fontconfig/9b89f8e3dae116d678bbf48e5f21f69b-le64.cache-9
+759872e88000-759872e8b000 r--p 00000000 08:02 11549566                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+759872e8b000-759872ea6000 r-xp 00003000 08:02 11549566                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+759872ea6000-759872ea9000 r--p 0001e000 08:02 11549566                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+759872ea9000-759872eaa000 r--p 00020000 08:02 11549566                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+759872eaa000-759872eab000 rw-p 00021000 08:02 11549566                   /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+759872eab000-759872ebb000 rw-p 00000000 00:00 0 
+759872ebb000-759872efc000 r--p 00000000 08:02 11549568                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+759872efc000-759872eff000 r-xp 00041000 08:02 11549568                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+759872eff000-759872f3a000 r-xp 00044000 08:02 11549568                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+759872f3a000-759872f3b000 r-xp 0007f000 08:02 11549568                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+759872f3b000-759872f4e000 r--p 00080000 08:02 11549568                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+759872f4e000-759872f6a000 r--p 00093000 08:02 11549568                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+759872f6a000-759872f6b000 rw-p 000af000 08:02 11549568                   /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0
+759872f6b000-759872f73000 rw-p 00000000 00:00 0 
+759872f73000-759872fb6000 r--p 00000000 08:02 11549563                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+759872fb6000-759872fba000 r-xp 00043000 08:02 11549563                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+759872fba000-759872fd5000 r-xp 00047000 08:02 11549563                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+759872fd5000-759872fd6000 r-xp 00062000 08:02 11549563                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+759872fd6000-759872fea000 r--p 00063000 08:02 11549563                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+759872fea000-759872ff8000 r--p 00077000 08:02 11549563                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+759872ff8000-759872ff9000 rw-p 00085000 08:02 11549563                   /usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+759872ff9000-759872ffa000 rw-p 00000000 00:00 0 
+759872ffa000-759872ffb000 ---p 00000000 00:00 0 
+759872ffb000-7598730fb000 rw-p 00000000 00:00 0 
+7598730fb000-7598730fc000 ---p 00000000 00:00 0 
+7598730fc000-7598731fc000 rw-p 00000000 00:00 0 
+7598731fc000-7598731fd000 ---p 00000000 00:00 0 
+7598731fd000-7598732fd000 rw-p 00000000 00:00 0 
+7598732fd000-7598732fe000 ---p 00000000 00:00 0 
+7598732fe000-7598733fe000 rw-p 00000000 00:00 0 
+7598733fe000-7598733ff000 ---p 00000000 00:00 0 
+7598733ff000-7598734ff000 rw-p 00000000 00:00 0 
+7598734ff000-759873503000 ---p 00000000 00:00 0 
+759873503000-7598735ff000 rw-p 00000000 00:00 0 
+7598735ff000-759873603000 ---p 00000000 00:00 0 
+759873603000-7598736ff000 rw-p 00000000 00:00 0 
+7598736ff000-759873703000 ---p 00000000 00:00 0 
+759873703000-7598737ff000 rw-p 00000000 00:00 0 
+7598737ff000-759873800000 ---p 00000000 00:00 0 
+759873800000-759874000000 rw-p 00000000 00:00 0 
+759874000000-759874021000 rw-p 00000000 00:00 0 
+759874021000-759878000000 ---p 00000000 00:00 0 
+759878000000-759878021000 rw-p 00000000 00:00 0 
+759878021000-75987c000000 ---p 00000000 00:00 0 
+75987c000000-75987c021000 rw-p 00000000 00:00 0 
+75987c021000-759880000000 ---p 00000000 00:00 0 
+759880000000-759880021000 rw-p 00000000 00:00 0 
+759880021000-759884000000 ---p 00000000 00:00 0 
+759884000000-759884021000 rw-p 00000000 00:00 0 
+759884021000-759888000000 ---p 00000000 00:00 0 
+759888000000-759888021000 rw-p 00000000 00:00 0 
+759888021000-75988c000000 ---p 00000000 00:00 0 
+75988c000000-75988c021000 rw-p 00000000 00:00 0 
+75988c021000-759890000000 ---p 00000000 00:00 0 
+759890000000-759890021000 rw-p 00000000 00:00 0 
+759890021000-759894000000 ---p 00000000 00:00 0 
+759894000000-759894021000 rw-p 00000000 00:00 0 
+759894021000-759898000000 ---p 00000000 00:00 0 
+759898000000-759898021000 rw-p 00000000 00:00 0 
+759898021000-75989c000000 ---p 00000000 00:00 0 
+75989c000000-75989c038000 rw-p 00000000 00:00 0 
+75989c038000-7598a0000000 ---p 00000000 00:00 0 
+7598a0000000-7598a0021000 rw-p 00000000 00:00 0 
+7598a0021000-7598a4000000 ---p 00000000 00:00 0 
+7598a4000000-7598a4023000 rw-p 00000000 00:00 0 
+7598a4023000-7598a8000000 ---p 00000000 00:00 0 
+7598a8000000-7598a8025000 rw-p 00000000 00:00 0 
+7598a8025000-7598ac000000 ---p 00000000 00:00 0 
+7598ac000000-7598ac021000 rw-p 00000000 00:00 0 
+7598ac021000-7598b0000000 ---p 00000000 00:00 0 
+7598b0000000-7598b0021000 rw-p 00000000 00:00 0 
+7598b0021000-7598b4000000 ---p 00000000 00:00 0 
+7598b4000000-7598b4021000 rw-p 00000000 00:00 0 
+7598b4021000-7598b8000000 ---p 00000000 00:00 0 
+7598b8000000-7598b8021000 rw-p 00000000 00:00 0 
+7598b8021000-7598bc000000 ---p 00000000 00:00 0 
+7598bc000000-7598bc021000 rw-p 00000000 00:00 0 
+7598bc021000-7598c0000000 ---p 00000000 00:00 0 
+7598c0000000-7598c0021000 rw-p 00000000 00:00 0 
+7598c0021000-7598c4000000 ---p 00000000 00:00 0 
+7598c4000000-7598c4021000 rw-p 00000000 00:00 0 
+7598c4021000-7598c8000000 ---p 00000000 00:00 0 
+7598c8000000-7598c8021000 rw-p 00000000 00:00 0 
+7598c8021000-7598cc000000 ---p 00000000 00:00 0 
+7598cc000000-7598cc021000 rw-p 00000000 00:00 0 
+7598cc021000-7598d0000000 ---p 00000000 00:00 0 
+7598d0000000-7598d0021000 rw-p 00000000 00:00 0 
+7598d0021000-7598d4000000 ---p 00000000 00:00 0 
+7598d4000000-7598d4021000 rw-p 00000000 00:00 0 
+7598d4021000-7598d8000000 ---p 00000000 00:00 0 
+7598d8000000-7598d8021000 rw-p 00000000 00:00 0 
+7598d8021000-7598dc000000 ---p 00000000 00:00 0 
+7598dc000000-7598dc021000 rw-p 00000000 00:00 0 
+7598dc021000-7598e0000000 ---p 00000000 00:00 0 
+7598e0000000-7598e014f000 rw-p 00000000 00:00 0 
+7598e014f000-7598e4000000 ---p 00000000 00:00 0 
+7598e4000000-7598e4021000 rw-p 00000000 00:00 0 
+7598e4021000-7598e8000000 ---p 00000000 00:00 0 
+7598e8000000-7598e8021000 rw-p 00000000 00:00 0 
+7598e8021000-7598ec000000 ---p 00000000 00:00 0 
+7598ec000000-7598ec032000 rw-p 00000000 00:00 0 
+7598ec032000-7598f0000000 ---p 00000000 00:00 0 
+7598f0000000-7598f0025000 rw-p 00000000 00:00 0 
+7598f0025000-7598f4000000 ---p 00000000 00:00 0 
+7598f4000000-7598f4187000 rw-p 00000000 00:00 0 
+7598f4187000-7598f8000000 ---p 00000000 00:00 0 
+7598f8000000-7598fbeb5000 rw-p 00000000 00:00 0 
+7598fbeb5000-7598fc000000 ---p 00000000 00:00 0 
+7598fc000000-7598fc021000 rw-p 00000000 00:00 0 
+7598fc021000-759900000000 ---p 00000000 00:00 0 
+759900000000-7599000b1000 rw-p 00000000 00:00 0 
+7599000b1000-759904000000 ---p 00000000 00:00 0 
+759904000000-75990550d000 rw-p 00000000 00:00 0 
+75990550d000-759908000000 ---p 00000000 00:00 0 
+759908000000-759909803000 rw-p 00000000 00:00 0 
+759909803000-75990c000000 ---p 00000000 00:00 0 
+75990c000000-75990d7b7000 rw-p 00000000 00:00 0 
+75990d7b7000-759910000000 ---p 00000000 00:00 0 
+759910000000-759910021000 rw-p 00000000 00:00 0 
+759910021000-759914000000 ---p 00000000 00:00 0 
+759914000000-7599141cc000 rw-p 00000000 00:00 0 
+7599141cc000-759918000000 ---p 00000000 00:00 0 
+759918000000-759918093000 rw-p 00000000 00:00 0 
+759918093000-75991c000000 ---p 00000000 00:00 0 
+75991c000000-75991d2e1000 rw-p 00000000 00:00 0 
+75991d2e1000-759920000000 ---p 00000000 00:00 0 
+759920000000-7599201e1000 rw-p 00000000 00:00 0 
+7599201e1000-759924000000 ---p 00000000 00:00 0 
+759924000000-759924715000 rw-p 00000000 00:00 0 
+759924715000-759928000000 ---p 00000000 00:00 0 
+759928000000-759928021000 rw-p 00000000 00:00 0 
+759928021000-75992c000000 ---p 00000000 00:00 0 
+75992c000000-75992c021000 rw-p 00000000 00:00 0 
+75992c021000-759930000000 ---p 00000000 00:00 0 
+759930000000-7599321b3000 rw-p 00000000 00:00 0 
+7599321b3000-759934000000 ---p 00000000 00:00 0 
+759934000000-759934021000 rw-p 00000000 00:00 0 
+759934021000-759938000000 ---p 00000000 00:00 0 
+759938000000-759938021000 rw-p 00000000 00:00 0 
+759938021000-75993c000000 ---p 00000000 00:00 0 
+75993c000000-75993c021000 rw-p 00000000 00:00 0 
+75993c021000-759940000000 ---p 00000000 00:00 0 
+759940000000-759940021000 rw-p 00000000 00:00 0 
+759940021000-759944000000 ---p 00000000 00:00 0 
+759944000000-7599446ff000 rw-p 00000000 00:00 0 
+7599446ff000-759948000000 ---p 00000000 00:00 0 
+759948001000-759948009000 r--s 00000000 08:02 22442259                   /home/pc/.cache/fontconfig/3047814df9a2f067bd2d96a2b9c36e5a-le64.cache-9
+759948009000-75994801a000 r--s 00000000 08:02 22442246                   /home/pc/.cache/fontconfig/e13b20fdb08344e0e664864cc2ede53d-le64.cache-9
+75994801a000-75994801e000 ---p 00000000 00:00 0 
+75994801e000-75994811a000 rw-p 00000000 00:00 0 
+75994811a000-75994811e000 ---p 00000000 00:00 0 
+75994811e000-75994821a000 rw-p 00000000 00:00 0 
+75994821a000-75994821e000 ---p 00000000 00:00 0 
+75994821e000-75994831a000 rw-p 00000000 00:00 0 
+75994831a000-75994831e000 ---p 00000000 00:00 0 
+75994831e000-75994841a000 rw-p 00000000 00:00 0 
+75994841a000-75994841c000 r--p 00000000 08:02 11549589                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+75994841c000-75994841f000 r-xp 00002000 08:02 11549589                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+75994841f000-759948420000 r--p 00005000 08:02 11549589                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+759948420000-759948421000 r--p 00005000 08:02 11549589                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+759948421000-759948422000 rw-p 00006000 08:02 11549589                   /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+759948422000-759948424000 r--p 00000000 08:02 11549585                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+759948424000-75994842a000 r-xp 00002000 08:02 11549585                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+75994842a000-75994842c000 r--p 00008000 08:02 11549585                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+75994842c000-75994842d000 r--p 00009000 08:02 11549585                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+75994842d000-75994842e000 rw-p 0000a000 08:02 11549585                   /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+759948434000-759948438000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+759948438000-759948439000 r--p 00000000 08:02 22696568                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjawt.so
+759948439000-75994843a000 r-xp 00001000 08:02 22696568                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjawt.so
+75994843a000-75994843b000 r--p 00002000 08:02 22696568                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjawt.so
+75994843b000-75994843c000 r--p 00002000 08:02 22696568                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjawt.so
+75994843c000-75994843d000 rw-p 00000000 00:00 0 
+75994843d000-759948443000 r--s 00000000 08:02 22442257                   /home/pc/.cache/fontconfig/d589a48862398ed80a3d6066f4f56f4c-le64.cache-9
+759948444000-759948449000 r--s 00000000 08:02 13115883                   /var/cache/fontconfig/c57959a16110560c8d0fcea73374aeeb-le64.cache-9
+759948449000-75994844a000 ---p 00000000 00:00 0 
+75994844a000-759948c4a000 rw-p 00000000 00:00 0 
+759948c4a000-759948c4b000 ---p 00000000 00:00 0 
+759948c4b000-75994944b000 rw-p 00000000 00:00 0 
+75994944b000-75994944c000 ---p 00000000 00:00 0 
+75994944c000-759949c4c000 rw-p 00000000 00:00 0 
+759949c4c000-759949c89000 r--p 00000000 08:02 11666144                   /usr/share/glib-2.0/schemas/gschemas.compiled
+759949c89000-759949c90000 r--p 00000000 08:02 11547840                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+759949c90000-759949cb4000 r-xp 00007000 08:02 11547840                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+759949cb4000-759949cbd000 r--p 0002b000 08:02 11547840                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+759949cbd000-759949cc3000 r--p 00033000 08:02 11547840                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+759949cc3000-759949cc4000 rw-p 00039000 08:02 11547840                   /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0
+759949cc4000-759949cc6000 r--p 00000000 08:02 11548303                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.11.2
+759949cc6000-759949d34000 r-xp 00002000 08:02 11548303                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.11.2
+759949d34000-759949d5c000 r--p 00070000 08:02 11548303                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.11.2
+759949d5c000-759949d5d000 r--p 00097000 08:02 11548303                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.11.2
+759949d5d000-759949d5e000 rw-p 00098000 08:02 11548303                   /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.11.2
+759949d5e000-759949d64000 r--p 00000000 08:02 11552313                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+759949d64000-759949d81000 r-xp 00006000 08:02 11552313                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+759949d81000-759949d87000 r--p 00023000 08:02 11552313                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+759949d87000-759949d88000 r--p 00029000 08:02 11552313                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+759949d88000-759949d89000 rw-p 0002a000 08:02 11552313                   /usr/lib/x86_64-linux-gnu/libselinux.so.1
+759949d89000-759949d8b000 rw-p 00000000 00:00 0 
+759949d8b000-759949d94000 r--p 00000000 08:02 11547210                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+759949d94000-759949dc8000 r-xp 00009000 08:02 11547210                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+759949dc8000-759949dd5000 r--p 0003d000 08:02 11547210                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+759949dd5000-759949dd7000 r--p 00049000 08:02 11547210                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+759949dd7000-759949dd8000 rw-p 0004b000 08:02 11547210                   /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0
+759949dd8000-759949de7000 r--p 00000000 08:02 11559153                   /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8000.0
+759949de7000-759949e1e000 r-xp 0000f000 08:02 11559153                   /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8000.0
+759949e1e000-759949e37000 r--p 00046000 08:02 11559153                   /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8000.0
+759949e37000-759949e3a000 r--p 0005e000 08:02 11559153                   /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8000.0
+759949e3a000-759949e3b000 rw-p 00061000 08:02 11559153                   /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8000.0
+759949e3b000-759949e59000 r--p 00000000 08:02 11557711                   /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8000.0
+759949e59000-759949ef9000 r-xp 0001e000 08:02 11557711                   /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8000.0
+759949ef9000-759949f81000 r--p 000be000 08:02 11557711                   /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8000.0
+759949f81000-759949f82000 r--p 00146000 08:02 11557711                   /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8000.0
+759949f82000-759949f83000 rw-p 00147000 08:02 11557711                   /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8000.0
+759949f83000-759949f84000 rw-p 00000000 00:00 0 
+759949f84000-759949fbd000 r--p 00000000 08:02 11557696                   /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8000.0
+759949fbd000-75994a0d4000 r-xp 00039000 08:02 11557696                   /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8000.0
+75994a0d4000-75994a149000 r--p 00150000 08:02 11557696                   /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8000.0
+75994a149000-75994a151000 r--p 001c4000 08:02 11557696                   /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8000.0
+75994a151000-75994a152000 rw-p 001cc000 08:02 11557696                   /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8000.0
+75994a152000-75994a154000 rw-p 00000000 00:00 0 
+75994a156000-75994a160000 r--p 00000000 08:02 22395899                   /home/pc/.config/dconf/user
+75994a160000-75994a164000 r--p 00000000 08:02 11551516                   /usr/lib/x86_64-linux-gnu/gio/modules/libdconfsettings.so
+75994a164000-75994a16b000 r-xp 00004000 08:02 11551516                   /usr/lib/x86_64-linux-gnu/gio/modules/libdconfsettings.so
+75994a16b000-75994a16d000 r--p 0000b000 08:02 11551516                   /usr/lib/x86_64-linux-gnu/gio/modules/libdconfsettings.so
+75994a16d000-75994a16e000 r--p 0000d000 08:02 11551516                   /usr/lib/x86_64-linux-gnu/gio/modules/libdconfsettings.so
+75994a16e000-75994a16f000 rw-p 0000e000 08:02 11551516                   /usr/lib/x86_64-linux-gnu/gio/modules/libdconfsettings.so
+75994a16f000-75994a175000 r--p 00000000 08:02 22696558                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager.so
+75994a175000-75994a2b9000 r-xp 00006000 08:02 22696558                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager.so
+75994a2b9000-75994a2f0000 r--p 0014a000 08:02 22696558                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager.so
+75994a2f0000-75994a2f1000 ---p 00181000 08:02 22696558                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager.so
+75994a2f1000-75994a2f3000 r--p 00181000 08:02 22696558                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager.so
+75994a2f3000-75994a2f4000 rw-p 00183000 08:02 22696558                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager.so
+75994a2f4000-75994a2f5000 rw-p 00000000 00:00 0 
+75994a2f5000-75994a2f6000 r--p 00000000 08:02 11549593                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+75994a2f6000-75994a2f7000 r-xp 00001000 08:02 11549593                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+75994a2f7000-75994a2f8000 r--p 00002000 08:02 11549593                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+75994a2f8000-75994a2f9000 r--p 00002000 08:02 11549593                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+75994a2f9000-75994a2fa000 rw-p 00003000 08:02 11549593                   /usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+75994a2fa000-75994a2fc000 r--p 00000000 08:02 11549858                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+75994a2fc000-75994a303000 r-xp 00002000 08:02 11549858                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+75994a303000-75994a304000 r--p 00009000 08:02 11549858                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+75994a304000-75994a305000 r--p 0000a000 08:02 11549858                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+75994a305000-75994a306000 rw-p 0000b000 08:02 11549858                   /usr/lib/x86_64-linux-gnu/libffi.so.8.1.4
+75994a306000-75994a30b000 r--p 00000000 08:02 11550406                   /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0
+75994a30b000-75994a311000 r-xp 00005000 08:02 11550406                   /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0
+75994a311000-75994a313000 r--p 0000b000 08:02 11550406                   /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0
+75994a313000-75994a315000 r--p 0000d000 08:02 11550406                   /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0
+75994a315000-75994a316000 rw-p 0000f000 08:02 11550406                   /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0
+75994a316000-75994a318000 r--p 00000000 08:02 11550401                   /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0
+75994a318000-75994a321000 r-xp 00002000 08:02 11550401                   /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0
+75994a321000-75994a323000 r--p 0000b000 08:02 11550401                   /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0
+75994a323000-75994a324000 r--p 0000c000 08:02 11550401                   /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0
+75994a324000-75994a325000 rw-p 0000d000 08:02 11550401                   /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0
+75994a325000-75994a329000 r--p 00000000 08:02 11564487                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1
+75994a329000-75994a335000 r-xp 00004000 08:02 11564487                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1
+75994a335000-75994a338000 r--p 00010000 08:02 11564487                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1
+75994a338000-75994a339000 r--p 00012000 08:02 11564487                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1
+75994a339000-75994a33a000 rw-p 00013000 08:02 11564487                   /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1
+75994a33a000-75994a33b000 rw-p 00000000 00:00 0 
+75994a33b000-75994a346000 r--p 00000000 08:02 11550451                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+75994a346000-75994a359000 r-xp 0000b000 08:02 11550451                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+75994a359000-75994a362000 r--p 0001e000 08:02 11550451                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+75994a362000-75994a363000 r--p 00026000 08:02 11550451                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+75994a363000-75994a364000 rw-p 00027000 08:02 11550451                   /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+75994a364000-75994a367000 r--p 00000000 08:02 11549592                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+75994a367000-75994a373000 r-xp 00003000 08:02 11549592                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+75994a373000-75994a375000 r--p 0000f000 08:02 11549592                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+75994a375000-75994a376000 r--p 00011000 08:02 11549592                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+75994a376000-75994a377000 rw-p 00012000 08:02 11549592                   /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+75994a377000-75994a390000 r--p 00000000 08:02 11549580                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+75994a390000-75994a420000 r-xp 00019000 08:02 11549580                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+75994a420000-75994a4af000 r--p 000a9000 08:02 11549580                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+75994a4af000-75994a4b0000 r--p 00138000 08:02 11549580                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+75994a4b0000-75994a4b4000 rw-p 00139000 08:02 11549580                   /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+75994a4b4000-75994a4b8000 r--p 00000000 08:02 11549588                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+75994a4b8000-75994a4c3000 r-xp 00004000 08:02 11549588                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+75994a4c3000-75994a4c6000 r--p 0000f000 08:02 11549588                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+75994a4c6000-75994a4c7000 r--p 00011000 08:02 11549588                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+75994a4c7000-75994a4c8000 rw-p 00012000 08:02 11549588                   /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+75994a4c8000-75994a4db000 r--p 00000000 08:02 22696554                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt_xawt.so
+75994a4db000-75994a525000 r-xp 00013000 08:02 22696554                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt_xawt.so
+75994a525000-75994a53f000 r--p 0005d000 08:02 22696554                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt_xawt.so
+75994a53f000-75994a540000 ---p 00077000 08:02 22696554                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt_xawt.so
+75994a540000-75994a545000 r--p 00077000 08:02 22696554                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt_xawt.so
+75994a545000-75994a547000 rw-p 0007c000 08:02 22696554                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt_xawt.so
+75994a547000-75994a549000 rw-p 00000000 00:00 0 
+75994a549000-75994a556000 r--p 00000000 08:02 11549879                   /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.1
+75994a556000-75994a5e7000 r-xp 0000d000 08:02 11549879                   /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.1
+75994a5e7000-75994a60d000 r--p 0009e000 08:02 11549879                   /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.1
+75994a60d000-75994a614000 r--p 000c4000 08:02 11549879                   /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.1
+75994a614000-75994a615000 rw-p 000cb000 08:02 11549879                   /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.1
+75994a615000-75994a634000 r--p 00000000 08:02 22696551                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt.so
+75994a634000-75994a6b8000 r-xp 0001f000 08:02 22696551                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt.so
+75994a6b8000-75994a6c5000 r--p 000a3000 08:02 22696551                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt.so
+75994a6c5000-75994a6c6000 ---p 000b0000 08:02 22696551                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt.so
+75994a6c6000-75994a6c7000 r--p 000b0000 08:02 22696551                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt.so
+75994a6c7000-75994a6d2000 rw-p 000b1000 08:02 22696551                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libawt.so
+75994a6d2000-75994a6f7000 rw-p 00000000 00:00 0 
+75994a6f7000-75994a6f8000 ---p 00000000 00:00 0 
+75994a6f8000-75994a7f8000 rw-p 00000000 00:00 0 
+75994a7f8000-75994a7f9000 ---p 00000000 00:00 0 
+75994a7f9000-75994a8f9000 rw-p 00000000 00:00 0 
+75994a8f9000-75994a8fa000 ---p 00000000 00:00 0 
+75994a8fa000-75994a9fa000 rw-p 00000000 00:00 0 
+75994a9fa000-75994a9fb000 ---p 00000000 00:00 0 
+75994a9fb000-75994aafb000 rw-p 00000000 00:00 0 
+75994aafb000-75994aafc000 ---p 00000000 00:00 0 
+75994aafc000-75994abfc000 rw-p 00000000 00:00 0 
+75994abfc000-75994abfd000 ---p 00000000 00:00 0 
+75994abfd000-75994acfd000 rw-p 00000000 00:00 0 
+75994acfd000-75994acfe000 ---p 00000000 00:00 0 
+75994acfe000-75994adfe000 rw-p 00000000 00:00 0 
+75994adfe000-75994adff000 ---p 00000000 00:00 0 
+75994adff000-75994aeff000 rw-p 00000000 00:00 0 
+75994aeff000-75994af00000 ---p 00000000 00:00 0 
+75994af00000-75994b000000 rw-p 00000000 00:00 0 
+75994b000000-75994b3f0000 rw-p 00000000 00:00 0 
+75994b3f0000-75994b4b0000 rw-p 00000000 00:00 0 
+75994b4b0000-75994b4f0000 rw-p 00000000 00:00 0 
+75994b4f0000-75994b6f0000 rw-p 00000000 00:00 0 
+75994b6f0000-75994b8f0000 rw-p 00000000 00:00 0 
+75994b8f0000-75994b9f0000 rw-p 00000000 00:00 0 
+75994b9f0000-75994bad0000 rw-p 00000000 00:00 0 
+75994bad0000-75994baf0000 rw-p 00000000 00:00 0 
+75994baf0000-75994bcf0000 rw-p 00000000 00:00 0 
+75994bcf0000-75994bd30000 rw-p 00000000 00:00 0 
+75994bd30000-75994bd70000 rw-p 00000000 00:00 0 
+75994bd70000-75994c0f0000 rw-p 00000000 00:00 0 
+75994c0f0000-75994c1f0000 rw-p 00000000 00:00 0 
+75994c1f0000-75994c310000 rw-p 00000000 00:00 0 
+75994c310000-75994c330000 rw-p 00000000 00:00 0 
+75994c330000-75994c370000 rw-p 00000000 00:00 0 
+75994c370000-75994c4f0000 rw-p 00000000 00:00 0 
+75994c4f0000-75994c5f0000 rw-p 00000000 00:00 0 
+75994c5f0000-75994caf0000 rw-p 00000000 00:00 0 
+75994caf0000-75994cbf0000 rw-p 00000000 00:00 0 
+75994cbf0000-75994d1f0000 rw-p 00000000 00:00 0 
+75994d1f0000-75994d2f0000 rw-p 00000000 00:00 0 
+75994d2f0000-75994d3f0000 rw-p 00000000 00:00 0 
+75994d3f0000-75994d4f0000 rw-p 00000000 00:00 0 
+75994d4f0000-75994d5f0000 rw-p 00000000 00:00 0 
+75994d5f0000-75994d6f0000 rw-p 00000000 00:00 0 
+75994d6f0000-75994d7f0000 rw-p 00000000 00:00 0 
+75994d7f0000-75994d9b0000 rw-p 00000000 00:00 0 
+75994d9b0000-75994daf0000 rw-p 00000000 00:00 0 
+75994daf0000-75994e4f0000 rw-p 00000000 00:00 0 
+75994e4f0000-75994e5f0000 rw-p 00000000 00:00 0 
+75994e5f0000-75994eef0000 rw-p 00000000 00:00 0 
+75994eef0000-75994ef60000 rw-p 00000000 00:00 0 
+75994ef60000-75994f000000 ---p 00000000 00:00 0 
+75994f000000-75994fd2e000 rw-p 00001000 08:02 22696668                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/server/classes.jsa
+75994fd2e000-759950000000 ---p 00000000 00:00 0 
+759950000000-759950010000 rw-p 00000000 00:00 0 
+759950010000-759950030000 rw-p 00000000 00:00 0 
+759950030000-7599500b0000 rw-p 00000000 00:00 0 
+7599500b0000-759950110000 rw-p 00000000 00:00 0 
+759950110000-759950130000 rw-p 00000000 00:00 0 
+759950130000-7599501f0000 rw-p 00000000 00:00 0 
+7599501f0000-759950230000 rw-p 00000000 00:00 0 
+759950230000-759950270000 rw-p 00000000 00:00 0 
+759950270000-7599503b0000 rw-p 00000000 00:00 0 
+7599503b0000-759950430000 rw-p 00000000 00:00 0 
+759950430000-759950470000 rw-p 00000000 00:00 0 
+759950470000-7599504d0000 rw-p 00000000 00:00 0 
+7599504d0000-7599504f0000 rw-p 00000000 00:00 0 
+7599504f0000-7599506b0000 rw-p 00000000 00:00 0 
+7599506b0000-7599506e0000 rw-p 00000000 00:00 0 
+7599506e0000-759950700000 ---p 00000000 00:00 0 
+759950700000-7599507c0000 rw-p 00000000 00:00 0 
+7599507c0000-759990000000 ---p 00000000 00:00 0 
+759990000000-759990021000 rw-p 00000000 00:00 0 
+759990021000-759994000000 ---p 00000000 00:00 0 
+759994000000-759994021000 rw-p 00000000 00:00 0 
+759994021000-759998000000 ---p 00000000 00:00 0 
+759998000000-759998021000 rw-p 00000000 00:00 0 
+759998021000-75999c000000 ---p 00000000 00:00 0 
+75999c000000-75999c004000 r--s 00000000 08:02 13115497                   /var/cache/fontconfig/7f36ed4787cbaeccab45d98b74c3c91f-le64.cache-9
+75999c004000-75999c005000 ---p 00000000 00:00 0 
+75999c005000-75999c105000 rw-p 00000000 00:00 0 
+75999c105000-75999c106000 ---p 00000000 00:00 0 
+75999c106000-75999c206000 rw-p 00000000 00:00 0 
+75999c206000-75999c207000 ---p 00000000 00:00 0 
+75999c207000-75999c307000 rw-p 00000000 00:00 0 
+75999c307000-75999c308000 ---p 00000000 00:00 0 
+75999c308000-75999c408000 rw-p 00000000 00:00 0 
+75999c408000-75999c409000 ---p 00000000 00:00 0 
+75999c409000-75999c509000 rw-p 00000000 00:00 0 
+75999c509000-75999c50a000 ---p 00000000 00:00 0 
+75999c50a000-75999c60a000 rw-p 00000000 00:00 0 
+75999c60a000-75999c60b000 ---p 00000000 00:00 0 
+75999c60b000-75999c70b000 rw-p 00000000 00:00 0 
+75999c70b000-75999c70c000 ---p 00000000 00:00 0 
+75999c70c000-75999c80c000 rw-p 00000000 00:00 0 
+75999c80c000-75999c80d000 ---p 00000000 00:00 0 
+75999c80d000-75999c90d000 rw-p 00000000 00:00 0 
+75999c90d000-75999c90e000 ---p 00000000 00:00 0 
+75999c90e000-75999ca0e000 rw-p 00000000 00:00 0 
+75999ca0e000-75999ca0f000 ---p 00000000 00:00 0 
+75999ca0f000-75999cb0f000 rw-p 00000000 00:00 0 
+75999cb0f000-75999cb10000 ---p 00000000 00:00 0 
+75999cb10000-75999cc10000 rw-p 00000000 00:00 0 
+75999cc10000-75999cc11000 ---p 00000000 00:00 0 
+75999cc11000-75999cd11000 rw-p 00000000 00:00 0 
+75999cd11000-75999cd15000 ---p 00000000 00:00 0 
+75999cd15000-75999ce11000 rw-p 00000000 00:00 0 
+75999ce11000-75999ce15000 ---p 00000000 00:00 0 
+75999ce15000-75999cf11000 rw-p 00000000 00:00 0 
+75999cf11000-75999cf15000 ---p 00000000 00:00 0 
+75999cf15000-75999d011000 rw-p 00000000 00:00 0 
+75999d011000-75999d015000 ---p 00000000 00:00 0 
+75999d015000-75999d111000 rw-p 00000000 00:00 0 
+75999d111000-75999d1b6000 rw-p 00000000 00:00 0 
+75999d1b6000-75999d1b8000 rw-s 00000000 00:01 28694                      /memfd:/.glXXXXXX (deleted)
+75999d1b8000-75999d1ba000 r--p 00000000 08:02 11549587                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+75999d1ba000-75999d1bc000 r-xp 00002000 08:02 11549587                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+75999d1bc000-75999d1be000 r--p 00004000 08:02 11549587                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+75999d1be000-75999d1bf000 r--p 00005000 08:02 11549587                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+75999d1bf000-75999d1c0000 rw-p 00006000 08:02 11549587                   /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+75999d1c0000-75999d1c2000 r--p 00000000 08:02 11549601                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+75999d1c2000-75999d1c5000 r-xp 00002000 08:02 11549601                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+75999d1c5000-75999d1c6000 r--p 00005000 08:02 11549601                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+75999d1c6000-75999d1c7000 r--p 00005000 08:02 11549601                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+75999d1c7000-75999d1c8000 rw-p 00006000 08:02 11549601                   /usr/lib/x86_64-linux-gnu/libXtst.so.6.1.0
+75999d1c8000-75999d1cd000 r--p 00000000 08:02 11550224                   /usr/lib/x86_64-linux-gnu/libpng16.so.16.43.0
+75999d1cd000-75999d1f5000 r-xp 00005000 08:02 11550224                   /usr/lib/x86_64-linux-gnu/libpng16.so.16.43.0
+75999d1f5000-75999d1fe000 r--p 0002d000 08:02 11550224                   /usr/lib/x86_64-linux-gnu/libpng16.so.16.43.0
+75999d1fe000-75999d1ff000 r--p 00035000 08:02 11550224                   /usr/lib/x86_64-linux-gnu/libpng16.so.16.43.0
+75999d1ff000-75999d200000 rw-p 00036000 08:02 11550224                   /usr/lib/x86_64-linux-gnu/libpng16.so.16.43.0
+75999d200000-75999d204000 ---p 00000000 00:00 0 
+75999d204000-75999d300000 rw-p 00000000 00:00 0 
+75999d300000-75999d304000 ---p 00000000 00:00 0 
+75999d304000-75999d400000 rw-p 00000000 00:00 0 
+75999d400000-75999d404000 ---p 00000000 00:00 0 
+75999d404000-75999d500000 rw-p 00000000 00:00 0 
+75999d500000-75999d504000 ---p 00000000 00:00 0 
+75999d504000-75999d600000 rw-p 00000000 00:00 0 
+75999d600000-75999d604000 ---p 00000000 00:00 0 
+75999d604000-75999d700000 rw-p 00000000 00:00 0 
+75999d700000-75999d704000 ---p 00000000 00:00 0 
+75999d704000-75999d800000 rw-p 00000000 00:00 0 
+75999d800000-75999d804000 ---p 00000000 00:00 0 
+75999d804000-75999d900000 rw-p 00000000 00:00 0 
+75999d900000-75999d904000 ---p 00000000 00:00 0 
+75999d904000-75999da00000 rw-p 00000000 00:00 0 
+75999da00000-75999da04000 ---p 00000000 00:00 0 
+75999da04000-75999db00000 rw-p 00000000 00:00 0 
+75999db00000-75999db04000 ---p 00000000 00:00 0 
+75999db04000-75999dc00000 rw-p 00000000 00:00 0 
+75999dc00000-75999dc04000 ---p 00000000 00:00 0 
+75999dc04000-75999dd00000 rw-p 00000000 00:00 0 
+75999dd00000-75999dd04000 ---p 00000000 00:00 0 
+75999dd04000-75999de00000 rw-p 00000000 00:00 0 
+75999de00000-75999de04000 ---p 00000000 00:00 0 
+75999de04000-75999df00000 rw-p 00000000 00:00 0 
+75999df00000-75999df04000 ---p 00000000 00:00 0 
+75999df04000-75999e000000 rw-p 00000000 00:00 0 
+75999e000000-7599a0021000 rw-p 00000000 00:00 0 
+7599a0021000-7599a4000000 ---p 00000000 00:00 0 
+7599a4000000-7599a4021000 rw-p 00000000 00:00 0 
+7599a4021000-7599a8000000 ---p 00000000 00:00 0 
+7599a8000000-7599a8021000 rw-p 00000000 00:00 0 
+7599a8021000-7599ac000000 ---p 00000000 00:00 0 
+7599ac001000-7599ac002000 r--p 00000000 08:02 11549582                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7599ac002000-7599ac004000 r-xp 00001000 08:02 11549582                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7599ac004000-7599ac005000 r--p 00003000 08:02 11549582                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7599ac005000-7599ac006000 r--p 00003000 08:02 11549582                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7599ac006000-7599ac007000 rw-p 00004000 08:02 11549582                   /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7599ac007000-7599ac009000 r--p 00000000 08:02 11549598                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7599ac009000-7599ac010000 r-xp 00002000 08:02 11549598                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7599ac010000-7599ac011000 r--p 00009000 08:02 11549598                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7599ac011000-7599ac012000 r--p 00009000 08:02 11549598                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7599ac012000-7599ac013000 rw-p 0000a000 08:02 11549598                   /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7599ac013000-7599ac014000 r--p 00000000 08:02 11549731                   /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.1.0
+7599ac014000-7599ac015000 r-xp 00001000 08:02 11549731                   /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.1.0
+7599ac015000-7599ac034000 r--p 00002000 08:02 11549731                   /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.1.0
+7599ac034000-7599ac035000 r--p 00021000 08:02 11549731                   /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.1.0
+7599ac035000-7599ac036000 rw-p 00022000 08:02 11549731                   /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.1.0
+7599ac036000-7599ac038000 r--p 00000000 08:02 11549737                   /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+7599ac038000-7599ac046000 r-xp 00002000 08:02 11549737                   /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+7599ac046000-7599ac048000 r--p 00010000 08:02 11549737                   /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+7599ac048000-7599ac049000 r--p 00011000 08:02 11549737                   /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+7599ac049000-7599ac04a000 rw-p 00012000 08:02 11549737                   /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4
+7599ac04a000-7599ac052000 r--p 00000000 08:02 11549864                   /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.12.1
+7599ac052000-7599ac081000 r-xp 00008000 08:02 11549864                   /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.12.1
+7599ac081000-7599ac098000 r--p 00037000 08:02 11549864                   /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.12.1
+7599ac098000-7599ac09a000 r--p 0004d000 08:02 11549864                   /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.12.1
+7599ac09a000-7599ac09b000 rw-p 0004f000 08:02 11549864                   /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.12.1
+7599ac09b000-7599ac09f000 ---p 00000000 00:00 0 
+7599ac09f000-7599ac19b000 rw-p 00000000 00:00 0 
+7599ac19b000-7599ac19f000 ---p 00000000 00:00 0 
+7599ac19f000-7599ac29b000 rw-p 00000000 00:00 0 
+7599ac29b000-7599ac29f000 ---p 00000000 00:00 0 
+7599ac29f000-7599ac39b000 rw-p 00000000 00:00 0 
+7599ac39b000-7599ac39f000 ---p 00000000 00:00 0 
+7599ac39f000-7599ac49b000 rw-p 00000000 00:00 0 
+7599ac49b000-7599ac49f000 ---p 00000000 00:00 0 
+7599ac49f000-7599ac59b000 rw-p 00000000 00:00 0 
+7599ac59b000-7599ac59f000 ---p 00000000 00:00 0 
+7599ac59f000-7599ac69b000 rw-p 00000000 00:00 0 
+7599ac69b000-7599ac69f000 ---p 00000000 00:00 0 
+7599ac69f000-7599ac79b000 rw-p 00000000 00:00 0 
+7599ac79b000-7599ac79f000 ---p 00000000 00:00 0 
+7599ac79f000-7599ac89b000 rw-p 00000000 00:00 0 
+7599ac89b000-7599ac89c000 ---p 00000000 00:00 0 
+7599ac89c000-7599ac99c000 rw-p 00000000 00:00 0 
+7599ac99c000-7599ac99d000 ---p 00000000 00:00 0 
+7599ac99d000-7599aca9d000 rw-p 00000000 00:00 0 
+7599acbb7000-7599acc38000 rw-p 00000000 00:00 0 
+7599acc38000-7599acc39000 ---p 00000000 00:00 0 
+7599acc39000-7599acd39000 rw-p 00000000 00:00 0 
+7599acd39000-7599acd3a000 ---p 00000000 00:00 0 
+7599acd3a000-7599ace3a000 rw-p 00000000 00:00 0 
+7599ace3a000-7599ad6e0000 rw-p 00000000 00:00 0 
+7599ad6e0000-7599ad960000 ---p 00000000 00:00 0 
+7599ad960000-7599ad9c0000 rw-p 00000000 00:00 0 
+7599ad9c0000-7599bcf40000 ---p 00000000 00:00 0 
+7599bcf40000-7599bcf94000 rw-p 00000000 00:00 0 
+7599bcf94000-7599bcfe4000 ---p 00000000 00:00 0 
+7599bcfe4000-7599bcff0000 rw-p 00000000 00:00 0 
+7599bcff0000-7599beea0000 ---p 00000000 00:00 0 
+7599beea0000-7599beef4000 rw-p 00000000 00:00 0 
+7599beef4000-7599bef44000 ---p 00000000 00:00 0 
+7599bef44000-7599bef50000 rw-p 00000000 00:00 0 
+7599bef50000-7599c0e00000 ---p 00000000 00:00 0 
+7599c0e00000-7599c3790000 rwxp 00000000 00:00 0 
+7599c3790000-7599c8217000 ---p 00000000 00:00 0 
+7599c8217000-7599c87e7000 rwxp 00000000 00:00 0 
+7599c87e7000-7599c89e8000 ---p 00000000 00:00 0 
+7599c89e8000-7599c99d8000 rwxp 00000000 00:00 0 
+7599c99d8000-7599cfe00000 ---p 00000000 00:00 0 
+7599cfe00000-7599d3e5a000 r--s 00000000 08:02 22696658                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/modules
+7599d3e5b000-7599d3e5d000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+7599d3e5d000-7599d3e61000 r--p 00000000 08:02 11543183                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+7599d3e61000-7599d3e7e000 r-xp 00004000 08:02 11543183                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+7599d3e7e000-7599d3e86000 r--p 00021000 08:02 11543183                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+7599d3e86000-7599d3e88000 r--p 00028000 08:02 11543183                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+7599d3e88000-7599d3e89000 rw-p 0002a000 08:02 11543183                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1
+7599d3e89000-7599d3e8a000 rw-s 00000000 00:06 1115                       /dev/nvidia0
+7599d3e8a000-7599d3e8b000 rw-s 00000000 00:06 1115                       /dev/nvidia0
+7599d3e8b000-7599d3e8d000 r--p 00000000 08:02 11557719                   /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8000.0
+7599d3e8d000-7599d3e8f000 r-xp 00002000 08:02 11557719                   /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8000.0
+7599d3e8f000-7599d3e90000 r--p 00004000 08:02 11557719                   /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8000.0
+7599d3e90000-7599d3e91000 r--p 00004000 08:02 11557719                   /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8000.0
+7599d3e91000-7599d3e92000 rw-p 00005000 08:02 11557719                   /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8000.0
+7599d3e92000-7599d3e94000 r--p 00000000 08:02 11549597                   /usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7599d3e94000-7599d3e9b000 r-xp 00002000 08:02 11549597                   /usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7599d3e9b000-7599d3e9d000 r--p 00009000 08:02 11549597                   /usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7599d3e9d000-7599d3e9e000 r--p 0000a000 08:02 11549597                   /usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7599d3e9e000-7599d3e9f000 rw-p 0000b000 08:02 11549597                   /usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7599d3e9f000-7599d3ea0000 r--p 00000000 08:02 22696559                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager_xawt.so
+7599d3ea0000-7599d3ea1000 r-xp 00001000 08:02 22696559                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager_xawt.so
+7599d3ea1000-7599d3ea2000 r--p 00002000 08:02 22696559                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager_xawt.so
+7599d3ea2000-7599d3ea3000 r--p 00002000 08:02 22696559                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libfontmanager_xawt.so
+7599d3ea3000-7599d4ef0000 rw-p 00000000 00:00 0 
+7599d4ef0000-7599d8000000 ---p 00000000 00:00 0 
+7599d8000000-7599d8001000 rw-s 00000000 00:06 1115                       /dev/nvidia0
+7599d8001000-7599d8002000 rw-s 00000000 00:06 1115                       /dev/nvidia0
+7599d8002000-7599d8006000 ---p 00000000 00:00 0 
+7599d8006000-7599d8024000 rw-p 00000000 00:00 0 
+7599d8024000-7599d8028000 ---p 00000000 00:00 0 
+7599d8028000-7599d8046000 rw-p 00000000 00:00 0 
+7599d8046000-7599d9097000 rw-p 00000000 00:00 0 
+7599d9097000-7599d9098000 ---p 00000000 00:00 0 
+7599d9098000-7599d9198000 rw-p 00000000 00:00 0 
+7599d9198000-7599d9199000 ---p 00000000 00:00 0 
+7599d9199000-7599d9299000 rw-p 00000000 00:00 0 
+7599d9299000-7599d929a000 ---p 00000000 00:00 0 
+7599d929a000-7599d939a000 rw-p 00000000 00:00 0 
+7599d939a000-7599dac4e000 rw-p 00000000 00:00 0 
+7599dac4e000-7599dad17000 ---p 00000000 00:00 0 
+7599dad17000-7599dad6b000 rw-p 00000000 00:00 0 
+7599dad6b000-7599dae00000 ---p 00000000 00:00 0 
+7599dae00000-7599db375000 r--p 00000000 08:02 11566505                   /usr/lib/locale/locale-archive
+7599db375000-7599db376000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+7599db376000-7599db377000 r--p 00000000 08:02 11549732                   /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.1.0
+7599db377000-7599db37f000 r-xp 00001000 08:02 11549732                   /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.1.0
+7599db37f000-7599db382000 r--p 00009000 08:02 11549732                   /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.1.0
+7599db382000-7599db383000 r--p 0000b000 08:02 11549732                   /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.1.0
+7599db383000-7599db384000 rw-p 0000c000 08:02 11549732                   /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.1.0
+7599db384000-7599db388000 r--p 00000000 08:02 22696597                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libverify.so
+7599db388000-7599db38f000 r-xp 00004000 08:02 22696597                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libverify.so
+7599db38f000-7599db391000 r--p 0000b000 08:02 22696597                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libverify.so
+7599db391000-7599db393000 r--p 0000c000 08:02 22696597                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libverify.so
+7599db393000-7599db394000 rw-p 00000000 00:00 0 
+7599db394000-7599db395000 r--p 00000000 08:02 22696557                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libextnet.so
+7599db395000-7599db396000 r-xp 00001000 08:02 22696557                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libextnet.so
+7599db396000-7599db397000 r--p 00002000 08:02 22696557                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libextnet.so
+7599db397000-7599db398000 r--p 00002000 08:02 22696557                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libextnet.so
+7599db398000-7599db417000 rw-p 00000000 00:00 0 
+7599db417000-7599db41b000 ---p 00000000 00:00 0 
+7599db41b000-7599db517000 rw-p 00000000 00:00 0 
+7599db517000-7599db527000 r--p 00000000 08:02 11536903                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7599db527000-7599db5a6000 r-xp 00010000 08:02 11536903                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7599db5a6000-7599db5fe000 r--p 0008f000 08:02 11536903                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7599db5fe000-7599db5ff000 r--p 000e7000 08:02 11536903                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7599db5ff000-7599db600000 rw-p 000e8000 08:02 11536903                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7599db600000-7599db8a3000 r--p 00000000 08:02 22696671                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/server/libjvm.so
+7599db8a3000-7599dc711000 r-xp 002a3000 08:02 22696671                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/server/libjvm.so
+7599dc711000-7599dc9f7000 r--p 01111000 08:02 22696671                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/server/libjvm.so
+7599dc9f7000-7599dc9f8000 ---p 013f7000 08:02 22696671                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/server/libjvm.so
+7599dc9f8000-7599dcacc000 r--p 013f7000 08:02 22696671                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/server/libjvm.so
+7599dcacc000-7599dcafc000 rw-p 014cb000 08:02 22696671                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/server/libjvm.so
+7599dcafc000-7599dcb72000 rw-p 00000000 00:00 0 
+7599dcb72000-7599dcb73000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+7599dcb73000-7599dcb76000 r--s 00000000 08:02 13109436                   /var/cache/fontconfig/62f91419b9ebdb6975e7e41ab6412357-le64.cache-9
+7599dcb76000-7599dcb79000 r--p 00000000 08:02 22696586                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnet.so
+7599dcb79000-7599dcb81000 r-xp 00003000 08:02 22696586                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnet.so
+7599dcb81000-7599dcb83000 r--p 0000b000 08:02 22696586                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnet.so
+7599dcb83000-7599dcb84000 ---p 0000d000 08:02 22696586                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnet.so
+7599dcb84000-7599dcb85000 r--p 0000d000 08:02 22696586                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnet.so
+7599dcb85000-7599dcb86000 rw-p 00000000 00:00 0 
+7599dcb86000-7599dcb8d000 r--p 00000000 08:02 22696589                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnio.so
+7599dcb8d000-7599dcb96000 r-xp 00007000 08:02 22696589                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnio.so
+7599dcb96000-7599dcb9a000 r--p 00010000 08:02 22696589                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnio.so
+7599dcb9a000-7599dcb9b000 ---p 00014000 08:02 22696589                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnio.so
+7599dcb9b000-7599dcb9c000 r--p 00014000 08:02 22696589                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnio.so
+7599dcb9c000-7599dcb9d000 rw-p 00015000 08:02 22696589                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libnio.so
+7599dcb9d000-7599dcb9e000 r--p 00000000 08:02 22696556                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libdt_socket.so
+7599dcb9e000-7599dcba1000 r-xp 00001000 08:02 22696556                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libdt_socket.so
+7599dcba1000-7599dcba2000 r--p 00004000 08:02 22696556                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libdt_socket.so
+7599dcba2000-7599dcba3000 ---p 00005000 08:02 22696556                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libdt_socket.so
+7599dcba3000-7599dcba4000 r--p 00005000 08:02 22696556                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libdt_socket.so
+7599dcba4000-7599dcba5000 rw-p 00006000 08:02 22696556                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libdt_socket.so
+7599dcba5000-7599dcbac000 r--s 00000000 08:02 11536858                   /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7599dcbac000-7599dcbb8000 rw-p 00000000 00:00 0 
+7599dcbb8000-7599dcbbc000 ---p 00000000 00:00 0 
+7599dcbbc000-7599dcbbf000 r--p 00000000 08:02 22696570                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjdwp.so
+7599dcbbf000-7599dcbee000 r-xp 00003000 08:02 22696570                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjdwp.so
+7599dcbee000-7599dcbfd000 r--p 00032000 08:02 22696570                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjdwp.so
+7599dcbfd000-7599dcbfe000 r--p 00040000 08:02 22696570                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjdwp.so
+7599dcbfe000-7599dcbff000 rw-p 00041000 08:02 22696570                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjdwp.so
+7599dcbff000-7599dcc00000 rw-p 00000000 00:00 0 
+7599dcc00000-7599dcc28000 r--p 00000000 08:02 11536900                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7599dcc28000-7599dcdb0000 r-xp 00028000 08:02 11536900                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7599dcdb0000-7599dcdff000 r--p 001b0000 08:02 11536900                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7599dcdff000-7599dce03000 r--p 001fe000 08:02 11536900                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7599dce03000-7599dce05000 rw-p 00202000 08:02 11536900                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7599dce05000-7599dce12000 rw-p 00000000 00:00 0 
+7599dce12000-7599dce13000 rw-s 00000000 00:06 1114                       /dev/nvidiactl
+7599dce13000-7599dce14000 rw-s 00044000 00:01 25600                      /memfd:/.nvidia_drv.XXXXXX (deleted)
+7599dce14000-7599dce1b000 r--s 00111000 08:02 22697704                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/java/lib/rt/debugger-agent.jar
+7599dce1b000-7599dce1d000 r--p 00000000 08:02 22696601                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libzip.so
+7599dce1d000-7599dce21000 r-xp 00002000 08:02 22696601                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libzip.so
+7599dce21000-7599dce23000 r--p 00006000 08:02 22696601                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libzip.so
+7599dce23000-7599dce24000 r--p 00007000 08:02 22696601                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libzip.so
+7599dce24000-7599dce25000 rw-p 00000000 00:00 0 
+7599dce25000-7599dce32000 r--p 00000000 08:02 22696566                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjava.so
+7599dce32000-7599dce40000 r-xp 0000d000 08:02 22696566                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjava.so
+7599dce40000-7599dce45000 r--p 0001b000 08:02 22696566                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjava.so
+7599dce45000-7599dce46000 ---p 00020000 08:02 22696566                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjava.so
+7599dce46000-7599dce47000 r--p 00020000 08:02 22696566                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjava.so
+7599dce47000-7599dce48000 rw-p 00021000 08:02 22696566                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjava.so
+7599dce48000-7599dce49000 rw-p 00000000 00:00 0 
+7599dce49000-7599dce4c000 r--p 00000000 08:02 22696571                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjimage.so
+7599dce4c000-7599dce60000 r-xp 00003000 08:02 22696571                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjimage.so
+7599dce60000-7599dce66000 r--p 00017000 08:02 22696571                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjimage.so
+7599dce66000-7599dce68000 r--p 0001c000 08:02 22696571                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjimage.so
+7599dce68000-7599dce69000 rw-p 0001e000 08:02 22696571                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjimage.so
+7599dce69000-7599dce6a000 r--p 00000000 08:02 11536914                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7599dce6a000-7599dce6b000 r-xp 00001000 08:02 11536914                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7599dce6b000-7599dce6c000 r--p 00002000 08:02 11536914                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7599dce6c000-7599dce6d000 r--p 00002000 08:02 11536914                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7599dce6d000-7599dce6e000 rw-p 00003000 08:02 11536914                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7599dce6e000-7599dce72000 rw-p 00000000 00:00 0 
+7599dce72000-7599dce73000 r--p 00000000 08:02 11536902                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7599dce73000-7599dce74000 r-xp 00001000 08:02 11536902                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7599dce74000-7599dce75000 r--p 00002000 08:02 11536902                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7599dce75000-7599dce76000 r--p 00002000 08:02 11536902                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7599dce76000-7599dce77000 rw-p 00003000 08:02 11536902                   /usr/lib/x86_64-linux-gnu/libdl.so.2
+7599dce77000-7599dce78000 r--p 00000000 08:02 11536912                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7599dce78000-7599dce79000 r-xp 00001000 08:02 11536912                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7599dce79000-7599dce7a000 r--p 00002000 08:02 11536912                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7599dce7a000-7599dce7b000 r--p 00002000 08:02 11536912                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7599dce7b000-7599dce7c000 rw-p 00003000 08:02 11536912                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7599dce7c000-7599dce7e000 r--p 00000000 08:02 22696572                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjli.so
+7599dce7e000-7599dce88000 r-xp 00002000 08:02 22696572                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjli.so
+7599dce88000-7599dce8b000 r--p 0000c000 08:02 22696572                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjli.so
+7599dce8b000-7599dce8c000 ---p 0000f000 08:02 22696572                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjli.so
+7599dce8c000-7599dce8d000 r--p 0000f000 08:02 22696572                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjli.so
+7599dce8d000-7599dce8e000 rw-p 00010000 08:02 22696572                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libjli.so
+7599dce8e000-7599dce90000 r--p 00000000 08:02 11550469                   /usr/lib/x86_64-linux-gnu/libz.so.1.3
+7599dce90000-7599dcea2000 r-xp 00002000 08:02 11550469                   /usr/lib/x86_64-linux-gnu/libz.so.1.3
+7599dcea2000-7599dcea8000 r--p 00014000 08:02 11550469                   /usr/lib/x86_64-linux-gnu/libz.so.1.3
+7599dcea8000-7599dcea9000 r--p 0001a000 08:02 11550469                   /usr/lib/x86_64-linux-gnu/libz.so.1.3
+7599dcea9000-7599dceaa000 rw-p 0001b000 08:02 11550469                   /usr/lib/x86_64-linux-gnu/libz.so.1.3
+7599dceaa000-7599dceab000 r--s 00000000 08:02 22442258                   /home/pc/.cache/fontconfig/3f7329c5293ffd510edef78f73874cfd-le64.cache-9
+7599dceab000-7599dceac000 r--s 00000000 08:02 13115856                   /var/cache/fontconfig/da43223dd54fb3bb4243ae19d4b583b2-le64.cache-9
+7599dceac000-7599dcead000 r--s 00000000 00:56 241                        /run/user/1000/dconf/user
+7599dcead000-7599dceb5000 rw-s 00000000 08:02 5782179                    /tmp/hsperfdata_pc/142490
+7599dceb5000-7599dceb7000 r--p 00000000 08:02 22696561                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libinstrument.so
+7599dceb7000-7599dcebd000 r-xp 00002000 08:02 22696561                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libinstrument.so
+7599dcebd000-7599dcec0000 r--p 00008000 08:02 22696561                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libinstrument.so
+7599dcec0000-7599dcec1000 r--p 0000a000 08:02 22696561                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libinstrument.so
+7599dcec1000-7599dcec2000 rw-p 0000b000 08:02 22696561                   /home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr/lib/libinstrument.so
+7599dcec2000-7599dcec3000 ---p 00000000 00:00 0 
+7599dcec3000-7599dcec4000 r--p 00000000 00:00 0 
+7599dcec4000-7599dcec5000 ---p 00000000 00:00 0 
+7599dcec5000-7599dcec7000 rw-p 00000000 00:00 0 
+7599dcec7000-7599dcecb000 r--p 00000000 00:00 0                          [vvar]
+7599dcecb000-7599dcecd000 r-xp 00000000 00:00 0                          [vdso]
+7599dcecd000-7599dcece000 r--p 00000000 08:02 11536897                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7599dcece000-7599dcef9000 r-xp 00001000 08:02 11536897                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7599dcef9000-7599dcf03000 r--p 0002c000 08:02 11536897                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7599dcf03000-7599dcf05000 r--p 00036000 08:02 11536897                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7599dcf05000-7599dcf07000 rw-p 00038000 08:02 11536897                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffc7bb09000-7ffc7bb2f000 rw-p 00000000 00:00 0                          [stack]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+Total number of mappings: 893
+
+
+VM Arguments:
+jvm_args: -Dcompose.reload.argfile=/home/pc/Projects/StudentManagement/composeApp/build/run/desktopMain/desktopRunHot.argfile -Dcompose.reload.build.continuous=true -Dcompose.reload.buildSystem=Gradle -Dcompose.reload.devToolsClasspath=/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-devtools/1.0.0-alpha09/6382bee6db7a6fbaea4b2b4f764dc239ce20b516/hot-reload-devtools-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-runtime-api-jvm/1.0.0-alpha09/442228d88b19fcdfe131f6bd83d4b23c0d662f64/hot-reload-runtime-api-jvm-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-runtime-jvm/1.0.0-alpha09/c8e867769d00606e494a55bb13289b4ca25a1878/hot-reload-runtime-jvm-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.desktop/desktop-jvm/1.7.3/128a1262fd72c68277ebadf308a07ff086206f8e/desktop-jvm-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material3/material3-desktop/1.7.3/46677287ea3e5da18b2ad62cac38b6c3df70c8cd/material3-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.components/components-resources-desktop/1.7.3/aeb1cd8677ec680fcf716aecbaf1a2aafc217622/library-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/io.sellmair/evas-compose-jvm/1.2.0/bc43ce22c5d8814fd551c1287976734e51e6d673/evas-compose-jvm-1.2.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-desktop/1.7.3/e87876e0c6f36990f13cedb09d820469fd6cc371/material-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-ripple-desktop/1.7.3/42b03965266ad123672e8a87f98d914dc8c072bf/material-ripple-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-desktop/1.7.3/77da4f0c26d63177315b3dce06c48177c5d49704/foundation-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-desktop/1.7.3/c1fec150a3d1eadfe4643a550cbc9c83d106ef98/animation-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/fil-Dcompose.reload.devToolsEnabled=true -Dcompose.reload.devToolsTransparencyEnabled=false -Dcompose.reload.dirtyResolveDepthLimit=5 -Dcompose.reload.launchMode=GradleBlocking -Dcompose.reload.mainClass=com.ahmed.MainKt -Dcompose.reload.pidFile=/home/pc/Projects/StudentManagement/composeApp/build/run/desktopMain/desktopRunHot.pid -Dcompose.reload.virtualMethodResolveEnabled=true -Ddebugger.agent.enable.coroutines=true -Dgradle.build.project=:composeApp -Dgradle.build.root=/home/pc/Projects/StudentManagement -Dgradle.build.task=reloadDesktopMainClasspath -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Dkotlinx.coroutines.debug.enable.flows.stack.trace=true -Dkotlinx.coroutines.debug.enable.mutable.state.flows.stack.trace=true -Dorg.gradle.java.home=/home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/jbr -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=127.0.0.1:37151 -javaagent:/home/pc/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/java/lib/rt/debugger-agent.jar=file:///tmp/capture13101633082091306401.props -XX:+IgnoreUnrecognizedVMOptions -XX:+AllowEnhancedClassRedefinition -javaagent:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-agent/1.0.0-alpha09/dbf9b0128abaf92df89ed5c4a5bf541950615275/hot-reload-agent-1.0.0-alpha09.jar -javaagent:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/4a9f78ef49483748e2c129f3d124b8fa249dafbf/kotlinx-coroutines-core-jvm-1.10.2.jar -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea -Dawt.toolkit.name=XToolkit 
+java_command: com.ahmed.MainKt
+java_class_path (initial): /home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-agent/1.0.0-alpha09/dbf9b0128abaf92df89ed5c4a5bf541950615275/hot-reload-agent-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-orchestration/1.0.0-alpha09/82bb09d12bdac93bf2af54f05708a433072b1584/hot-reload-orchestration-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-analysis/1.0.0-alpha09/c65662c72184f6b0364678b990bd1daf9b2155f0/hot-reload-analysis-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-core/1.0.0-alpha09/5cb3fb97cc3b6e219a886ccdbe08535a3f72dc2e/hot-reload-core-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.16/172931663a09a1fa515567af5fbef00897d3c04/slf4j-api-2.0.16.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.30.2-GA/284580b5e42dfa1b8267058566435d9e93fae7f7/javassist-3.30.2-GA.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.20/aa8ca79cd50578314f6d1180c47cbe14c0fee567/kotlin-stdlib-2.1.20.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.7.1/3a53139787663b139de76b627fca0084ab60d32c/asm-tree-9.7.1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.7.1/f0ed132a49244b042cd0e15702ab9f2ce3cc8436/asm-9.7.1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/home/pc/Projects/StudentManagement/composeApp/build/run/desktopMain/classpath/hot:/home/pc/Projects/StudentManagement/composeApp/build/run/desktopMain/classpath/classes:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.components/components-splitpane-desktop/1.8.0/5cf5c0e8478ae84ebf8483426b9f588ef89ea74c/library-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material3/material3-desktop/1.8.0/127c5b21d15ddb0a91765d59d02c68d69130cdd0/material3-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.components/components-resources-desktop/1.8.0/10110d785f486bc13235f40e1d0b91a48b5f3ee6/library-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.desktop/desktop-jvm/1.8.0/7a5516c08efe9fef2e6aa38a10e5fc17fb556148/desktop-jvm-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-desktop/1.8.0/eb68e7add6287443a90854fa65af432823e8271e/material-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-ripple-desktop/1.8.0/5364a917218879742c9f08f55791adb3a7c26c8a/material-ripple-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-desktop/1.8.0/95a4ab44a0b846ca6889e76ee974abe09e940fc7/foundation-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-extended-desktop/1.7.3/c7c5465dd754043076875b32bce0dd7f5a354fe8/material-icons-extended-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-desktop/1.8.0/fc991c57d631e9b7cc9df2c01f70fdc02a4129e/animation-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-layout-desktop/1.8.0/493312c9bba0d7ce31f71211f069338edb75674b/foundation-layout-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-core-desktop/1.8.0/ab392687af98ecb368182ac4f61c235f7ebba111/animation-core-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-core-desktop/1.7.3/414b3096050fe647b0638832eace80f22c06b85c/material-icons-core-desktop-1.7.3.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-desktop/1.8.0/81c980717ae8c58b158e89b801fe9b164e6f627/ui-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-dao/1.0.0-beta-1/aeb6c0e53517aabe1706f0e1e0446dabf2a698ef/exposed-dao-1.0.0-beta-1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-jdbc/1.0.0-beta-1/2c5400290f8fe223d27b481e746322c950a067d6/exposed-jdbc-1.0.0-beta-1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-kotlin-datetime/1.0.0-beta-1/79fc33c3932b17dac16f24c59164e33f3e2daf0e/exposed-kotlin-datetime-1.0.0-beta-1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-core/1.0.0-beta-1/fc4288f36b3b0072784150e6047ff10c1b33d4f1/exposed-core-1.0.0-beta-1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-backhandler-desktop/1.8.0/cc5d993298a1e08c7532c046991aceb0fc2675c3/ui-backhandler-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.androidx.lifecycle/lifecycle-runtime-compose-desktop/2.8.4/e950e2a504a045ac652718dc20e736f28c5ff4c2/lifecycle-runtime-compose-desktop-2.8.4.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-runtime-api-jvm/1.0.0-alpha09/442228d88b19fcdfe131f6bd83d4b23c0d662f64/hot-reload-runtime-api-jvm-1.0.0-alpha09.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.hot-reload/hot-reload-runtime-jvm/1.0.0-alpha09/51ee084d619a4f125e7a332697c5c2c477263ff1/hot-reload-runtime-jvm-1.0.0-alpha09-dev.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-text-desktop/1.8.0/2685be46f1df382dbf175d75a7061640bde8a848/ui-text-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-graphics-desktop/1.8.0/8970dad2e556a7fac4a454c2158d3c6a94372ef7/ui-graphics-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-saveable-desktop/1.8.0/c746b6378de826d1201ee33ef7f48f3537d7e9ad/runtime-saveable-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-unit-desktop/1.8.0/65eee0086e59109657cc7a7ad7569e1be78f1a93/ui-unit-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-geometry-desktop/1.8.0/6301b97db2ec7ea140bf185f0712891cfa1f480d/ui-geometry-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-tooling-preview-desktop/1.8.0/7e1d509da90394d063aef5b444bf218024b13250/ui-tooling-preview-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-desktop/1.8.0/2a8b68c67f1bd406b211ba465b866c7c1152b439/runtime-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/io.github.xxfast/kstore-file-desktop/0.9.1/e2e2887871eb6929314e03d1676f1ad44712a0ff/kstore-file-desktop-0.9.1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/io.github.xxfast/kstore-desktop/0.9.1/e0b6823653696399af03899d104c36a65b407856/kstore-desktop-0.9.1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-runtime-desktop/2.8.5/fed8b9973735cbe77645edf153d5f7bb412bfd45/lifecycle-runtime-desktop-2.8.5.jar:/home/pc/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common-jvm/2.8.5/7174a594afb73a9ad9ac9074ce78b94af3cc52a7/lifecycle-common-jvm-2.8.5.jar:/home/pc/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel-desktop/2.8.5/572f6fed6a70c5d87c9a0d17d05828ff1a6f19f8/lifecycle-viewmodel-desktop-2.8.5.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.skiko/skiko-awt-runtime-linux-x64/0.9.4/16adcd4b3b08a899c74218e1ddb3097a2663dcf3/skiko-awt-runtime-linux-x64-0.9.4.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.skiko/skiko-awt/0.9.4/604c4559bb488621cbde5a855867a76993030f46/skiko-awt-0.9.4.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/4a9f78ef49483748e2c129f3d124b8fa249dafbf/kotlinx-coroutines-core-jvm-1.10.2.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-swing/1.10.2/ccb5a2e7c83fa76da0ba4677f05678d3bd3eed57/kotlinx-coroutines-swing-1.10.2.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.components/components-ui-tooling-preview-desktop/1.8.0/a4a2a2895122b4e880ad5a7c143aee17c81af432/library-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-datetime-jvm/0.6.2/f177b43ce53f69151797206ce762b36199692474/kotlinx-datetime-jvm-0.6.2.jar:/home/pc/.gradle/caches/modules-2/files-2.1/com.russhwolf/multiplatform-settings-jvm/1.3.0/76fe39b1cbb2b2b951ec230ab85e610ae179aab7/multiplatform-settings-jvm-1.3.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/2.0.0/9c3d75110945233bf77d2e1a90604b100884db94/kotlin-reflect-2.0.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-io-jvm/1.8.1/de4e31bfc7ddf8585418f8d4fca649feca574cdf/kotlinx-serialization-json-io-jvm-1.8.1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm/1.8.1/510cb839cce9a3e708052d480a6fbf4a7274dfcd/kotlinx-serialization-core-jvm-1.8.1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm/1.8.1/4de3bace4b175753df5484d2acd74c14bfeb5be9/kotlinx-serialization-json-jvm-1.8.1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-util-desktop/1.8.0/2a882d6cfc3d1228c1284ca34a2ebfc2b5ca3815/ui-util-desktop-1.8.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/2.1.10/3009fa6a21ebb400fe38c70eaf218a0c669ddbe2/kotlin-stdlib-jdk8-2.1.10.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-jvm/0.23.2/a4601dc42dceb031a586058e8356ff778a57dea0/atomicfu-jvm-0.23.2.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/2.1.10/c9d8cb43c1d65c500ffbbb6eb591b9c8928caf6d/kotlin-stdlib-jdk7-2.1.10.jar:/home/pc/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.2.0/5e1b8b81dfd5f52c56a8d53b18ca759c19a301f3/core-common-2.2.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/androidx.collection/collection-jvm/1.5.0/7ba2c69414d46ebc2dd76598bdd0a75c54281a57/collection-jvm-1.5.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation-jvm/1.9.1/b17951747e38bf3986a24431b9ba0d039958aa5f/annotation-jvm-1.9.1.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-io-core-jvm/0.6.0/f1d1e496fe0c6937fdb7509442b7f3e613d345d4/kotlinx-io-core-jvm-0.6.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-io-bytestring-jvm/0.6.0/bb3104eef13622362179216566db2ea6a4e7ed64/kotlinx-io-bytestring-jvm-0.6.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.1.21/97a0975aa19d925e109537af60eb46902920015c/kotlin-stdlib-2.1.21.jar:/home/pc/.gradle/caches/modules-2/files-2.1/com.zaxxer/HikariCP/6.3.0/bebd113244c9d9926c6b792f28110ed6380cacc2/HikariCP-6.3.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/com.mysql/mysql-connector-j/9.3.0/6dbc33cd9534ec2715a8269fced1cd872630999d/mysql-connector-j-9.3.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/23.0.0/8cc20c07506ec18e0834947b84a864bfc094484e/annotations-23.0.0.jar:/home/pc/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.9/7cf2726fdcfbc8610f9a71fb3ed639871f315340/slf4j-api-2.0.9.jar:/home/pc/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/4.29.0/ffea90ab158435d68de76951857ef5f8b0f98365/protobuf-java-4.29.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     bool AllowEnhancedClassRedefinition           = true                                      {product} {command line}
+     intx CICompilerCount                          = 15                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 6                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 23                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 8388608                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+     bool IgnoreUnrecognizedVMOptions              = true                                      {product} {command line}
+   size_t InitialHeapSize                          = 1056964608                                {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 16844324864                               {product} {ergonomic}
+   size_t MaxNewSize                               = 10099884032                               {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 8388608                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 8192380                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 121732930                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 121732930                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 16844324864                            {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+PATH=/home/pc/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pc/.local/share/JetBrains/Toolbox/scripts
+SHELL=/usr/bin/zsh
+DISPLAY=:0
+LANG=en_US.UTF-8
+
+Active Locale:
+LC_ALL=en_US.UTF-8
+LC_COLLATE=en_US.UTF-8
+LC_CTYPE=en_US.UTF-8
+LC_MESSAGES=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+LC_NUMERIC=en_US.UTF-8
+LC_TIME=en_US.UTF-8
+
+Signal Handlers:
+   SIGSEGV: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGBUS: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGFPE: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGPIPE: SIG_IGN, mask=00000000000010000000000000000000, flags=SA_RESTART, blocked
+  *** Handler was modified!
+  *** Expected: javaSignalHandler in libjvm.so, mask=11100100110111111111111111111110, flags=SA_RESTART|SA_SIGINFO
+   SIGXFSZ: javaSignalHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGILL: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGUSR2: SR_handler in libjvm.so, mask=00000000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGHUP: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGINT: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTERM: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGQUIT: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTRAP: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+
+
+Periodic native trim disabled
+
+JNI global refs:
+JNI global refs: 290, weak refs: 13490
+
+JNI global refs memory usage: 5371, weak refs: 135561
+
+Process memory usage:
+Resident Set Size: 943368K (1% of 65795340K total physical memory with 27660300K free physical memory)
+
+OOME stack traces (most recent first):
+Classloader memory used:
+Loader jdk.internal.loader.ClassLoaders$AppClassLoader                                 : 47742K
+Loader bootstrap                                                                       : 24854K
+Loader jdk.internal.loader.ClassLoaders$PlatformClassLoader                            : 782K
+Loader jdk.internal.reflect.DelegatingClassLoader                                      : 60424B
+
+Classes loaded by more than one classloader:
+Class com.ahmed.ui.enrollment.ComposableSingletons$EnrollmentTabKt$lambda$1169704330$1: loaded 5 times (x 71B)
+Class com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$5$1$1                     : loaded 4 times (x 72B)
+Class com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$5$1$2                     : loaded 4 times (x 72B)
+Class com.ahmed.viewModel.EnrollmentViewModel$loadEnrollments$1                       : loaded 4 times (x 92B)
+Class com.ahmed.viewModel.EnrollmentViewModel$loadUnenrolledStudents$1                : loaded 4 times (x 92B)
+Class com.ahmed.ui.enrollment.EnrollmentTabKt                                         : loaded 4 times (x 68B)
+Class com.ahmed.ui.enrollment.ComposableSingletons$EnrollmentTabKt$lambda$-18668828$1 : loaded 4 times (x 71B)
+Class com.ahmed.viewModel.EnrollmentViewModel$1                                       : loaded 3 times (x 92B)
+Class com.ahmed.viewModel.EnrollmentViewModel$2                                       : loaded 3 times (x 92B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListContentKt$EnrollmentListContent$lambda$5$lambda$4$lambda$3$$inlined$items$default$4: loaded 3 times (x 72B)
+Class com.ahmed.ui.course.ManageCourseTabKt                                           : loaded 3 times (x 68B)
+Class com.ahmed.viewModel.EnrollmentViewModel$1$1                                     : loaded 3 times (x 72B)
+Class com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$1$1                       : loaded 3 times (x 92B)
+Class com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$2$1$1                     : loaded 3 times (x 92B)
+Class com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$3$1                       : loaded 3 times (x 92B)
+Class com.ahmed.ui.enrollment.ComposableSingletons$EnrollmentTabKt                    : loaded 3 times (x 68B)
+Class com.ahmed.model.Instructors                                                     : loaded 3 times (x 100B)
+Class com.ahmed.viewModel.EnrollmentViewModel                                         : loaded 3 times (x 73B)
+Class studentmanagement.composeapp.generated.resources.Font0_desktopMainKt            : loaded 2 times (x 68B)
+Class com.ahmed.viewModel.ViewModelProvider                                           : loaded 2 times (x 68B)
+Class com.ahmed.viewModel.StudentViewModel$1                                          : loaded 2 times (x 92B)
+Class com.ahmed.ui.course.ManageCourseTabKt$ManageCourseTab$1$1                       : loaded 2 times (x 92B)
+Class java.lang.IllegalMonitorStateException                                          : loaded 2 times (x 79B)
+Class com.ahmed.store.DbConfig$Companion                                              : loaded 2 times (x 68B)
+Class com.ahmed.viewModel.StudentViewModel$2                                          : loaded 2 times (x 92B)
+Class com.ahmed.ui.components.ComposableSingletons$ListHeaderKt                       : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.StudentTabKt$StudentTab$2$1$1$2$1                          : loaded 2 times (x 122B)
+Class com.ahmed.ui.student.form.ComposableSingletons$StudentFormKt$lambda$1655598926$1: loaded 2 times (x 71B)
+Class com.ahmed.store.DbConfig$$serializer                                            : loaded 2 times (x 87B)
+Class com.ahmed.util.Logger                                                           : loaded 2 times (x 68B)
+Class com.ahmed.ui.ComposableSingletons$AppScaffoldKt$lambda$-1429873745$1            : loaded 2 times (x 71B)
+Class com.ahmed.ui.components.ComposableSingletons$ConfirmDeleteDialogKt$lambda$-1675472509$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.enrollment.form.ComposableSingletons$EnrollmentFormKt$lambda$-1261417635$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.enrollment.list.ComposableSingletons$EnrollmentListItemKt          : loaded 2 times (x 68B)
+Class com.ahmed.ui.database.DatabaseTopBarMenuKt                                      : loaded 2 times (x 68B)
+Class com.ahmed.viewModel.CourseViewModel$loadCourses$1                               : loaded 2 times (x 92B)
+Class com.ahmed.model.Student$Companion                                               : loaded 2 times (x 80B)
+Class com.ahmed.model.EnrollmentStatus                                                : loaded 2 times (x 76B)
+Class com.ahmed.viewModel.InstructorViewModel$2$1                                     : loaded 2 times (x 72B)
+Class com.ahmed.ui.components.DatePickerFieldKt                                       : loaded 2 times (x 68B)
+Class com.ahmed.ComposableSingletons$MainKt                                           : loaded 2 times (x 68B)
+Class java.lang.InternalError                                                         : loaded 2 times (x 79B)
+Class com.ahmed.ui.student.form.ComposableSingletons$StudentFormKt$lambda$-996089059$1: loaded 2 times (x 71B)
+Class java.lang.OutOfMemoryError                                                      : loaded 2 times (x 79B)
+Class com.ahmed.model.DatabaseManager                                                 : loaded 2 times (x 68B)
+Class com.ahmed.MainKt                                                                : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.list.StudentListContentKt$StudentListContent$lambda$4$lambda$3$lambda$2$$inlined$items$default$1: loaded 2 times (x 71B)
+Class com.ahmed.model.StudentStatus$Companion                                         : loaded 2 times (x 68B)
+Class com.ahmed.store.StoreKt                                                         : loaded 2 times (x 68B)
+Class com.ahmed.ui.database.ComposableSingletons$DatabaseTopBarMenuKt$lambda$-701983698$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.student.list.StudentListContentKt$StudentListContent$lambda$4$lambda$3$lambda$2$$inlined$items$default$3: loaded 2 times (x 72B)
+Class com.ahmed.model.Enrollment$Companion                                            : loaded 2 times (x 80B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListContentKt$EnrollmentListContent$lambda$5$lambda$4$lambda$3$$inlined$items$default$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.ComposableSingletons$AppScaffoldKt$lambda$1741839051$1             : loaded 2 times (x 71B)
+Class com.ahmed.ui.student.list.StudentListContentKt$StudentListContent$lambda$4$lambda$3$lambda$2$$inlined$items$default$4: loaded 2 times (x 72B)
+Class com.ahmed.ui.course.ComposableSingletons$ManageCourseTabKt$lambda$1271434087$1  : loaded 2 times (x 71B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListContentKt$EnrollmentListContent$lambda$5$lambda$4$lambda$3$$inlined$items$default$3: loaded 2 times (x 72B)
+Class com.ahmed.repository.CourseRepository$getAllCourses$2                           : loaded 2 times (x 92B)
+Class com.ahmed.ui.database.ComposableSingletons$DatabaseTopBarMenuKt$lambda$-2022091577$1: loaded 2 times (x 71B)
+Class java.lang.ArrayStoreException                                                   : loaded 2 times (x 79B)
+Class com.ahmed.viewModel.EnrollmentViewModel$deleteEnrollment$1                      : loaded 2 times (x 92B)
+Class com.ahmed.ui.student.StudentTabKt$StudentTab$2$1$1                              : loaded 2 times (x 72B)
+Class com.ahmed.repository.EnrollmentRepository                                       : loaded 2 times (x 69B)
+Class com.ahmed.ui.components.ComposableSingletons$ConfirmDeleteDialogKt              : loaded 2 times (x 68B)
+Class com.ahmed.ui.ComposableSingletons$AppScaffoldKt                                 : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.StudentTabKt$StudentTab$2$1$2                              : loaded 2 times (x 72B)
+Class java.io.IOException                                                             : loaded 2 times (x 79B)
+Class com.ahmed.repository.StudentRepository$getAllStudents$2                         : loaded 2 times (x 92B)
+Class com.ahmed.ui.student.ComposableSingletons$StudentTabKt                          : loaded 2 times (x 68B)
+Class java.lang.Exception                                                             : loaded 2 times (x 79B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListItemKt                               : loaded 2 times (x 68B)
+Class com.ahmed.store.DbConfigKt                                                      : loaded 2 times (x 68B)
+Class java.lang.ClassNotFoundException                                                : loaded 2 times (x 80B)
+Class com.ahmed.store.StoreKt$initAppStorage$1$1                                      : loaded 2 times (x 91B)
+Class com.ahmed.ui.course.ManageCourseTabKt$Tabs$1$1$2                                : loaded 2 times (x 72B)
+Class com.ahmed.ui.course.ManageCourseTabKt$Header$1$2$4$1$1                          : loaded 2 times (x 72B)
+Class java.lang.ReflectiveOperationException                                          : loaded 2 times (x 79B)
+Class com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$5$1$1$3$1                 : loaded 2 times (x 122B)
+Class com.ahmed.ui.components.ComposableSingletons$DatePickerFieldKt$lambda$-1132930058$1: loaded 2 times (x 71B)
+Class com.ahmed.model.CourseDTO$Companion                                             : loaded 2 times (x 68B)
+Class com.ahmed.model.AttendanceStatus$Companion                                      : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.form.StudentFormKt$StudentForm$2$1$10$2                    : loaded 2 times (x 72B)
+Class com.ahmed.ui.student.form.StudentFormKt$StudentForm$2$2$2                       : loaded 2 times (x 72B)
+Class com.ahmed.ui.database.DatabaseTopBarMenuKt$DatabaseTopBarMenu$3                 : loaded 2 times (x 72B)
+Class com.ahmed.ui.course.ManageCourseTabKt$Header$1$2$2                              : loaded 2 times (x 72B)
+Class com.ahmed.ui.components.ComposableSingletons$DatePickerFieldKt$lambda$1298118725$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.student.form.StudentFormKt$StudentForm$2$1$10$4                    : loaded 2 times (x 72B)
+Class java.lang.VirtualMachineError                                                   : loaded 2 times (x 79B)
+Class java.lang.IllegalArgumentException                                              : loaded 2 times (x 79B)
+Class java.lang.Error                                                                 : loaded 2 times (x 79B)
+Class com.ahmed.ui.course.ManageCourseTabKt$Header$1$2$4                              : loaded 2 times (x 72B)
+Class java.lang.InterruptedException                                                  : loaded 2 times (x 79B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListContentKt                            : loaded 2 times (x 68B)
+Class com.ahmed.ui.theme.ColorKt                                                      : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.form.ComposableSingletons$StudentFormKt$lambda$-2103798761$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.enrollment.list.ComposableSingletons$EnrollmentListItemKt$lambda$1731070249$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.components.ComposableSingletons$DatePickerFieldKt                  : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.list.ComposableSingletons$StudentListItemKt$lambda$147969426$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.TabNavigationKt$WhenMappings                                       : loaded 2 times (x 68B)
+Class com.ahmed.ui.database.ComposableSingletons$ConnectionStatusKt$lambda$1052987476$1: loaded 2 times (x 71B)
+Class com.ahmed.model.Course                                                          : loaded 2 times (x 72B)
+Class com.ahmed.viewModel.AttendanceViewModel                                         : loaded 2 times (x 73B)
+Class java.lang.LinkageError                                                          : loaded 2 times (x 79B)
+Class com.ahmed.ui.ComposableSingletons$AppScaffoldKt$lambda$-673676191$1             : loaded 2 times (x 71B)
+Class com.ahmed.model.DatabaseManager$startConnectionMonitoring$1                     : loaded 2 times (x 92B)
+Class com.ahmed.model.CourseDTO                                                       : loaded 2 times (x 69B)
+Class java.lang.NoSuchMethodError                                                     : loaded 2 times (x 79B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListContentKt$EnrollmentListContent$1$1$1$1$2$1: loaded 2 times (x 72B)
+Class java.lang.ClassCastException                                                    : loaded 2 times (x 79B)
+Class com.ahmed.ui.database.ComposableSingletons$DatabaseTopBarMenuKt$lambda$-1178910202$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.modifier.CursorForHorizontalResizeKt                               : loaded 2 times (x 68B)
+Class com.ahmed.ui.theme.ThemeKt                                                      : loaded 2 times (x 68B)
+Class com.ahmed.viewModel.InstructorViewModel$1$1                                     : loaded 2 times (x 72B)
+Class java.lang.IncompatibleClassChangeError                                          : loaded 2 times (x 79B)
+Class com.ahmed.ui.student.StudentTabKt                                               : loaded 2 times (x 68B)
+Class com.ahmed.ui.course.ComposableSingletons$ManageCourseTabKt$lambda$-1538949269$1 : loaded 2 times (x 71B)
+Class com.ahmed.ui.student.ComposableSingletons$StudentTabKt$lambda$63891931$1        : loaded 2 times (x 71B)
+Class com.ahmed.ui.database.ComposableSingletons$DatabaseTopBarMenuKt$lambda$1465964228$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.student.form.StudentFormKt$StudentForm$1$1                         : loaded 2 times (x 92B)
+Class com.ahmed.ui.database.ComposableSingletons$DatabaseTopBarMenuKt$lambda$-417858618$1: loaded 2 times (x 71B)
+Class com.ahmed.model.StudentDTO                                                      : loaded 2 times (x 69B)
+Class com.ahmed.ui.components.ComposableSingletons$ListHeaderKt$lambda$-1452993188$1  : loaded 2 times (x 71B)
+Class com.ahmed.viewModel.StudentViewModel$2$1                                        : loaded 2 times (x 72B)
+Class com.ahmed.viewModel.CourseViewModel$2$1                                         : loaded 2 times (x 72B)
+Class com.ahmed.model.EnrollmentDTO                                                   : loaded 2 times (x 69B)
+Class com.ahmed.ui.AppScaffoldKt$AppScaffold$1                                        : loaded 2 times (x 72B)
+Class com.ahmed.ui.AppScaffoldKt$AppScaffold$2                                        : loaded 2 times (x 72B)
+Class java.lang.BootstrapMethodError                                                  : loaded 2 times (x 79B)
+Class com.ahmed.ui.components.ComposableSingletons$ConfirmDeleteDialogKt$lambda$-1745120383$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.AppScaffoldKt$AppScaffold$3                                        : loaded 2 times (x 72B)
+Class java.lang.NoSuchMethodException                                                 : loaded 2 times (x 79B)
+Class com.ahmed.model.StudentDTO$Companion                                            : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.list.StudentListItemKt$StudentListItem$3                   : loaded 2 times (x 72B)
+Class com.ahmed.ui.enrollment.form.EnrollmentFormKt$EnrollmentForm$2$1$2$3            : loaded 2 times (x 72B)
+Class com.ahmed.ui.TabItem                                                            : loaded 2 times (x 76B)
+Class com.ahmed.ui.student.StudentTabKt$StudentTab$2$1$1$3$1                          : loaded 2 times (x 122B)
+Class com.ahmed.ui.student.form.StudentFormKt$StudentForm$2$1$10                      : loaded 2 times (x 72B)
+Class com.ahmed.model.Attendance                                                      : loaded 2 times (x 100B)
+Class com.ahmed.model.CourseStatus$Companion                                          : loaded 2 times (x 68B)
+Class java.lang.NoClassDefFoundError                                                  : loaded 2 times (x 79B)
+Class com.ahmed.ui.components.EmptyListPlaceholderKt                                  : loaded 2 times (x 68B)
+Class com.ahmed.ui.enrollment.form.EnrollmentFormKt$EnrollmentForm$2$1$2$5            : loaded 2 times (x 72B)
+Class com.ahmed.model.DatabaseManager$init$1                                          : loaded 2 times (x 92B)
+Class com.ahmed.repository.InstructorRepository$getAllInstructors$2                   : loaded 2 times (x 92B)
+Class com.ahmed.ui.enrollment.form.ComposableSingletons$EnrollmentFormKt$lambda$-861952919$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.enrollment.form.EnrollmentFormKt$EnrollmentForm$2$1$7$2            : loaded 2 times (x 72B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListItemKt$EnrollmentListItem$3          : loaded 2 times (x 72B)
+Class com.ahmed.ui.AppScaffoldKt                                                      : loaded 2 times (x 68B)
+Class com.ahmed.ui.components.DatePickerFieldKt$DatePickerField$1$2                   : loaded 2 times (x 72B)
+Class com.ahmed.model.EnrollmentStatus$Companion                                      : loaded 2 times (x 68B)
+Class com.ahmed.ui.enrollment.form.EnrollmentFormKt$EnrollmentForm$2$1$7$4            : loaded 2 times (x 72B)
+Class com.ahmed.ui.components.DatePickerFieldKt$DatePickerField$1$3                   : loaded 2 times (x 72B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListKt                                   : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.form.ComposableSingletons$StudentFormKt$lambda$-405664987$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.components.DatePickerFieldKt$DatePickerField$1$4                   : loaded 2 times (x 72B)
+Class com.ahmed.model.CoursesKt                                                       : loaded 2 times (x 68B)
+Class com.ahmed.ui.ComposableSingletons$AppScaffoldKt$lambda$1425970198$1             : loaded 2 times (x 71B)
+Class com.ahmed.model.InstructorDTO                                                   : loaded 2 times (x 69B)
+Class com.ahmed.ui.enrollment.EnrollmentTabKt$EnrollmentTab$5$1$1$2$1                 : loaded 2 times (x 122B)
+Class com.ahmed.AppKt                                                                 : loaded 2 times (x 68B)
+Class com.ahmed.model.EnrollmentDTO$Companion                                         : loaded 2 times (x 68B)
+Class com.ahmed.model.Instructor$Companion                                            : loaded 2 times (x 80B)
+Class com.ahmed.ui.student.list.StudentListItemKt                                     : loaded 2 times (x 68B)
+Class com.ahmed.repository.InstructorRepository                                       : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.form.StudentFormKt$StudentForm$2$1$2                       : loaded 2 times (x 72B)
+Class com.ahmed.model.Courses                                                         : loaded 2 times (x 100B)
+Class com.ahmed.model.DatabaseManager$checkConnection$1                               : loaded 2 times (x 85B)
+Class studentmanagement.composeapp.generated.resources.DesktopMainFont0               : loaded 2 times (x 68B)
+Class com.ahmed.ui.ComposableSingletons$AppScaffoldKt$lambda$606877400$1              : loaded 2 times (x 71B)
+Class com.ahmed.ui.student.form.StudentFormKt$StudentForm$2$1$4                       : loaded 2 times (x 72B)
+Class com.ahmed.ui.components.SplitterKt                                              : loaded 2 times (x 68B)
+Class com.ahmed.ui.enrollment.form.EnrollmentFormKt$EnrollmentForm$1$1                : loaded 2 times (x 92B)
+Class com.ahmed.ui.enrollment.form.ComposableSingletons$EnrollmentFormKt$lambda$-387216034$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.student.form.StudentFormKt$StudentForm$2$1$6                       : loaded 2 times (x 72B)
+Class com.ahmed.repository.EnrollmentRepository$deleteEnrollment$2                    : loaded 2 times (x 92B)
+Class java.lang.NullPointerException                                                  : loaded 2 times (x 80B)
+Class com.ahmed.model.AttendanceStatus                                                : loaded 2 times (x 76B)
+Class com.ahmed.ui.student.ComposableSingletons$StudentTabKt$lambda$507968961$1       : loaded 2 times (x 71B)
+Class java.lang.StackOverflowError                                                    : loaded 2 times (x 79B)
+Class com.ahmed.ui.student.form.ComposableSingletons$StudentFormKt$lambda$1563916487$1: loaded 2 times (x 71B)
+Class com.ahmed.model.StudentsKt                                                      : loaded 2 times (x 68B)
+Class com.ahmed.ui.database.ComposableSingletons$DatabaseTopBarMenuKt                 : loaded 2 times (x 68B)
+Class com.ahmed.model.AttendanceRecord                                                : loaded 2 times (x 72B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListItemKt$EnrollmentListItem$3$1$1$2$2  : loaded 2 times (x 72B)
+Class java.lang.RuntimeException                                                      : loaded 2 times (x 79B)
+Class com.ahmed.viewModel.InstructorViewModel$loadInstructors$1                       : loaded 2 times (x 92B)
+Class com.ahmed.ui.components.ConfirmDeleteDialogKt                                   : loaded 2 times (x 68B)
+Class com.ahmed.ui.components.ComposableSingletons$DatePickerFieldKt$lambda$-607931265$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.course.ManageCourseTabKt$WhenMappings                              : loaded 2 times (x 68B)
+Class com.ahmed.ui.student.list.StudentListKt                                         : loaded 2 times (x 68B)
+Class com.ahmed.model.EnrollmentsKt                                                   : loaded 2 times (x 68B)
+Class com.ahmed.repository.AttendanceRepository$getAllAttendance$2                    : loaded 2 times (x 92B)
+Class java.lang.NoSuchFieldException                                                  : loaded 2 times (x 79B)
+Class com.ahmed.ui.database.ComposableSingletons$DatabaseTopBarMenuKt$lambda$744597168$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.components.ListHeaderKt$ListHeader$1$2                             : loaded 2 times (x 72B)
+Class com.ahmed.repository.EnrollmentRepository$getUnenrolledStudentsForCourse$2      : loaded 2 times (x 92B)
+Class com.ahmed.repository.CourseRepository                                           : loaded 2 times (x 68B)
+Class com.ahmed.ui.components.ListHeaderKt$ListHeader$1$3                             : loaded 2 times (x 72B)
+Class com.ahmed.ui.enrollment.list.EnrollmentListContentKt$EnrollmentListContent$1$1$1$1$1$1: loaded 2 times (x 72B)
+Class com.ahmed.ui.components.ListHeaderKt$ListHeader$1$4                             : loaded 2 times (x 72B)
+Class com.ahmed.viewModel.InstructorViewModel$1                                       : loaded 2 times (x 92B)
+Class com.ahmed.ui.components.ListHeaderKt$ListHeader$1$5                             : loaded 2 times (x 72B)
+Class com.ahmed.viewModel.InstructorViewModel$2                                       : loaded 2 times (x 92B)
+Class com.ahmed.ui.course.ComposableSingletons$ManageCourseTabKt$lambda$-604274494$1  : loaded 2 times (x 71B)
+Class java.lang.ArithmeticException                                                   : loaded 2 times (x 79B)
+Class com.ahmed.ui.components.ListHeaderKt$ListHeader$1$6                             : loaded 2 times (x 72B)
+Class com.ahmed.ui.enrollment.form.ComposableSingletons$EnrollmentFormKt$lambda$-44755768$1: loaded 2 times (x 71B)
+Class com.ahmed.model.Students                                                        : loaded 2 times (x 100B)
+Class com.ahmed.model.InstructorDTO$Companion                                         : loaded 2 times (x 68B)
+Class com.ahmed.model.AttendanceDTO                                                   : loaded 2 times (x 69B)
+Class com.ahmed.ui.enrollment.form.ComposableSingletons$EnrollmentFormKt$lambda$870425614$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.enrollment.form.ComposableSingletons$EnrollmentFormKt$lambda$-984464811$1: loaded 2 times (x 71B)
+Class com.ahmed.ui.theme.TypeKt                                                       : loaded 2 times (x 68B)
+Class com.ahmed.ui.database.ConnectionStatusKt                                        : loaded 2 times (x 68B)
+Class com.ahmed.model.Instructor                                                      : loaded 2 times (x 72B)
+Class com.ahmed.model.CourseStatus                                                    : loaded 2 times (x 76B)
+Class com.ahmed.ui.course.ManageCourseTabKt$ManageCourseTab$3$1$1                     : loaded 2 times (x 122B)
+Class com.ahmed.ComposableSingletons$AppKt$lambda$1355627631$1                        : loaded 2 times (x 71B)
+Class com.ahmed.ComposableSingletons$MainKt$lambda$2035567770$1                       : loaded 2 times (x 71B)
+Class com.ahmed.store.DbConfig                                                        : loaded 2 times (x 69B)
+Class com.ahmed.ui.student.list.ComposableSingletons$StudentListItemKt                : loaded 2 times (x 68B)
+Class com.ahmed.viewModel.EnrollmentViewModel$2$1                                     : loaded 2 times (x 72B)
+Class com.ahmed.ui.student.list.StudentListContentKt$StudentListContent$1$1$1$1$1$1   : loaded 2 times (x 72B)
+Class com.ahmed.model.InstructorsKt                                                   : loaded 2 times (x 68B)
+Class java.lang.Throwable                                                             : loaded 2 times (x 79B)
+Class com.ahmed.model.AttendanceRecord$Companion                                      : loaded 2 times (x 80B)
+Class com.ahmed.ui.enrollment.list.ComposableSingletons$EnrollmentListItemKt$lambda$1479490766$1: loaded 2 times (x 71B)
+Class com.ahmed.viewModel.StudentViewModel$1$1                                        : loaded 2 times (x 72B)
+Class com.ahmed.viewModel.CourseViewModel$1$1                                         : loaded 2 times (x 72B)
+
+---------------  S Y S T E M  ---------------
+
+OS:
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=24.04
+DISTRIB_CODENAME=noble
+DISTRIB_DESCRIPTION="Ubuntu 24.04.2 LTS"
+uname: Linux 6.11.0-25-generic #25~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Apr 15 17:20:50 UTC 2 x86_64
+OS uptime: 0 days 2:47 hours
+libc: glibc 2.39 NPTL 2.39 
+rlimit (soft/hard): STACK 8192k/infinity , CORE 0k/infinity , NPROC 256715/256715 , NOFILE 1048576/1048576 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 8224416k/8224416k
+load average: 8.58 4.42 3.34
+
+/proc/meminfo:
+MemTotal:       65795340 kB
+MemFree:        19991332 kB
+MemAvailable:   27660048 kB
+Buffers:          400180 kB
+Cached:          7619392 kB
+SwapCached:            0 kB
+Active:         39782072 kB
+Inactive:        4316320 kB
+Active(anon):   36201608 kB
+Inactive(anon):        0 kB
+Active(file):    3580464 kB
+Inactive(file):  4316320 kB
+Unevictable:        1328 kB
+Mlocked:             128 kB
+SwapTotal:       8388604 kB
+SwapFree:        8388604 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:              2504 kB
+Writeback:             0 kB
+AnonPages:      36080900 kB
+Mapped:          2723908 kB
+Shmem:            122764 kB
+KReclaimable:     501276 kB
+Slab:            1024260 kB
+SReclaimable:     501276 kB
+SUnreclaim:       522984 kB
+KernelStack:       62752 kB
+PageTables:       163920 kB
+SecPageTables:      5044 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    41286272 kB
+Committed_AS:   68239700 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      128188 kB
+VmallocChunk:          0 kB
+Percpu:            56192 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+Unaccepted:            0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:     1261712 kB
+DirectMap2M:    34347008 kB
+DirectMap1G:    31457280 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled: always [madvise] never
+/sys/kernel/mm/transparent_hugepage/hpage_pmd_size: 2097152
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter): always defer defer+madvise [madvise] never
+
+Process Memory:
+Virtual Size: 24925920K (peak: 24992584K)
+Resident Set Size: 943624K (peak: 949112K) (anon: 850024K, file: 93600K, shmem: 0K)
+Swapped out: 0K
+C-Heap outstanding allocations: 211949K, retained: 344422K
+glibc malloc tunables: (default)
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads): 513431
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have): 1048576
+/proc/sys/vm/swappiness (control to define how aggressively the kernel swaps out anonymous memory): 60
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers): 4194304
+
+container (cgroup) information:
+container_type: cgroupv2
+cpu_cpuset_cpus: not supported
+cpu_memory_nodes: not supported
+active_processor_count: 32
+cpu_quota: not supported
+cpu_period: not supported
+cpu_shares: not supported
+memory_limit_in_bytes: unlimited
+memory_and_swap_limit_in_bytes: unlimited
+memory_soft_limit_in_bytes: unlimited
+memory_usage_in_bytes: 24849908 k
+memory_max_usage_in_bytes: not supported
+memory_swap_current_in_bytes: unlimited
+memory_swap_max_limit_in_bytes: unlimited
+maximum number of tasks: 77014
+current number of tasks: 1323
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0.000
+
+CPU: total 32 (initial active 32) (8 cores per cpu, 2 threads per core) family 6 model 45 stepping 7 microcode 0x71a, cx8, cmov, fxsr, ht, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, tsc, tscinvbit, avx, aes, clmul, vzeroupper, clflush, rdtscp
+CPU Model and flags from /proc/cpuinfo:
+model name	: Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm epb pti ssbd ibrs ibpb stibp tpr_shadow flexpriority ept vpid xsaveopt dtherm ida arat pln pts vnmi md_clear flush_l1d
+
+Online cpus: 0-31
+Offline cpus: 
+BIOS frequency limitation: <Not Available>
+Frequency switch latency (ns): 20000
+Available cpu frequencies: <Not Available>
+Current governor: schedutil
+Core performance/turbo boost: <Not Available>
+
+Memory: 4k page, physical 65795340k(27660048k free), swap 8388604k(8388604k free)
+Page Sizes: 4k
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.6+9-b895.109) for linux-amd64 JRE (21.0.6+9-b895.109), built on 2025-03-26 by "builduser" with gcc 10.2.1 20210130 (Red Hat 10.2.1-11.1.0.1)
+
+END.

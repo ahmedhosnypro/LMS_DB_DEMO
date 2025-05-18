@@ -86,7 +86,7 @@ class Course(id: EntityID<Int>) : IntEntity(id) {
 }
 
 data class CourseDTO(
-    val id: Int,
+    val id: Int?,
     val courseCode: String,
     val title: String,
     val description: String?,

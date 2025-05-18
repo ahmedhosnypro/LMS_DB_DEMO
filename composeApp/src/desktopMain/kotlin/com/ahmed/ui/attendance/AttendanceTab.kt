@@ -1,32 +1,32 @@
-package com.ahmed.ui.student
+package com.ahmed.ui.attendance
 
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.ahmed.model.StudentDTO
+import com.ahmed.model.AttendanceDTO
+import com.ahmed.ui.attendance.form.AttendanceForm
+import com.ahmed.ui.attendance.list.AttendanceList
 import com.ahmed.ui.components.SplitterHandle
 import com.ahmed.ui.components.SplitterVisiblePart
-import com.ahmed.ui.student.form.StudentForm
-import com.ahmed.ui.student.list.StudentList
-import com.ahmed.viewModel.StudentViewModel
+import com.ahmed.viewModel.AttendanceViewModel
+import com.ahmed.viewModel.ViewModelProvider
 import org.jetbrains.compose.splitpane.ExperimentalSplitPaneApi
 import org.jetbrains.compose.splitpane.HorizontalSplitPane
 import org.jetbrains.compose.splitpane.SplitPaneState
 
 @OptIn(ExperimentalSplitPaneApi::class)
 @Composable
-fun StudentTab(
+fun AttendanceTab(
     snackbarHostState: SnackbarHostState,
     splitterState: SplitPaneState,
-    viewModel: StudentViewModel
+    viewModel: AttendanceViewModel = ViewModelProvider.attendanceViewModel
 ) {
+    var selectedAttendance by remember { mutableStateOf<AttendanceDTO?>(null) }
 
-    var selectedStudent by remember { mutableStateOf<StudentDTO?>(null) }
-
-    val students by viewModel.students.collectAsState()
+    val attendanceRecords by viewModel.attendanceRecords.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val error by viewModel.error.collectAsState()
 
@@ -44,16 +44,16 @@ fun StudentTab(
         splitPaneState = splitterState
     ) {
         first(700.dp) {
-            StudentList(
-                students = students,
-                selectedStudent = selectedStudent,
-                onStudentSelect = { student -> selectedStudent = student },
-                onSearch = viewModel::searchStudents,
-                onRefresh = viewModel::loadStudents,
+            AttendanceList(
+                attendanceRecords = attendanceRecords,
+                selectedAttendance = selectedAttendance,
+                onAttendanceSelect = { attendance -> selectedAttendance = attendance },
+                onSearch = viewModel::searchAttendance,
+                onRefresh = viewModel::loadAttendance,
                 onDelete = { id ->
-                    viewModel.deleteStudent(id)
-                    if (selectedStudent?.id == id) {
-                        selectedStudent = null
+                    viewModel.deleteAttendance(id)
+                    if (selectedAttendance?.id == id) {
+                        selectedAttendance = null
                     }
                 },
                 isLoading = isLoading,
@@ -61,16 +61,16 @@ fun StudentTab(
             )
         }
         second(300.dp) {
-            StudentForm(
-                selectedStudent = selectedStudent,
-                onSave = { studentDto ->
-                    selectedStudent?.let {
-                        viewModel.updateStudent(studentDto)
-                    } ?: viewModel.createStudent(studentDto)
+            AttendanceForm(
+                selectedAttendance = selectedAttendance,
+                onSave = { attendanceDto ->
+                    selectedAttendance?.let {
+                        viewModel.updateAttendance(attendanceDto)
+                    } ?: viewModel.createAttendance(attendanceDto)
 
-                    selectedStudent = null
+                    selectedAttendance = null
                 },
-                onCancel = { selectedStudent = null },
+                onCancel = { selectedAttendance = null },
                 modifier = Modifier.fillMaxSize()
             )
         }
@@ -84,4 +84,3 @@ fun StudentTab(
         }
     }
 }
-

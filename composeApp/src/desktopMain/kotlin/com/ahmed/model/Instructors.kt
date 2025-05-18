@@ -56,7 +56,42 @@ data class InstructorDTO(
     val email: String,
     val department: String,
     val hireDate: LocalDate
-)
+){
+    companion object{
+        val demoInstructor  = InstructorDTO(
+            id = 1,
+            firstName = "John",
+            lastName = "Doe",
+            email = "johndoe@me.com",
+            department = "Computer Science",
+            hireDate = LocalDate(2020, 1, 1)
+        )
+
+        val demoInstructor1 = InstructorDTO(
+            id = 2,
+            firstName = "Jane",
+            lastName = "Smith",
+            email = "janesmith@me.com",
+            department = "Mathematics",
+            hireDate = LocalDate(2021, 2, 2)
+        )
+
+        val demoInstructor2 = InstructorDTO(
+            id = 3,
+            firstName = "Alice",
+            lastName = "Johnson",
+            email = "alicejohnson@me.com",
+            department = "Physics",
+            hireDate = LocalDate(2022, 3, 3)
+        )
+
+        val demoInstructorList = listOf(
+            demoInstructor,
+            demoInstructor1,
+            demoInstructor2
+        )
+    }
+}
 
 fun Instructor.toDTO() = InstructorDTO(
     id = id.value,

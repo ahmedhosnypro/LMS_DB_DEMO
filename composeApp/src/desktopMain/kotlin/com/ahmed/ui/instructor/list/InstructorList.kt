@@ -1,19 +1,19 @@
-package com.ahmed.ui.courses.list
+package com.ahmed.ui.instructor.list
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.ahmed.model.CourseDTO
+import com.ahmed.model.InstructorDTO
 import com.ahmed.ui.CenteredDarkPreview
 import com.ahmed.ui.components.ListHeader
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun CourseList(
-    courses: List<CourseDTO>,
-    selectedCourse: CourseDTO?,
-    onCourseSelect: (CourseDTO?) -> Unit,
+fun InstructorList(
+    instructors: List<InstructorDTO>,
+    selectedInstructor: InstructorDTO?,
+    onInstructorSelect: (InstructorDTO?) -> Unit,
     onSearch: (String) -> Unit,
     onRefresh: () -> Unit,
     onDelete: (Int) -> Unit,
@@ -23,21 +23,19 @@ fun CourseList(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-
         ListHeader(
             onSearch = onSearch,
             onRefresh = onRefresh,
-            onAdd = { onCourseSelect(null) },
-            searchPlaceHolder = "Search by course name or code...",
-            refreshTooltipText = "Refresh course list",
-            addTooltipText = "Add new course",
+            onAdd = { onInstructorSelect(null) },
+            searchPlaceHolder = "Search by instructor name or email...",
+            refreshTooltipText = "Refresh instructor list",
+            addTooltipText = "Add new instructor",
             modifier = Modifier.requiredHeightIn(max = 128.dp)
         )
-
-        CourseListContent(
-            courses = courses,
-            selectedCourse = selectedCourse,
-            onCourseSelect = onCourseSelect,
+        InstructorListContent(
+            instructors = instructors,
+            selectedInstructor = selectedInstructor,
+            onInstructorSelect = onInstructorSelect,
             onDelete = onDelete,
             isLoading = isLoading,
             modifier = Modifier.weight(1f)
@@ -47,15 +45,12 @@ fun CourseList(
 
 @Preview
 @Composable
-fun CourseListPreview() {
+fun InstructorListPreview() {
     CenteredDarkPreview {
-        CourseList(
-            courses = listOf(
-                CourseDTO(1, "CS101", "Introduction to Computer Science", null, 3, null, null, "Active"),
-                CourseDTO(2, "CS102", "Data Structures", null, 3, null, null, "Active")
-            ),
-            selectedCourse = CourseDTO(1, "CS101", "Introduction to Computer Science", null, 3, null, null, "Active"),
-            onCourseSelect = {},
+        InstructorList(
+            instructors = InstructorDTO.demoInstructorList,
+            selectedInstructor = InstructorDTO.demoInstructor,
+            onInstructorSelect = {},
             onSearch = {},
             onRefresh = {},
             onDelete = {},
@@ -66,12 +61,12 @@ fun CourseListPreview() {
 
 @Preview
 @Composable
-fun CourseListEmptyPreview() {
+fun InstructorListEmptyPreview() {
     CenteredDarkPreview {
-        CourseList(
-            courses = emptyList(),
-            selectedCourse = null,
-            onCourseSelect = {},
+        InstructorList(
+            instructors = emptyList(),
+            selectedInstructor = null,
+            onInstructorSelect = {},
             onSearch = {},
             onRefresh = {},
             onDelete = {},
