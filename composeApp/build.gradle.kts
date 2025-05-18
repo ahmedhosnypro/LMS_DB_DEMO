@@ -62,12 +62,18 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
+        mainClass = "com.ahmed.MainKt"
 
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.ahmed"
+            mainClass = "com.ahmed.MainKt"
+            targetFormats(
+//                TargetFormat.Dmg, TargetFormat.Msi,
+                TargetFormat.Deb
+            )
+
+            packageName = "DbMS"
             packageVersion = "1.0.0"
+            includeAllModules = true
         }
     }
 }
