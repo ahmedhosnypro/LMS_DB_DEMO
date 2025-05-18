@@ -11,6 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.ahmed.model.StudentDTO
+import com.ahmed.ui.components.SplitterHandle
+import com.ahmed.ui.components.SplitterVisiblePart
 import com.ahmed.ui.modifier.cursorForHorizontalResize
 import com.ahmed.ui.student.form.StudentForm
 import com.ahmed.ui.student.list.StudentList
@@ -79,22 +81,10 @@ fun StudentTab(
         }
         splitter {
             visiblePart {
-                Box(
-                    Modifier
-                        .width(1.dp)
-                        .fillMaxHeight()
-                        .background(MaterialTheme.colorScheme.background)
-                )
+                SplitterVisiblePart()
             }
             handle {
-                Box(
-                    Modifier
-                        .markAsHandle()
-                        .cursorForHorizontalResize()
-                        .background(SolidColor(Color.Gray), alpha = 0.50f)
-                        .width(9.dp)
-                        .fillMaxHeight()
-                )
+                SplitterHandle(this)
             }
         }
     }

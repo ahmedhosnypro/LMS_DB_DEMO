@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.ahmed.model.StudentDTO
 import com.ahmed.model.StudentStatus
 import com.ahmed.ui.CenteredDarkPreview
+import com.ahmed.ui.components.ConfirmDeleteDialog
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 private val KotlinRose = Color(0xffba203d)
@@ -64,11 +65,9 @@ fun StudentListItem(
     if (showDeleteDialog) {
         ConfirmDeleteDialog(
             onDismiss = { showDeleteDialog = false },
-            onDelete = {
-                onDelete()
-                showDeleteDialog = false
-            },
-            student = student
+            onDelete = onDelete,
+            title = "Confirm Delete",
+            text = "Are you sure you want to delete ${student.firstName} ${student.lastName}?"
         )
     }
     Card(
@@ -133,35 +132,6 @@ fun StudentListItem(
         }
     }
 }
-
-@Composable
-private fun ConfirmDeleteDialog(
-    onDismiss: () -> Unit,
-    onDelete: () -> Unit,
-    student: StudentDTO
-){
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text("Confirm Delete") },
-        text = { Text("Are you sure you want to delete ${student.firstName} ${student.lastName}?") },
-        confirmButton = {
-            TextButton(
-                onClick = onDelete,
-                colors = ButtonDefaults.textButtonColors(
-                    contentColor = MaterialTheme.colorScheme.error
-                )
-            ) {
-                Text("Delete")
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancel")
-            }
-        }
-    )
-}
-
 
 @Preview
 @Composable

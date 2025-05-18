@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.ahmed.model.CourseDTO
 import com.ahmed.ui.CenteredDarkPreview
+import com.ahmed.ui.components.ConfirmDeleteDialog
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 private val EduBlue = Color(0xFF1565C0)
@@ -62,11 +63,9 @@ fun CourseListItem(
     if (showDeleteDialog) {
         ConfirmDeleteDialog(
             onDismiss = { showDeleteDialog = false },
-            onDelete = {
-                onDelete()
-                showDeleteDialog = false
-            },
-            course = course
+            onDelete = onDelete,
+            title = "Confirm Delete",
+            text = "Are you sure you want to delete ${course.courseCode} - ${course.title}?"
         )
     }
 
@@ -131,33 +130,6 @@ fun CourseListItem(
     }
 }
 
-@Composable
-private fun ConfirmDeleteDialog(
-    onDismiss: () -> Unit,
-    onDelete: () -> Unit,
-    course: CourseDTO
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text("Confirm Delete") },
-        text = { Text("Are you sure you want to delete ${course.courseCode} - ${course.title}?") },
-        confirmButton = {
-            TextButton(
-                onClick = onDelete,
-                colors = ButtonDefaults.textButtonColors(
-                    contentColor = MaterialTheme.colorScheme.error
-                )
-            ) {
-                Text("Delete")
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancel")
-            }
-        }
-    )
-}
 
 @Preview
 @Composable

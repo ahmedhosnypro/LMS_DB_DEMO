@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ahmed.model.StudentDTO
 import com.ahmed.ui.CenteredDarkPreview
+import com.ahmed.ui.components.ListHeader
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -22,10 +23,13 @@ fun StudentList(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-        StudentListHeader(
+        ListHeader(
             onSearch = onSearch,
             onRefresh = onRefresh,
             onAdd = {onStudentSelect(null)},
+            searchPlaceHolder = "Search by student name or email...",
+            refreshTooltipText = "Refresh student list",
+            addTooltipText = "Add new student",
             modifier = Modifier.requiredHeightIn(max = 128.dp)
         )
         StudentListContent(

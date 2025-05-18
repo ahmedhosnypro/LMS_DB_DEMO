@@ -25,7 +25,19 @@ class StudentViewModel(
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error.asStateFlow()
 
+    private var isFirstRun = true
+
     init {
+        // First run check based on connection status
+        viewModelScope.launch {
+            DatabaseManager.connectionStatus.collect { isConnected ->
+                if (isFirstRun && isConnected) {
+                    loadStudents()
+                    isFirstRun = false
+                }
+            }
+        }
+
         viewModelScope.launch {
             // Monitor database events
             DatabaseManager.databaseEvent.collect { event ->
