@@ -23,7 +23,7 @@ jobs:
           java-package: 'jdk'
       
       - name: Setup Gradle
-        uses: gradle/actions@v4.4.0
+        uses: gradle/actions/setup-gradle@v4.4.0
         
       - name: Build Windows MSI
         run: ./gradlew packageReleaseMsi
@@ -57,7 +57,7 @@ jobs:
           java-package: 'jdk'
           
       - name: Setup Gradle
-        uses: gradle/actions@v4.4.0
+        uses: gradle/actions/setup-gradle@v4.4.0
         
       - name: Build Linux DEB
         run: ./gradlew packageReleaseDeb
