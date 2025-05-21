@@ -1,6 +1,6 @@
 # Learning Management System (LMS)
 
-A comprehensive learning management system built as a Database Course project, demonstrating the implementation of a full-featured educational platform with modern desktop interface using Kotlin and Compose Multiplatform.
+A comprehensive learning management system built as a Database Course project, demonstrating the implementation of a full-featured educational platform with modern desktop interface using Kotlin and Compose M
 
 > **Academic Project** - Database Course Implementation
 > 
@@ -236,37 +236,11 @@ docker-compose down
 docker-compose logs mysql
 ```
 
-## 🧪 Running Tests
 
-```bash
-# On Linux/macOS
-./gradlew test
-
-# On Windows
-gradlew.bat test
-```
-
-## 📚 Documentation
-
-For more information about the technologies used in this project:
-- [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)
-- [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
-- [Gradle Build Tool](https://gradle.org/)
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.otlin Multiplatform project targeting Desktop.
-
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
 
 
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…

@@ -1,9 +1,7 @@
 name: Release Build
 
 on:
-  push:
-    tags:
-      - 'v*'  # Trigger on version tags
+  workflow_dispatch:  # Manual trigger only
 
 jobs:
   build-windows:
