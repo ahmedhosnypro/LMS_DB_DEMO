@@ -1,0 +1,69 @@
+name: Release Build
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        
+      - name: Build Windows MSI
+        run: ./gradlew packageReleaseMsi
+        
+      - name: Upload MSI artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-msi
+          path: composeApp/build/compose/binaries/main-release/msi/*.msi
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        
+      - name: Build Linux DEB
+        run: ./gradlew packageReleaseDeb
+        
+      - name: Upload DEB artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux-deb
+          path: composeApp/build/compose/binaries/main-release/deb/*.deb
+
+  create-release:
+    needs: [build-windows, build-linux]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+        
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            windows-msi/**/*.msi
+            linux-deb/**/*.deb
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

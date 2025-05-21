@@ -15,12 +15,19 @@ fun main() = application {
             DatabaseManager.dispose()
             exitApplication()
         },
-        title = "StudentManagement",
 
-        state = state
+        state = state,
+        undecorated = true // Disable default window decorations
+
     ) {
         initAppStorage()
         DatabaseManager.init()
-        App()
+        App(
+            windowState = state,
+            onCloseRequest = {
+                DatabaseManager.dispose()
+                exitApplication()
+            }
+        )
     }
 }

@@ -1,7 +1,7 @@
 package com.ahmed.ui.database
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Dataset
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.DropdownMenu
@@ -29,7 +29,7 @@ import kotlinx.coroutines.launch
     var showMenu by remember { mutableStateOf(false) }
     IconButton(onClick = { showMenu = true }) {
         Icon(
-            imageVector = Icons.Default.MoreVert,
+            imageVector = Icons.Default.Dataset,
             contentDescription = "More options"
         )
     }

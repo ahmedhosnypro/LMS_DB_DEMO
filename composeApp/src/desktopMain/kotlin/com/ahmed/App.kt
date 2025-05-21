@@ -2,18 +2,26 @@ package com.ahmed
 
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
+import androidx.compose.ui.window.WindowState
 import com.ahmed.ui.theme.AppTheme
 import com.ahmed.ui.AppScaffold
 import com.ahmed.ui.TabNavigation
-import com.ahmed.ui.student.StudentTab
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-@Preview
-fun App() {
-    AppTheme(true) {
+fun App(
+    windowState: WindowState,
+    onCloseRequest: () -> Unit
+) {
+    var isDarkTheme by remember { mutableStateOf(true) }
+
+    AppTheme(isDarkTheme) {
         Surface {
-            AppScaffold { snackbarHostState ->
+            AppScaffold(
+                isDarkTheme = isDarkTheme,
+                onThemeToggle = { isDarkTheme = !isDarkTheme },
+                windowState = windowState,
+                onCloseRequest = onCloseRequest
+            ) { snackbarHostState ->
                 TabNavigation(snackbarHostState)
             }
         }

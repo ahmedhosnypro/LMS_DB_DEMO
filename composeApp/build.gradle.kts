@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.from
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
 
@@ -5,7 +6,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeHotReload)
+//    alias(libs.plugins.composeHotReload)
     alias(libs.plugins.kotlinx.serialization)
 }
 
@@ -64,10 +65,14 @@ compose.desktop {
     application {
         mainClass = "com.ahmed.MainKt"
 
+        buildTypes.release.proguard {
+            configurationFiles.from("rules.pro")
+        }
+
         nativeDistributions {
             mainClass = "com.ahmed.MainKt"
             targetFormats(
-//                TargetFormat.Dmg, TargetFormat.Msi,
+                TargetFormat.Dmg, TargetFormat.Msi,
                 TargetFormat.Deb
             )
 
